@@ -1,0 +1,1462 @@
+2020-Jul-02 12:34:24  --------------------------------------------------------------------------------
+2020-Jul-02 12:34:24  nrfjprog --recover --log 
+2020-Jul-02 12:34:24  nrfjprog version 10.9.0 
+2020-Jul-02 12:34:24  --------------------------------------------------------------------------------
+2020-Jul-02 12:34:24  nRF_logger_open
+2020-Jul-02 12:34:24  nRF_logger_open:	nRFJProg logger opened to callback at address 0XAE0900
+2020-Jul-02 12:34:24  nRF_open_dll
+2020-Jul-02 12:34:24  nRF_open_dll:	Load library at "C:\\Program Files (x86)\\Nordic Semiconductor\\nrf-command-line-tools\\bin\\JLINKARM_UNKNOWN_NRFJPROG.dll".
+
+2020-Jul-02 12:34:24  . nRFXX_logger_open
+2020-Jul-02 12:34:24  . nRFXX_logger_open:	nRFJProg logger opened to callback at address 0X7B84B850
+2020-Jul-02 12:34:24  . . Segger_logger_open
+2020-Jul-02 12:34:24  . . Segger_logger_open:	nRFJProg logger opened to callback at address 0XD8E1A0
+2020-Jul-02 12:34:24  . . Segger_open_dll
+2020-Jul-02 12:34:24  . . Segger_open_dll:	No J-Link DLL path was provided. Attempting to auto detect.
+
+2020-Jul-02 12:34:24  . . Segger_open_dll:	Load library at "C:\\Program Files (x86)\\SEGGER\\JLink\\JLinkARM.dll".
+
+2020-Jul-02 12:34:24  . . . Segger_dll_version
+2020-Jul-02 12:34:24  . . Segger_set_core_data
+2020-Jul-02 12:34:24  nRF_enum_emu_snr
+2020-Jul-02 12:34:24  . nRFXX_enum_emu_snr
+2020-Jul-02 12:34:24  . . Segger_enum_emu_snr
+2020-Jul-02 12:34:24  . . . Segger_enum_emu_snr
+2020-Jul-02 12:34:24  . . . . Segger_get_num_emus
+2020-Jul-02 12:34:24  nRF_connect_to_emu_with_snr
+2020-Jul-02 12:34:24  . nRFXX_connect_to_emu_with_snr
+2020-Jul-02 12:34:24  . . Segger_connect_to_emu_with_snr
+2020-Jul-02 12:34:24  . . . Segger_is_connected_to_emu
+2020-Jul-02 12:34:24  . . . Segger_enum_emu_snr
+2020-Jul-02 12:34:24  . . . . Segger_get_num_emus
+2020-Jul-02 12:34:24  . . . Segger_connect_to_emu_with_snr
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	Segger logging enabled with callback at 0x14214448.
+
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:030.242   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	Firmware: J-Link OB-SAM3U128-V2-NordicSemi compiled Mar 17 2020 14:43:00
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:032.185   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	Hardware: V1.00
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:032.851   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	S/N: 683304698
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:033.432   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	OEM: SEGGER
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:034.085   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	Feature(s): RDI, FlashBP, FlashDL, JFlash, GDB
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:035.680   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	TELNET listener socket opened on port 19021
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:036.778   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	WEBSRV Starting webserver
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:038.222   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	WEBSRV Webserver running on local port 19080
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:039.014 
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	- 16.424ms returns O.K.  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:039.766 
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	JLINK_GetHWStatus(...)  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:040.709 
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	- 1.277ms returns 0x00  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:041.431 
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	JLINK_ExecCommand("SetRestartOnClose = 0", ...).   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:042.171 
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	- 0.317ms returns 0x01  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:042.809 
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	JLINK_ExecCommand("DisableFlashDL", ...).   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:043.426 
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	- 0.390ms returns 0x00  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:044.191 
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	JLINK_ExecCommand("ExcludeFlashCacheRange 0x0-0xFFFFFFFF", ...).   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:045.098 
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	- 0.411ms returns 0x00  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:045.811   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	JLINK_SetHookUnsecureDialog(...)
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:046.407 
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	- 0.876ms returns 0  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:046.971 
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	JLINK_TIF_Select(JLINKARM_TIF_SWD)  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:047.985 
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	- 1.424ms returns 0x00  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:048.744 
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	JLINK_SetSpeed(2000)  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:049.495 
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	- 1.067ms  
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	T5AB4 000:050.396 
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	JLINK_ExecCommand("CORESIGHT_SetIndexAHBAPToUse = 0", ...).   
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	T5AB4 000:051.005 
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	- 0.379ms returns 0x00  
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	T5AB4 000:051.740 
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	JLINK_ExecCommand("device = Cortex-M4", ...).   
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	T5AB4 000:063.519   
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	XML file found at: C:\Program Files (x86)\SEGGER\JLink\JLinkDevices.xml 
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	T5AB4 000:065.825   
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	C:\Program Files (x86)\SEGGER\JLink\JLinkDevices.xml evaluated successfully. 
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	T5AB4 000:157.386   
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	Device "CORTEX-M4" selected.
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	T5AB4 000:161.411 
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	- 109.383ms returns 0x00  
+2020-Jul-02 12:34:24  nRF_read_connected_emu_snr
+2020-Jul-02 12:34:24  . nRFXX_read_connected_emu_snr
+2020-Jul-02 12:34:24  . . Segger_read_connected_emu_snr
+2020-Jul-02 12:34:24  . . . Segger_is_connected_to_emu
+2020-Jul-02 12:34:24  . . . Segger_is_connected_to_emu:	JLink INFO	T5AB4 000:163.133 
+2020-Jul-02 12:34:24  . . . Segger_is_connected_to_emu:	JLink INFO	JLINK_IsOpen()  
+2020-Jul-02 12:34:24  . . . Segger_is_connected_to_emu:	JLink INFO	T5AB4 000:163.743 
+2020-Jul-02 12:34:24  . . . Segger_is_connected_to_emu:	JLink INFO	- 0.919ms returns 0x01  
+2020-Jul-02 12:34:24  nRF_read_device_family
+2020-Jul-02 12:34:24  . nRFXX_read_device_family
+2020-Jul-02 12:34:24  . . Segger_is_connected_to_emu
+2020-Jul-02 12:34:24  . . Segger_is_connected_to_emu:	JLink INFO	T5AB4 000:165.251 
+2020-Jul-02 12:34:24  . . Segger_is_connected_to_emu:	JLink INFO	JLINK_IsOpen()  
+2020-Jul-02 12:34:24  . . Segger_is_connected_to_emu:	JLink INFO	T5AB4 000:165.894 
+2020-Jul-02 12:34:24  . . Segger_is_connected_to_emu:	JLink INFO	- 1.000ms returns 0x01  
+2020-Jul-02 12:34:24  . . :	JLink INFO	T5AB4 000:166.638 
+2020-Jul-02 12:34:24  . . :	JLink INFO	JLINK_Lock()  
+2020-Jul-02 12:34:24  . . Segger_read_debug_port_idr
+2020-Jul-02 12:34:24  . . . Segger_read_debug_port_register
+2020-Jul-02 12:34:24  . . . . Segger_read_debug_port_register
+2020-Jul-02 12:34:24  . . . . . Segger_coresight_configure
+2020-Jul-02 12:34:24  . . . . . Segger_coresight_configure:	JLink INFO	T5AB4 000:168.537   
+2020-Jul-02 12:34:24  . . . . . Segger_coresight_configure:	JLink INFO	JLINK_CORESIGHT_Configure()  
+2020-Jul-02 12:34:24  . . . . . Segger_coresight_configure:	JLink INFO	T5AB4 000:170.271   
+2020-Jul-02 12:34:24  . . . . . Segger_coresight_configure:	JLink INFO	- 2.073ms returns 0  
+2020-Jul-02 12:34:24  . . . . Segger_read_debug_port_register:	JLink INFO	T5AB4 000:170.990   
+2020-Jul-02 12:34:24  . . . . Segger_read_debug_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(DP reg 0x00)  
+2020-Jul-02 12:34:24  . . . . Segger_read_debug_port_register:	JLink INFO	T5AB4 000:172.035     
+2020-Jul-02 12:34:24  . . . . Segger_read_debug_port_register:	JLink INFO	Value=0x2BA01477
+2020-Jul-02 12:34:24  . . . . Segger_read_debug_port_register:	JLink INFO	T5AB4 000:172.851   
+2020-Jul-02 12:34:24  . . . . Segger_read_debug_port_register:	JLink INFO	- 2.233ms returns 0  
+2020-Jul-02 12:34:24  . nRFXX_read_device_family:	Discovered device from family NRF52.
+
+2020-Jul-02 12:34:24  . . :	JLink INFO	T5AB4 000:173.962 
+2020-Jul-02 12:34:24  . . :	JLink INFO	JLINK_Unlock()  
+2020-Jul-02 12:34:24  nRF_close_dll
+2020-Jul-02 12:34:24  . nRFXX_close_dll
+2020-Jul-02 12:34:24  . . Segger_close
+2020-Jul-02 12:34:24  . . . Segger_disconnect_from_emu
+2020-Jul-02 12:34:24  . . . . Segger_is_connected_to_emu
+2020-Jul-02 12:34:24  . . . . Segger_is_connected_to_emu:	JLink INFO	T5AB4 000:176.257 
+2020-Jul-02 12:34:24  . . . . Segger_is_connected_to_emu:	JLink INFO	JLINK_IsOpen()  
+2020-Jul-02 12:34:24  . . . . Segger_is_connected_to_emu:	JLink INFO	T5AB4 000:176.824 
+2020-Jul-02 12:34:24  . . . . Segger_is_connected_to_emu:	JLink INFO	- 0.850ms returns 0x01  
+2020-Jul-02 12:34:24  . . . . Segger_disconnect_from_emu
+2020-Jul-02 12:34:24  . . . . . Segger_is_connected_to_device
+2020-Jul-02 12:34:24  . . . . . Segger_is_connected_to_device:	JLink INFO	T5AB4 000:178.276 
+2020-Jul-02 12:34:24  . . . . . Segger_is_connected_to_device:	JLink INFO	JLINK_IsConnected()  
+2020-Jul-02 12:34:24  . . . . . Segger_is_connected_to_device:	JLink INFO	T5AB4 000:178.820 
+2020-Jul-02 12:34:24  . . . . . Segger_is_connected_to_device:	JLink INFO	- 0.808ms returns FALSE  
+2020-Jul-02 12:34:24  . . . . . Segger_is_debug_region_powered
+2020-Jul-02 12:34:24  . . . . . . Segger_read_debug_port_register
+2020-Jul-02 12:34:24  . . . . . . . Segger_is_connected_to_emu
+2020-Jul-02 12:34:24  . . . . . . . Segger_is_connected_to_emu:	JLink INFO	T5AB4 000:180.128 
+2020-Jul-02 12:34:24  . . . . . . . Segger_is_connected_to_emu:	JLink INFO	JLINK_IsOpen()  
+2020-Jul-02 12:34:24  . . . . . . . Segger_is_connected_to_emu:	JLink INFO	T5AB4 000:180.667 
+2020-Jul-02 12:34:24  . . . . . . . Segger_is_connected_to_emu:	JLink INFO	- 0.792ms returns 0x01  
+2020-Jul-02 12:34:24  . . . . . . Segger_read_debug_port_register:	JLink INFO	T5AB4 000:181.177 
+2020-Jul-02 12:34:24  . . . . . . Segger_read_debug_port_register:	JLink INFO	JLINK_Lock()  
+2020-Jul-02 12:34:24  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:24  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:181.989   
+2020-Jul-02 12:34:24  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x00000000)  
+2020-Jul-02 12:34:24  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:182.739   
+2020-Jul-02 12:34:24  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.016ms returns 0  
+2020-Jul-02 12:34:24  . . . . . . Segger_read_debug_port_register:	JLink INFO	T5AB4 000:183.266   
+2020-Jul-02 12:34:24  . . . . . . Segger_read_debug_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(DP reg 0x01)  
+2020-Jul-02 12:34:24  . . . . . . Segger_read_debug_port_register:	JLink INFO	T5AB4 000:184.048     
+2020-Jul-02 12:34:24  . . . . . . Segger_read_debug_port_register:	JLink INFO	Value=0xF0000000
+2020-Jul-02 12:34:24  . . . . . . Segger_read_debug_port_register:	JLink INFO	T5AB4 000:184.575   
+2020-Jul-02 12:34:24  . . . . . . Segger_read_debug_port_register:	JLink INFO	- 1.566ms returns 0  
+2020-Jul-02 12:34:24  . . . . . . Segger_read_debug_port_register:	JLink INFO	T5AB4 000:185.096 
+2020-Jul-02 12:34:24  . . . . . . Segger_read_debug_port_register:	JLink INFO	JLINK_Unlock()  
+2020-Jul-02 12:34:24  . . . . . Segger_unpower_debug_and_system_regions
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:24  . . . . . . . Segger_is_connected_to_emu
+2020-Jul-02 12:34:24  . . . . . . . Segger_is_connected_to_emu:	JLink INFO	T5AB4 000:186.389 
+2020-Jul-02 12:34:24  . . . . . . . Segger_is_connected_to_emu:	JLink INFO	JLINK_IsOpen()  
+2020-Jul-02 12:34:24  . . . . . . . Segger_is_connected_to_emu:	JLink INFO	T5AB4 000:187.048 
+2020-Jul-02 12:34:24  . . . . . . . Segger_is_connected_to_emu:	JLink INFO	- 1.043ms returns 0x01  
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:187.813 
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_Lock()  
+2020-Jul-02 12:34:24  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:24  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:188.671   
+2020-Jul-02 12:34:24  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x00000000)  
+2020-Jul-02 12:34:24  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:189.496   
+2020-Jul-02 12:34:24  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.114ms returns 0  
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:190.084   
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x01, 0x00000000)  
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:190.849   
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.035ms returns 0  
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:191.385 
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_Unlock()  
+2020-Jul-02 12:34:24  . . . . Segger_disconnect_from_emu:	JLink INFO	T5AB4 000:218.670 
+2020-Jul-02 12:34:24  . . . . Segger_disconnect_from_emu:	JLink INFO	JLINK_Close()  
+2020-Jul-02 12:34:24  . . Segger_close:	Freeing Library.
+
+2020-Jul-02 12:34:24  nRF_close_dll:	Freeing Library.
+
+2020-Jul-02 12:34:24  nRF_logger_open
+2020-Jul-02 12:34:24  nRF_logger_open:	nRFJProg logger opened to callback at address 0XAE0900
+2020-Jul-02 12:34:24  nRF_open_dll
+2020-Jul-02 12:34:24  nRF_open_dll:	Load library at "C:\\Program Files (x86)\\Nordic Semiconductor\\nrf-command-line-tools\\bin\\JLINKARM_NRF52_NRFJPROG.dll".
+
+2020-Jul-02 12:34:24  . nRF52_logger_open
+2020-Jul-02 12:34:24  . nRF52_logger_open:	nRFJProg logger opened to callback at address 0X7B84B850
+2020-Jul-02 12:34:24  . nRF52_open
+2020-Jul-02 12:34:24  . . Segger_logger_open
+2020-Jul-02 12:34:24  . . Segger_logger_open:	nRFJProg logger opened to callback at address 0X7B868AE0
+2020-Jul-02 12:34:24  . . Segger_open_dll
+2020-Jul-02 12:34:24  . . Segger_open_dll:	No J-Link DLL path was provided. Attempting to auto detect.
+
+2020-Jul-02 12:34:24  . . Segger_open_dll:	Load library at "C:\\Program Files (x86)\\SEGGER\\JLink\\JLinkARM.dll".
+
+2020-Jul-02 12:34:24  . . . Segger_dll_version
+2020-Jul-02 12:34:24  nRF_connect_to_emu_with_snr
+2020-Jul-02 12:34:24  . nRF52_connect_to_emu_with_snr
+2020-Jul-02 12:34:24  . . Segger_is_connected_to_emu
+2020-Jul-02 12:34:24  . . Segger_connect_to_emu_with_snr
+2020-Jul-02 12:34:24  . . . Segger_is_connected_to_emu
+2020-Jul-02 12:34:24  . . . Segger_enum_emu_snr
+2020-Jul-02 12:34:24  . . . . Segger_get_num_emus
+2020-Jul-02 12:34:24  . . . Segger_connect_to_emu_with_snr
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	Segger logging enabled with callback at 0x2072531792.
+
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:019.027   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	Firmware: J-Link OB-SAM3U128-V2-NordicSemi compiled Mar 17 2020 14:43:00
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:020.916   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	Hardware: V1.00
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:021.783   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	S/N: 683304698
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:022.366   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	OEM: SEGGER
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:022.919   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	Feature(s): RDI, FlashBP, FlashDL, JFlash, GDB
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:024.979   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	TELNET listener socket opened on port 19021
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:025.904   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	WEBSRV Starting webserver
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:026.897   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	WEBSRV Webserver running on local port 19080
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:027.688 
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	- 14.236ms returns O.K.  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:028.521 
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	JLINK_Lock()  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:029.288   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	JLINK_GetHWStatus(...)  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:030.453   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	- 1.593ms returns 0x00  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:031.267   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	JLINK_ExecCommand("SetRestartOnClose = 0", ...).   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:031.912   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	- 0.283ms returns 0x01  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:032.482   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	JLINK_ExecCommand("DisableFlashDL", ...).   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:033.279   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	- 0.465ms returns 0x00  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:034.119   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	JLINK_ExecCommand("ExcludeFlashCacheRange 0x0-0xFFFFFFFF", ...).   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:034.933   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	- 0.438ms returns 0x00  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:035.778     
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	JLINK_SetHookUnsecureDialog(...)
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:036.587   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	- 1.184ms returns 0  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:037.292   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	JLINK_TIF_Select(JLINKARM_TIF_SWD)  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:038.655   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	- 1.714ms returns 0x00  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:039.305   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	JLINK_SetSpeed(2000)  
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	T5AB4 000:040.642   
+2020-Jul-02 12:34:24  . . . . Segger_connect_to_emu_without_snr:	JLink INFO	- 1.753ms  
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	T5AB4 000:041.963   
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	JLINK_ExecCommand("CORESIGHT_SetIndexAHBAPToUse = 0", ...).   
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	T5AB4 000:042.616   
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	- 0.366ms returns 0x00  
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	T5AB4 000:043.385   
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	JLINK_ExecCommand("device = nRF52", ...).   
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	T5AB4 000:053.389     
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	XML file found at: C:\Program Files (x86)\SEGGER\JLink\JLinkDevices.xml 
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	T5AB4 000:055.616     
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	C:\Program Files (x86)\SEGGER\JLink\JLinkDevices.xml evaluated successfully. 
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	T5AB4 000:142.762     
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	Device "NRF52" selected.
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	T5AB4 000:146.037   
+2020-Jul-02 12:34:24  . . . . . Segger_load_core_data:	JLink INFO	- 102.327ms returns 0x00  
+2020-Jul-02 12:34:24  . . Segger_read_debug_port_idr
+2020-Jul-02 12:34:24  . . . Segger_read_debug_port_register
+2020-Jul-02 12:34:24  . . . . Segger_read_debug_port_register
+2020-Jul-02 12:34:24  . . . . . Segger_coresight_configure
+2020-Jul-02 12:34:24  . . . . . Segger_coresight_configure:	JLink INFO	T5AB4 000:148.077   
+2020-Jul-02 12:34:24  . . . . . Segger_coresight_configure:	JLink INFO	JLINK_CORESIGHT_Configure()  
+2020-Jul-02 12:34:24  . . . . . Segger_coresight_configure:	JLink INFO	T5AB4 000:149.666   
+2020-Jul-02 12:34:24  . . . . . Segger_coresight_configure:	JLink INFO	- 1.976ms returns 0  
+2020-Jul-02 12:34:24  . . . . Segger_read_debug_port_register:	JLink INFO	T5AB4 000:150.502   
+2020-Jul-02 12:34:24  . . . . Segger_read_debug_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(DP reg 0x00)  
+2020-Jul-02 12:34:24  . . . . Segger_read_debug_port_register:	JLink INFO	T5AB4 000:151.346     
+2020-Jul-02 12:34:24  . . . . Segger_read_debug_port_register:	JLink INFO	Value=0x2BA01477
+2020-Jul-02 12:34:24  . . . . Segger_read_debug_port_register:	JLink INFO	T5AB4 000:152.129   
+2020-Jul-02 12:34:24  . . . . Segger_read_debug_port_register:	JLink INFO	- 1.997ms returns 0  
+2020-Jul-02 12:34:24  . . :	JLink INFO	T5AB4 000:152.866 
+2020-Jul-02 12:34:24  . . :	JLink INFO	JLINK_Unlock()  
+2020-Jul-02 12:34:24  nRF_recover
+2020-Jul-02 12:34:24  . nRF52_recover
+2020-Jul-02 12:34:24  . . Segger_is_connected_to_emu
+2020-Jul-02 12:34:24  . . Segger_is_connected_to_emu:	JLink INFO	T5AB4 000:154.550 
+2020-Jul-02 12:34:24  . . Segger_is_connected_to_emu:	JLink INFO	JLINK_IsOpen()  
+2020-Jul-02 12:34:24  . . Segger_is_connected_to_emu:	JLink INFO	T5AB4 000:155.058 
+2020-Jul-02 12:34:24  . . Segger_is_connected_to_emu:	JLink INFO	- 0.760ms returns 0x01  
+2020-Jul-02 12:34:24  . . :	JLink INFO	T5AB4 000:155.609 
+2020-Jul-02 12:34:24  . . :	JLink INFO	JLINK_Lock()  
+2020-Jul-02 12:34:24  . . Segger_is_connected_to_emu
+2020-Jul-02 12:34:24  . . nRF52_recover
+2020-Jul-02 12:34:24  . . . nRF52_is_ctrl_ap_available
+2020-Jul-02 12:34:24  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:24  . . . . . . Segger_is_debug_region_powered
+2020-Jul-02 12:34:24  . . . . . . . Segger_read_debug_port_register
+2020-Jul-02 12:34:24  . . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:24  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:158.267   
+2020-Jul-02 12:34:24  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x00000000)  
+2020-Jul-02 12:34:24  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:159.026   
+2020-Jul-02 12:34:24  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.046ms returns 0  
+2020-Jul-02 12:34:24  . . . . . . . Segger_read_debug_port_register:	JLink INFO	T5AB4 000:159.610   
+2020-Jul-02 12:34:24  . . . . . . . Segger_read_debug_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(DP reg 0x01)  
+2020-Jul-02 12:34:24  . . . . . . . Segger_read_debug_port_register:	JLink INFO	T5AB4 000:160.335     
+2020-Jul-02 12:34:24  . . . . . . . Segger_read_debug_port_register:	JLink INFO	Value=0xF0000000
+2020-Jul-02 12:34:24  . . . . . . . Segger_read_debug_port_register:	JLink INFO	T5AB4 000:160.922   
+2020-Jul-02 12:34:24  . . . . . . . Segger_read_debug_port_register:	JLink INFO	- 1.587ms returns 0  
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:161.760   
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:162.491   
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.040ms returns 0  
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 000:163.101   
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 000:163.945     
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 000:164.509   
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	- 1.764ms returns 0  
+2020-Jul-02 12:34:24  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:166.054   
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:166.949   
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.336ms returns 0  
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 000:167.778   
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 000:168.796     
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 000:169.388   
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	- 1.883ms returns 0  
+2020-Jul-02 12:34:24  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:170.995   
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:171.947   
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.360ms returns 0  
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 000:172.742   
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 000:173.766     
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 000:174.459   
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	- 2.044ms returns 0  
+2020-Jul-02 12:34:24  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:175.990   
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:176.782   
+2020-Jul-02 12:34:24  . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.071ms returns 0  
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 000:177.335   
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 000:178.116     
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 000:178.653   
+2020-Jul-02 12:34:24  . . . . . Segger_read_access_port_register:	JLink INFO	- 1.579ms returns 0  
+2020-Jul-02 12:34:24  . . . Segger_write_access_port_register
+2020-Jul-02 12:34:24  . . . . Segger_write_access_port_register
+2020-Jul-02 12:34:24  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:24  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:180.165   
+2020-Jul-02 12:34:24  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:24  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:180.993   
+2020-Jul-02 12:34:24  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.105ms returns 0  
+2020-Jul-02 12:34:24  . . . . Segger_write_access_port_register:	JLink INFO	T5AB4 000:181.549   
+2020-Jul-02 12:34:24  . . . . Segger_write_access_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(AP reg 0x01, 0x00000001)  
+2020-Jul-02 12:34:24  . . . . Segger_write_access_port_register:	JLink INFO	T5AB4 000:182.285   
+2020-Jul-02 12:34:24  . . . . Segger_write_access_port_register:	JLink INFO	- 1.027ms returns 0  
+2020-Jul-02 12:34:25  . . . Segger_read_access_port_register
+2020-Jul-02 12:34:25  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:25  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:25  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:685.048   
+2020-Jul-02 12:34:25  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:25  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 000:686.277   
+2020-Jul-02 12:34:25  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.639ms returns 0  
+2020-Jul-02 12:34:25  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 000:687.017   
+2020-Jul-02 12:34:25  . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x02)  
+2020-Jul-02 12:34:25  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 000:687.887     
+2020-Jul-02 12:34:25  . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:25  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 000:688.565   
+2020-Jul-02 12:34:25  . . . . Segger_read_access_port_register:	JLink INFO	- 1.900ms returns 0  
+2020-Jul-02 12:34:25  . . . Segger_read_access_port_register
+2020-Jul-02 12:34:25  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:25  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:25  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 001:190.960   
+2020-Jul-02 12:34:25  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:25  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 001:191.767   
+2020-Jul-02 12:34:25  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.125ms returns 0  
+2020-Jul-02 12:34:25  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 001:192.399   
+2020-Jul-02 12:34:25  . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x02)  
+2020-Jul-02 12:34:25  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 001:193.271     
+2020-Jul-02 12:34:25  . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:25  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 001:193.853   
+2020-Jul-02 12:34:25  . . . . Segger_read_access_port_register:	JLink INFO	- 1.714ms returns 0  
+2020-Jul-02 12:34:26  . . . Segger_read_access_port_register
+2020-Jul-02 12:34:26  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:26  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:26  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 001:696.023   
+2020-Jul-02 12:34:26  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:26  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 001:696.977   
+2020-Jul-02 12:34:26  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.279ms returns 0  
+2020-Jul-02 12:34:26  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 001:697.641   
+2020-Jul-02 12:34:26  . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x02)  
+2020-Jul-02 12:34:26  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 001:698.710     
+2020-Jul-02 12:34:26  . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:26  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 001:699.361   
+2020-Jul-02 12:34:26  . . . . Segger_read_access_port_register:	JLink INFO	- 2.000ms returns 0  
+2020-Jul-02 12:34:26  . . . Segger_read_access_port_register
+2020-Jul-02 12:34:26  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:26  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:26  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 002:201.851   
+2020-Jul-02 12:34:26  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:26  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 002:202.616   
+2020-Jul-02 12:34:26  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.043ms returns 0  
+2020-Jul-02 12:34:26  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 002:203.177   
+2020-Jul-02 12:34:26  . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x02)  
+2020-Jul-02 12:34:26  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 002:204.029     
+2020-Jul-02 12:34:26  . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:26  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 002:204.557   
+2020-Jul-02 12:34:26  . . . . Segger_read_access_port_register:	JLink INFO	- 1.632ms returns 0  
+2020-Jul-02 12:34:27  . . . Segger_read_access_port_register
+2020-Jul-02 12:34:27  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:27  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:27  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 002:707.050   
+2020-Jul-02 12:34:27  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:27  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 002:707.881   
+2020-Jul-02 12:34:27  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.144ms returns 0  
+2020-Jul-02 12:34:27  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 002:708.484   
+2020-Jul-02 12:34:27  . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x02)  
+2020-Jul-02 12:34:27  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 002:709.364     
+2020-Jul-02 12:34:27  . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:27  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 002:709.915   
+2020-Jul-02 12:34:27  . . . . Segger_read_access_port_register:	JLink INFO	- 1.711ms returns 0  
+2020-Jul-02 12:34:27  . . . Segger_read_access_port_register
+2020-Jul-02 12:34:27  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:27  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:27  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 003:212.055   
+2020-Jul-02 12:34:27  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:27  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 003:212.905   
+2020-Jul-02 12:34:27  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.196ms returns 0  
+2020-Jul-02 12:34:27  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 003:213.565   
+2020-Jul-02 12:34:27  . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x02)  
+2020-Jul-02 12:34:27  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 003:214.693     
+2020-Jul-02 12:34:27  . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:27  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 003:215.383   
+2020-Jul-02 12:34:27  . . . . Segger_read_access_port_register:	JLink INFO	- 2.162ms returns 0  
+2020-Jul-02 12:34:28  . . . Segger_read_access_port_register
+2020-Jul-02 12:34:28  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:28  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:28  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 003:717.518   
+2020-Jul-02 12:34:28  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:28  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 003:718.275   
+2020-Jul-02 12:34:28  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.052ms returns 0  
+2020-Jul-02 12:34:28  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 003:718.849   
+2020-Jul-02 12:34:28  . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x02)  
+2020-Jul-02 12:34:28  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 003:719.680     
+2020-Jul-02 12:34:28  . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:28  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 003:720.452   
+2020-Jul-02 12:34:28  . . . . Segger_read_access_port_register:	JLink INFO	- 1.905ms returns 0  
+2020-Jul-02 12:34:28  . . . Segger_read_access_port_register
+2020-Jul-02 12:34:28  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:28  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:28  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 004:222.188   
+2020-Jul-02 12:34:28  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:28  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 004:222.958   
+2020-Jul-02 12:34:28  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.073ms returns 0  
+2020-Jul-02 12:34:28  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 004:223.546   
+2020-Jul-02 12:34:28  . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x02)  
+2020-Jul-02 12:34:28  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 004:224.367     
+2020-Jul-02 12:34:28  . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:28  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 004:224.927   
+2020-Jul-02 12:34:28  . . . . Segger_read_access_port_register:	JLink INFO	- 1.658ms returns 0  
+2020-Jul-02 12:34:29  . . . Segger_read_access_port_register
+2020-Jul-02 12:34:29  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:29  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:29  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 004:726.939   
+2020-Jul-02 12:34:29  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:29  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 004:727.797   
+2020-Jul-02 12:34:29  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.157ms returns 0  
+2020-Jul-02 12:34:29  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 004:728.378   
+2020-Jul-02 12:34:29  . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x02)  
+2020-Jul-02 12:34:29  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 004:729.213     
+2020-Jul-02 12:34:29  . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:29  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 004:729.862   
+2020-Jul-02 12:34:29  . . . . Segger_read_access_port_register:	JLink INFO	- 1.877ms returns 0  
+2020-Jul-02 12:34:29  . . . Segger_read_access_port_register
+2020-Jul-02 12:34:29  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:29  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:29  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 005:231.706   
+2020-Jul-02 12:34:29  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:29  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 005:232.724   
+2020-Jul-02 12:34:29  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.705ms returns 0  
+2020-Jul-02 12:34:29  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 005:233.860   
+2020-Jul-02 12:34:29  . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x02)  
+2020-Jul-02 12:34:29  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 005:234.845     
+2020-Jul-02 12:34:29  . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:29  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 005:235.569   
+2020-Jul-02 12:34:29  . . . . Segger_read_access_port_register:	JLink INFO	- 1.982ms returns 0  
+2020-Jul-02 12:34:30  . . . Segger_read_access_port_register
+2020-Jul-02 12:34:30  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:30  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:30  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 005:737.259   
+2020-Jul-02 12:34:30  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:30  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 005:738.052   
+2020-Jul-02 12:34:30  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.086ms returns 0  
+2020-Jul-02 12:34:30  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 005:738.618   
+2020-Jul-02 12:34:30  . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x02)  
+2020-Jul-02 12:34:30  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 005:739.417     
+2020-Jul-02 12:34:30  . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:30  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 005:739.995   
+2020-Jul-02 12:34:30  . . . . Segger_read_access_port_register:	JLink INFO	- 1.643ms returns 0  
+2020-Jul-02 12:34:30  . . . Segger_read_access_port_register
+2020-Jul-02 12:34:30  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:30  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:30  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 006:242.212   
+2020-Jul-02 12:34:30  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:30  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 006:243.354   
+2020-Jul-02 12:34:30  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.515ms returns 0  
+2020-Jul-02 12:34:30  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 006:244.030   
+2020-Jul-02 12:34:30  . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x02)  
+2020-Jul-02 12:34:30  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 006:245.071     
+2020-Jul-02 12:34:30  . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:30  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 006:245.897   
+2020-Jul-02 12:34:30  . . . . Segger_read_access_port_register:	JLink INFO	- 2.274ms returns 0  
+2020-Jul-02 12:34:31  . . . Segger_read_access_port_register
+2020-Jul-02 12:34:31  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:31  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:31  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 006:748.233   
+2020-Jul-02 12:34:31  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:31  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 006:749.135   
+2020-Jul-02 12:34:31  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.201ms returns 0  
+2020-Jul-02 12:34:31  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 006:749.777   
+2020-Jul-02 12:34:31  . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x02)  
+2020-Jul-02 12:34:31  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 006:750.739     
+2020-Jul-02 12:34:31  . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:31  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 006:751.385   
+2020-Jul-02 12:34:31  . . . . Segger_read_access_port_register:	JLink INFO	- 1.867ms returns 0  
+2020-Jul-02 12:34:31  . . . Segger_read_access_port_register
+2020-Jul-02 12:34:31  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:31  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:31  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 007:253.519   
+2020-Jul-02 12:34:31  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:31  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 007:254.316   
+2020-Jul-02 12:34:31  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.099ms returns 0  
+2020-Jul-02 12:34:31  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 007:254.944   
+2020-Jul-02 12:34:31  . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x02)  
+2020-Jul-02 12:34:31  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 007:255.737     
+2020-Jul-02 12:34:31  . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:31  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 007:256.349   
+2020-Jul-02 12:34:31  . . . . Segger_read_access_port_register:	JLink INFO	- 1.726ms returns 0  
+2020-Jul-02 12:34:32  . . . Segger_read_access_port_register
+2020-Jul-02 12:34:32  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:32  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:32  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 007:758.142   
+2020-Jul-02 12:34:32  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:32  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 007:759.084   
+2020-Jul-02 12:34:32  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.314ms returns 0  
+2020-Jul-02 12:34:32  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 007:759.753   
+2020-Jul-02 12:34:32  . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x02)  
+2020-Jul-02 12:34:32  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 007:760.784     
+2020-Jul-02 12:34:32  . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:32  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 007:761.557   
+2020-Jul-02 12:34:32  . . . . Segger_read_access_port_register:	JLink INFO	- 2.086ms returns 0  
+2020-Jul-02 12:34:32  . . . Segger_read_access_port_register
+2020-Jul-02 12:34:32  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:32  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:32  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 008:264.542   
+2020-Jul-02 12:34:32  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:32  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 008:265.676   
+2020-Jul-02 12:34:32  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.461ms returns 0  
+2020-Jul-02 12:34:32  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 008:266.310   
+2020-Jul-02 12:34:32  . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x02)  
+2020-Jul-02 12:34:32  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 008:267.254     
+2020-Jul-02 12:34:32  . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:32  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 008:268.013   
+2020-Jul-02 12:34:32  . . . . Segger_read_access_port_register:	JLink INFO	- 2.018ms returns 0  
+2020-Jul-02 12:34:33  . . . Segger_read_access_port_register
+2020-Jul-02 12:34:33  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:33  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:33  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 008:770.568   
+2020-Jul-02 12:34:33  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:33  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 008:771.419   
+2020-Jul-02 12:34:33  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.146ms returns 0  
+2020-Jul-02 12:34:33  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 008:772.021   
+2020-Jul-02 12:34:33  . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x02)  
+2020-Jul-02 12:34:33  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 008:772.904     
+2020-Jul-02 12:34:33  . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:33  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 008:773.629   
+2020-Jul-02 12:34:33  . . . . Segger_read_access_port_register:	JLink INFO	- 1.914ms returns 0  
+2020-Jul-02 12:34:33  . . . Segger_read_access_port_register
+2020-Jul-02 12:34:33  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:33  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:33  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 009:275.559   
+2020-Jul-02 12:34:33  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:33  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 009:276.706   
+2020-Jul-02 12:34:33  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.514ms returns 0  
+2020-Jul-02 12:34:33  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 009:277.432   
+2020-Jul-02 12:34:33  . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x02)  
+2020-Jul-02 12:34:33  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 009:278.482     
+2020-Jul-02 12:34:33  . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:33  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 009:279.134   
+2020-Jul-02 12:34:33  . . . . Segger_read_access_port_register:	JLink INFO	- 2.016ms returns 0  
+2020-Jul-02 12:34:34  . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 009:782.192   
+2020-Jul-02 12:34:34  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:34  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 009:782.959   
+2020-Jul-02 12:34:34  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.107ms returns 0  
+2020-Jul-02 12:34:34  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 009:783.588   
+2020-Jul-02 12:34:34  . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x02)  
+2020-Jul-02 12:34:34  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 009:784.431     
+2020-Jul-02 12:34:34  . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:34  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 009:784.992   
+2020-Jul-02 12:34:34  . . . . Segger_read_access_port_register:	JLink INFO	- 1.668ms returns 0  
+2020-Jul-02 12:34:34  . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:286.728   
+2020-Jul-02 12:34:34  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:34  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:287.818   
+2020-Jul-02 12:34:34  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.413ms returns 0  
+2020-Jul-02 12:34:34  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:288.437   
+2020-Jul-02 12:34:34  . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x02)  
+2020-Jul-02 12:34:34  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:289.361     
+2020-Jul-02 12:34:34  . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:34  . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:289.991   
+2020-Jul-02 12:34:34  . . . . Segger_read_access_port_register:	JLink INFO	- 1.841ms returns 0  
+2020-Jul-02 12:34:34  . . . nRF52_debug_reset
+2020-Jul-02 12:34:34  . . . . nRF52_is_ctrl_ap_available
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:292.161   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:293.208   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.430ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:293.898   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:294.860     
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:295.460   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	- 1.836ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:297.085   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:297.832   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.084ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:298.478   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:299.338     
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:300.092   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	- 1.980ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:301.595   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:302.479   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.162ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:303.047   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:303.926     
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:304.554   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	- 1.783ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:305.875   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:306.662   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.101ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:307.273   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:308.183     
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:308.827   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	- 1.890ms returns 0  
+2020-Jul-02 12:34:34  . . . . Segger_write_access_port_register
+2020-Jul-02 12:34:34  . . . . . Segger_write_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:310.587   
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:311.607   
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.342ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_write_access_port_register:	JLink INFO	T5AB4 010:312.225   
+2020-Jul-02 12:34:34  . . . . . Segger_write_access_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(AP reg 0x00, 0x00000001)  
+2020-Jul-02 12:34:34  . . . . . Segger_write_access_port_register:	JLink INFO	T5AB4 010:313.340   
+2020-Jul-02 12:34:34  . . . . . Segger_write_access_port_register:	JLink INFO	- 1.416ms returns 0  
+2020-Jul-02 12:34:34  . . . . Segger_write_access_port_register
+2020-Jul-02 12:34:34  . . . . . Segger_write_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:325.860   
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:326.729   
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.165ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_write_access_port_register:	JLink INFO	T5AB4 010:327.348   
+2020-Jul-02 12:34:34  . . . . . Segger_write_access_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(AP reg 0x00, 0x00000000)  
+2020-Jul-02 12:34:34  . . . . . Segger_write_access_port_register:	JLink INFO	T5AB4 010:328.348   
+2020-Jul-02 12:34:34  . . . . . Segger_write_access_port_register:	JLink INFO	- 1.528ms returns 0  
+2020-Jul-02 12:34:34  . . . Segger_write_access_port_register
+2020-Jul-02 12:34:34  . . . . Segger_write_access_port_register
+2020-Jul-02 12:34:34  . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:330.276   
+2020-Jul-02 12:34:34  . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:34  . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:331.197   
+2020-Jul-02 12:34:34  . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.218ms returns 0  
+2020-Jul-02 12:34:34  . . . . Segger_write_access_port_register:	JLink INFO	T5AB4 010:331.775   
+2020-Jul-02 12:34:34  . . . . Segger_write_access_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(AP reg 0x01, 0x00000000)  
+2020-Jul-02 12:34:34  . . . . Segger_write_access_port_register:	JLink INFO	T5AB4 010:332.532   
+2020-Jul-02 12:34:34  . . . . Segger_write_access_port_register:	JLink INFO	- 1.056ms returns 0  
+2020-Jul-02 12:34:34  . . . nRF52_readback_status
+2020-Jul-02 12:34:34  . . . . nRF52_is_ctrl_ap_available
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:345.975   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:346.770   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.092ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:347.358   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:348.228     
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:348.762   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	- 1.666ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:350.090   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:350.952   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.150ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:351.518   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:352.290     
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:352.849   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	- 1.594ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:354.165   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:354.950   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.075ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:355.521   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:356.406     
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:356.989   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	- 1.737ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:358.493   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:359.527   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.421ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:360.241   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:361.156     
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:361.907   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	- 2.217ms returns 0  
+2020-Jul-02 12:34:34  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:363.779   
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:364.526   
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.051ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:365.147   
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:365.955     
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:366.563   
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	- 1.710ms returns 0  
+2020-Jul-02 12:34:34  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:367.971   
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:368.687   
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.043ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:369.298   
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:370.105     
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:370.716   
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	- 1.705ms returns 0  
+2020-Jul-02 12:34:34  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:372.087   
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:372.835   
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.058ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:373.575   
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:374.542     
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:375.515   
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	- 2.396ms returns 0  
+2020-Jul-02 12:34:34  . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:377.489   
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:378.330   
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.130ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:379.042   
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:380.017     
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:380.603   
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register:	JLink INFO	- 1.833ms returns 0  
+2020-Jul-02 12:34:34  . . . nRF52_readback_status:	Protection status read as NONE
+
+2020-Jul-02 12:34:34  . . . nRF52_debug_reset
+2020-Jul-02 12:34:34  . . . . nRF52_is_ctrl_ap_available
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:382.913   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:383.642   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.024ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:384.248   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:385.035     
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:385.572   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	- 1.595ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:386.879   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:387.617   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.031ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:388.189   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:388.961     
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:389.538   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	- 1.729ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:391.489   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:392.673   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.642ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:393.548   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:394.584     
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:395.357   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	- 2.121ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:397.419   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:398.237   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.106ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:398.855   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:399.650     
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:400.249   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	- 1.651ms returns 0  
+2020-Jul-02 12:34:34  . . . . Segger_write_access_port_register
+2020-Jul-02 12:34:34  . . . . . Segger_write_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:401.616   
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:402.343   
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.014ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_write_access_port_register:	JLink INFO	T5AB4 010:402.932   
+2020-Jul-02 12:34:34  . . . . . Segger_write_access_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(AP reg 0x00, 0x00000001)  
+2020-Jul-02 12:34:34  . . . . . Segger_write_access_port_register:	JLink INFO	T5AB4 010:403.660   
+2020-Jul-02 12:34:34  . . . . . Segger_write_access_port_register:	JLink INFO	- 1.027ms returns 0  
+2020-Jul-02 12:34:34  . . . . Segger_write_access_port_register
+2020-Jul-02 12:34:34  . . . . . Segger_write_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:415.542   
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:416.344   
+2020-Jul-02 12:34:34  . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.092ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_write_access_port_register:	JLink INFO	T5AB4 010:416.917   
+2020-Jul-02 12:34:34  . . . . . Segger_write_access_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(AP reg 0x00, 0x00000000)  
+2020-Jul-02 12:34:34  . . . . . Segger_write_access_port_register:	JLink INFO	T5AB4 010:417.652   
+2020-Jul-02 12:34:34  . . . . . Segger_write_access_port_register:	JLink INFO	- 1.019ms returns 0  
+2020-Jul-02 12:34:34  . . . nRF52_read_device_version
+2020-Jul-02 12:34:34  . . . . nRF52_readback_status
+2020-Jul-02 12:34:34  . . . . . nRF52_is_ctrl_ap_available
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:419.797   
+2020-Jul-02 12:34:34  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:34  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:420.551   
+2020-Jul-02 12:34:34  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.046ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:421.124   
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:421.925     
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:422.481   
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	- 1.717ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:424.287   
+2020-Jul-02 12:34:34  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:34  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:425.189   
+2020-Jul-02 12:34:34  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.365ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:425.987   
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:426.852     
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:427.460   
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	- 1.961ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:429.821   
+2020-Jul-02 12:34:34  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:34  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:430.605   
+2020-Jul-02 12:34:34  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.095ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:431.224   
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:432.018     
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:432.589   
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	- 1.637ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:433.932   
+2020-Jul-02 12:34:34  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:34  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:434.637   
+2020-Jul-02 12:34:34  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 0.969ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:435.163   
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:435.911     
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:436.426   
+2020-Jul-02 12:34:34  . . . . . . . Segger_read_access_port_register:	JLink INFO	- 1.515ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:437.777   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:438.534   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.040ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:439.088   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:439.940     
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:440.554   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	- 1.774ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:442.149   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:443.214   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.395ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:443.886   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:444.727     
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:445.410   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	- 2.037ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:447.300   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:448.183   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.154ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:448.751   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:449.560     
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:450.168   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	- 1.715ms returns 0  
+2020-Jul-02 12:34:34  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:451.542   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:452.318   
+2020-Jul-02 12:34:34  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.104ms returns 0  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:452.954   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:453.727     
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:454.278   
+2020-Jul-02 12:34:34  . . . . . . Segger_read_access_port_register:	JLink INFO	- 1.583ms returns 0  
+2020-Jul-02 12:34:34  . . . . nRF52_readback_status:	Protection status read as NONE
+
+2020-Jul-02 12:34:34  . . . . Segger_read_u32
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device
+2020-Jul-02 12:34:34  . . . . . . Segger_is_connected_to_device
+2020-Jul-02 12:34:34  . . . . . . Segger_is_connected_to_device:	JLink INFO	T5AB4 010:455.921   
+2020-Jul-02 12:34:34  . . . . . . Segger_is_connected_to_device:	JLink INFO	JLINK_IsConnected()  
+2020-Jul-02 12:34:34  . . . . . . Segger_is_connected_to_device:	JLink INFO	T5AB4 010:456.513   
+2020-Jul-02 12:34:34  . . . . . . Segger_is_connected_to_device:	JLink INFO	- 0.902ms returns FALSE  
+2020-Jul-02 12:34:34  . . . . . . Segger_load_core_data
+2020-Jul-02 12:34:34  . . . . . . Segger_load_core_data:	JLink INFO	T5AB4 010:457.395   
+2020-Jul-02 12:34:34  . . . . . . Segger_load_core_data:	JLink INFO	JLINK_ExecCommand("CORESIGHT_SetIndexAHBAPToUse = 0", ...).   
+2020-Jul-02 12:34:34  . . . . . . Segger_load_core_data:	JLink INFO	T5AB4 010:457.998   
+2020-Jul-02 12:34:34  . . . . . . Segger_load_core_data:	JLink INFO	- 0.301ms returns 0x00  
+2020-Jul-02 12:34:34  . . . . . . Segger_load_core_data:	JLink INFO	T5AB4 010:458.621   
+2020-Jul-02 12:34:34  . . . . . . Segger_load_core_data:	JLink INFO	JLINK_ExecCommand("device = nRF52", ...).   
+2020-Jul-02 12:34:34  . . . . . . Segger_load_core_data:	JLink INFO	T5AB4 010:459.995     
+2020-Jul-02 12:34:34  . . . . . . Segger_load_core_data:	JLink INFO	Device "NRF52" selected.
+2020-Jul-02 12:34:34  . . . . . . Segger_load_core_data:	JLink INFO	T5AB4 010:461.113   
+2020-Jul-02 12:34:34  . . . . . . Segger_load_core_data:	JLink INFO	- 2.050ms returns 0x00  
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:461.730   
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	JLINK_Connect()  
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:462.990     
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	InitTarget() start
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:463.663     
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	 J-Link Script File: Executing InitTarget() 
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:466.705     
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	InitTarget() end
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:467.832     
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	Found SW-DP with ID 0x2BA01477
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:470.141     
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	DPIDR: 0x2BA01477
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:470.751     
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	AP map detection skipped. Manually configured AP map found.
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:471.352     
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	AP[0]: AHB-AP (IDR: Not set)
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:472.805     
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	AP[0]: Core found
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:473.548     
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	AP[0]: AHB-AP ROM base: 0xE00FF000
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:474.644     
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:475.473     
+2020-Jul-02 12:34:34  . . . . . Segger_connect_to_device:	JLink INFO	Found Cortex-M4 r0p1, Little endian.
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:576.938     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	-- Max. mem block: 0x00004698
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:578.030     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	CPU_ReadMem(4 bytes @ 0xE000EDF0)
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:579.397     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	CPU_ReadMem(4 bytes @ 0xE0002000)
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:580.517     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	FPUnit: 6 code (BP) slots and 2 literal slots
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:581.171     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	CPU_ReadMem(4 bytes @ 0xE000EDFC)
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:582.228     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	CPU_ReadMem(4 bytes @ 0xE0001000)
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:583.317     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	CPU_WriteMem(4 bytes @ 0xE0001000)
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:584.456     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	CPU_ReadMem(4 bytes @ 0xE000ED88)
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:585.480     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	CPU_WriteMem(4 bytes @ 0xE000ED88)
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:586.518     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	CPU_ReadMem(4 bytes @ 0xE000ED88)
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:587.559     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	CPU_WriteMem(4 bytes @ 0xE000ED88)
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:588.659     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	CoreSight components:
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:589.212     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	ROMTbl[0] @ E00FF000
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:589.790     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	CPU_ReadMem(64 bytes @ 0xE00FF000)
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:591.673     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	CPU_ReadMem(32 bytes @ 0xE000EFE0)
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:593.474     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	ROMTbl[0][0]: E000E000, CID: B105E00D, PID: 000BB00C SCS-M7
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:594.266     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	CPU_ReadMem(32 bytes @ 0xE0001FE0)
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:595.869     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	ROMTbl[0][1]: E0001000, CID: B105E00D, PID: 003BB002 DWT
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:596.594     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	CPU_ReadMem(32 bytes @ 0xE0002FE0)
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:598.055     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	ROMTbl[0][2]: E0002000, CID: B105E00D, PID: 002BB003 FPB
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:598.641     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	CPU_ReadMem(32 bytes @ 0xE0000FE0)
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:600.029     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	ROMTbl[0][3]: E0000000, CID: B105E00D, PID: 003BB001 ITM
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:600.600     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	CPU_ReadMem(32 bytes @ 0xE0040FE0)
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:601.959     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	ROMTbl[0][4]: E0040000, CID: B105900D, PID: 000BB9A1 TPIU
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:602.609     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	CPU_ReadMem(32 bytes @ 0xE0041FE0)
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:604.073     
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	ROMTbl[0][5]: E0041000, CID: B105900D, PID: 000BB925 ETM
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:604.753   
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	- 143.322ms returns 0x00  
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:605.353   
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	JLINK_CORE_GetFound()  
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	T5AB4 010:605.926   
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device:	JLink INFO	- 0.846ms returns 0xE0000FF  
+2020-Jul-02 12:34:35  . . . . . Segger_read_u32
+2020-Jul-02 12:34:35  . . . . . . Segger_invalidate_cache
+2020-Jul-02 12:34:35  . . . . . . Segger_invalidate_cache:	JLink INFO	T5AB4 010:607.058   
+2020-Jul-02 12:34:35  . . . . . . Segger_invalidate_cache:	JLink INFO	JLINK_ExecCommand("InvalidateCache", ...).   
+2020-Jul-02 12:34:35  . . . . . . Segger_invalidate_cache:	JLink INFO	T5AB4 010:607.874   
+2020-Jul-02 12:34:35  . . . . . . Segger_invalidate_cache:	JLink INFO	- 0.419ms returns 0x00  
+2020-Jul-02 12:34:35  . . . . . Segger_read_u32:	JLink INFO	T5AB4 010:608.549   
+2020-Jul-02 12:34:35  . . . . . Segger_read_u32:	JLink INFO	JLINK_ReadMemU32(0x10000130, 0x0001 Items, ...)  
+2020-Jul-02 12:34:35  . . . . . Segger_read_u32:	JLink INFO	T5AB4 010:609.306     
+2020-Jul-02 12:34:35  . . . . . Segger_read_u32:	JLink INFO	CPU_ReadMem(4 bytes @ 0x10000130)
+2020-Jul-02 12:34:35  . . . . . Segger_read_u32:	JLink INFO	T5AB4 010:610.555     
+2020-Jul-02 12:34:35  . . . . . Segger_read_u32:	JLink INFO	Data:  08 00 00 00
+2020-Jul-02 12:34:35  . . . . . Segger_read_u32:	JLink INFO	T5AB4 010:611.380   
+2020-Jul-02 12:34:35  . . . . . Segger_read_u32:	JLink INFO	- 3.232ms returns 1  
+2020-Jul-02 12:34:35  . . . . Segger_read_u32
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device
+2020-Jul-02 12:34:35  . . . . . Segger_read_u32
+2020-Jul-02 12:34:35  . . . . . . Segger_invalidate_cache
+2020-Jul-02 12:34:35  . . . . . . Segger_invalidate_cache:	JLink INFO	T5AB4 010:613.635   
+2020-Jul-02 12:34:35  . . . . . . Segger_invalidate_cache:	JLink INFO	JLINK_ExecCommand("InvalidateCache", ...).   
+2020-Jul-02 12:34:35  . . . . . . Segger_invalidate_cache:	JLink INFO	T5AB4 010:614.226   
+2020-Jul-02 12:34:35  . . . . . . Segger_invalidate_cache:	JLink INFO	- 0.324ms returns 0x00  
+2020-Jul-02 12:34:35  . . . . . Segger_read_u32:	JLink INFO	T5AB4 010:614.833   
+2020-Jul-02 12:34:35  . . . . . Segger_read_u32:	JLink INFO	JLINK_ReadMemU32(0x10000134, 0x0001 Items, ...)  
+2020-Jul-02 12:34:35  . . . . . Segger_read_u32:	JLink INFO	T5AB4 010:615.448     
+2020-Jul-02 12:34:35  . . . . . Segger_read_u32:	JLink INFO	CPU_ReadMem(4 bytes @ 0x10000134)
+2020-Jul-02 12:34:35  . . . . . Segger_read_u32:	JLink INFO	T5AB4 010:616.575     
+2020-Jul-02 12:34:35  . . . . . Segger_read_u32:	JLink INFO	Data:  03 00 00 00
+2020-Jul-02 12:34:35  . . . . . Segger_read_u32:	JLink INFO	T5AB4 010:617.164   
+2020-Jul-02 12:34:35  . . . . . Segger_read_u32:	JLink INFO	- 2.601ms returns 1  
+2020-Jul-02 12:34:35  . . . . nRF52_decode_device_version
+2020-Jul-02 12:34:35  . . . . . Segger_read_u32
+2020-Jul-02 12:34:35  . . . . . . Segger_connect_to_device
+2020-Jul-02 12:34:35  . . . . . . Segger_read_u32
+2020-Jul-02 12:34:35  . . . . . . . Segger_invalidate_cache
+2020-Jul-02 12:34:35  . . . . . . . Segger_invalidate_cache:	JLink INFO	T5AB4 010:619.034   
+2020-Jul-02 12:34:35  . . . . . . . Segger_invalidate_cache:	JLink INFO	JLINK_ExecCommand("InvalidateCache", ...).   
+2020-Jul-02 12:34:35  . . . . . . . Segger_invalidate_cache:	JLink INFO	T5AB4 010:619.620   
+2020-Jul-02 12:34:35  . . . . . . . Segger_invalidate_cache:	JLink INFO	- 0.399ms returns 0x00  
+2020-Jul-02 12:34:35  . . . . . . Segger_read_u32:	JLink INFO	T5AB4 010:620.399   
+2020-Jul-02 12:34:35  . . . . . . Segger_read_u32:	JLink INFO	JLINK_ReadMemU32(0x10000110, 0x0001 Items, ...)  
+2020-Jul-02 12:34:35  . . . . . . Segger_read_u32:	JLink INFO	T5AB4 010:621.164     
+2020-Jul-02 12:34:35  . . . . . . Segger_read_u32:	JLink INFO	CPU_ReadMem(4 bytes @ 0x10000110)
+2020-Jul-02 12:34:35  . . . . . . Segger_read_u32:	JLink INFO	T5AB4 010:622.775     
+2020-Jul-02 12:34:35  . . . . . . Segger_read_u32:	JLink INFO	Data:  00 04 00 00
+2020-Jul-02 12:34:35  . . . . . . Segger_read_u32:	JLink INFO	T5AB4 010:623.588   
+2020-Jul-02 12:34:35  . . . . . . Segger_read_u32:	JLink INFO	- 3.499ms returns 1  
+2020-Jul-02 12:34:35  . . . Segger_halt
+2020-Jul-02 12:34:35  . . . . Segger_connect_to_device
+2020-Jul-02 12:34:35  . . . . Segger_halt
+2020-Jul-02 12:34:35  . . . . Segger_halt:	JLink INFO	T5AB4 010:625.213   
+2020-Jul-02 12:34:35  . . . . Segger_halt:	JLink INFO	JLINK_Halt()  
+2020-Jul-02 12:34:35  . . . . Segger_halt:	JLink INFO	T5AB4 010:632.533   
+2020-Jul-02 12:34:35  . . . . Segger_halt:	JLink INFO	- 7.797ms returns 0x00  
+2020-Jul-02 12:34:35  . . . Segger_sys_reset
+2020-Jul-02 12:34:35  . . . . Segger_connect_to_device
+2020-Jul-02 12:34:35  . . . . Segger_halt
+2020-Jul-02 12:34:35  . . . . Segger_halt:	JLink INFO	T5AB4 010:634.209   
+2020-Jul-02 12:34:35  . . . . Segger_halt:	JLink INFO	JLINK_Halt()  
+2020-Jul-02 12:34:35  . . . . Segger_halt:	JLink INFO	T5AB4 010:635.264   
+2020-Jul-02 12:34:35  . . . . Segger_halt:	JLink INFO	- 1.369ms returns 0x00  
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	T5AB4 010:636.189   
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	JLINK_SetResetType(JLINKARM_CM3_RESET_TYPE_CORE_AND_PERIPHERALS)  
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	T5AB4 010:636.763   
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	- 0.846ms returns JLINKARM_CM3_RESET_TYPE_NORMAL  
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	T5AB4 010:637.338   
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	JLINK_Reset()  
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	T5AB4 010:637.979     
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	CPU_WriteMem(4 bytes @ 0xE000EDF0)
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	T5AB4 010:639.066     
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	CPU_WriteMem(4 bytes @ 0xE000EDFC)
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	T5AB4 010:640.328     
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	Reset: Halt core after reset via DEMCR.VC_CORERESET.
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	T5AB4 010:641.436     
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	Reset: Reset device via AIRCR.SYSRESETREQ.
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	T5AB4 010:642.412     
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	CPU_WriteMem(4 bytes @ 0xE000ED0C)
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	T5AB4 010:695.896     
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	CPU_ReadMem(4 bytes @ 0xE000EDF0)
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	T5AB4 010:697.082     
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	CPU_ReadMem(4 bytes @ 0xE000EDF0)
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	T5AB4 010:698.139     
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	CPU_WriteMem(4 bytes @ 0xE000EDF0)
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	T5AB4 010:699.186     
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	CPU_WriteMem(4 bytes @ 0xE000EDFC)
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	T5AB4 010:705.466     
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	CPU_ReadMem(4 bytes @ 0xE000EDF0)
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	T5AB4 010:712.809     
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	CPU_WriteMem(4 bytes @ 0xE0002000)
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	T5AB4 010:713.975     
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	CPU_ReadMem(4 bytes @ 0xE000EDFC)
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	T5AB4 010:715.018     
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	CPU_ReadMem(4 bytes @ 0xE0001000)
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	T5AB4 010:716.045   
+2020-Jul-02 12:34:35  . . . . Segger_sys_reset:	JLink INFO	- 78.981ms  
+2020-Jul-02 12:34:35  . . . nRF52_power_ram_all
+2020-Jul-02 12:34:35  . . . . nRF52_readback_status
+2020-Jul-02 12:34:35  . . . . . nRF52_is_ctrl_ap_available
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:35  . . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:35  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:718.289   
+2020-Jul-02 12:34:35  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:35  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:719.058   
+2020-Jul-02 12:34:35  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.120ms returns 0  
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:719.706   
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:720.473     
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:721.012   
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	- 1.562ms returns 0  
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:35  . . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:35  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:722.327   
+2020-Jul-02 12:34:35  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:35  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:723.266   
+2020-Jul-02 12:34:35  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.399ms returns 0  
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:724.136   
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:725.273     
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:726.284   
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	- 2.487ms returns 0  
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:35  . . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:35  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:728.090   
+2020-Jul-02 12:34:35  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:35  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:729.296   
+2020-Jul-02 12:34:35  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.724ms returns 0  
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:730.141   
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:731.042     
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:731.802   
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	- 2.107ms returns 0  
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:35  . . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:35  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:733.673   
+2020-Jul-02 12:34:35  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x010000F0)  
+2020-Jul-02 12:34:35  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:734.616   
+2020-Jul-02 12:34:35  . . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.270ms returns 0  
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:735.242   
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:736.136     
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x02880000
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:736.743   
+2020-Jul-02 12:34:35  . . . . . . . Segger_read_access_port_register:	JLink INFO	- 1.797ms returns 0  
+2020-Jul-02 12:34:35  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:35  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:35  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:738.259   
+2020-Jul-02 12:34:35  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:35  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:739.038   
+2020-Jul-02 12:34:35  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.103ms returns 0  
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:739.684   
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:740.767     
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:741.555   
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	- 2.252ms returns 0  
+2020-Jul-02 12:34:35  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:35  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:35  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:743.397   
+2020-Jul-02 12:34:35  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:35  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:744.412   
+2020-Jul-02 12:34:35  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.363ms returns 0  
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:745.105   
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:746.458     
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:747.218   
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	- 2.511ms returns 0  
+2020-Jul-02 12:34:35  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:35  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:35  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:749.137   
+2020-Jul-02 12:34:35  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:35  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:750.267   
+2020-Jul-02 12:34:35  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.521ms returns 0  
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:750.956   
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:751.832     
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:752.413   
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	- 1.768ms returns 0  
+2020-Jul-02 12:34:35  . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register
+2020-Jul-02 12:34:35  . . . . . . . Segger_write_debug_port_register
+2020-Jul-02 12:34:35  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:754.022   
+2020-Jul-02 12:34:35  . . . . . . . Segger_write_debug_port_register:	JLink INFO	JLINK_CORESIGHT_WriteAPDPReg(DP reg 0x02, 0x01000000)  
+2020-Jul-02 12:34:35  . . . . . . . Segger_write_debug_port_register:	JLink INFO	T5AB4 010:754.934   
+2020-Jul-02 12:34:35  . . . . . . . Segger_write_debug_port_register:	JLink INFO	- 1.296ms returns 0  
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:755.631   
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	JLINK_CORESIGHT_ReadAPDPReg(AP reg 0x03)  
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:756.731     
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	Value=0x00000001
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	T5AB4 010:757.556   
+2020-Jul-02 12:34:35  . . . . . . Segger_read_access_port_register:	JLink INFO	- 2.301ms returns 0  
+2020-Jul-02 12:34:35  . . . . nRF52_readback_status:	Protection status read as NONE
+
+2020-Jul-02 12:34:35  . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:760.071   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	JLINK_WriteU32(0x40000904, 0x0000FFFF)  
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:760.812     
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	CPU_WriteMem(4 bytes @ 0x40000904)
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:761.942   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	- 2.539ms returns 0  
+2020-Jul-02 12:34:35  . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:764.252   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	JLINK_WriteU32(0x40000914, 0x0000FFFF)  
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:764.964     
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	CPU_WriteMem(4 bytes @ 0x40000914)
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:766.108   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	- 2.178ms returns 0  
+2020-Jul-02 12:34:35  . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:767.637   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	JLINK_WriteU32(0x40000924, 0x0000FFFF)  
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:768.236     
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	CPU_WriteMem(4 bytes @ 0x40000924)
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:769.399   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	- 2.081ms returns 0  
+2020-Jul-02 12:34:35  . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:770.916   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	JLINK_WriteU32(0x40000934, 0x0000FFFF)  
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:771.515     
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	CPU_WriteMem(4 bytes @ 0x40000934)
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:772.611   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	- 2.111ms returns 0  
+2020-Jul-02 12:34:35  . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:774.412   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	JLINK_WriteU32(0x40000944, 0x0000FFFF)  
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:775.285     
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	CPU_WriteMem(4 bytes @ 0x40000944)
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:776.707   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	- 2.653ms returns 0  
+2020-Jul-02 12:34:35  . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:778.307   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	JLINK_WriteU32(0x40000954, 0x0000FFFF)  
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:779.141     
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	CPU_WriteMem(4 bytes @ 0x40000954)
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:780.220   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	- 2.217ms returns 0  
+2020-Jul-02 12:34:35  . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:781.637   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	JLINK_WriteU32(0x40000964, 0x0000FFFF)  
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:782.187     
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	CPU_WriteMem(4 bytes @ 0x40000964)
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:783.276   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	- 1.940ms returns 0  
+2020-Jul-02 12:34:35  . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:784.872   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	JLINK_WriteU32(0x40000974, 0x0000FFFF)  
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:785.486     
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	CPU_WriteMem(4 bytes @ 0x40000974)
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:786.514   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	- 1.941ms returns 0  
+2020-Jul-02 12:34:35  . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:787.887   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	JLINK_WriteU32(0x40000984, 0x0000FFFF)  
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:788.452     
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	CPU_WriteMem(4 bytes @ 0x40000984)
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:789.644   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	- 2.103ms returns 0  
+2020-Jul-02 12:34:35  . . . nRF52_clear_resetreas
+2020-Jul-02 12:34:35  . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_connect_to_device
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:791.661   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	JLINK_WriteU32(0x40000400, 0xFFFFFFFF)  
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:792.481     
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	CPU_WriteMem(4 bytes @ 0x40000400)
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:793.584   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	- 2.289ms returns 0  
+2020-Jul-02 12:34:35  . . :	JLink INFO	T5AB4 010:794.286 
+2020-Jul-02 12:34:35  . . :	JLink INFO	JLINK_Unlock()  
+2020-Jul-02 12:34:35  nRF_close_dll
+2020-Jul-02 12:34:35  . nRF52_close
+2020-Jul-02 12:34:35  . . Segger_is_connected_to_emu
+2020-Jul-02 12:34:35  . . Segger_is_connected_to_emu:	JLink INFO	T5AB4 010:796.398 
+2020-Jul-02 12:34:35  . . Segger_is_connected_to_emu:	JLink INFO	JLINK_IsOpen()  
+2020-Jul-02 12:34:35  . . Segger_is_connected_to_emu:	JLink INFO	T5AB4 010:796.979 
+2020-Jul-02 12:34:35  . . Segger_is_connected_to_emu:	JLink INFO	- 0.871ms returns 0x01  
+2020-Jul-02 12:34:35  . . :	JLink INFO	T5AB4 010:797.560 
+2020-Jul-02 12:34:35  . . :	JLink INFO	JLINK_Lock()  
+2020-Jul-02 12:34:35  . . Segger_close
+2020-Jul-02 12:34:35  . . . Segger_disconnect_from_emu
+2020-Jul-02 12:34:35  . . . . Segger_disconnect_from_emu
+2020-Jul-02 12:34:35  . . . . . Segger_is_connected_to_device
+2020-Jul-02 12:34:35  . . . . . Segger_is_connected_to_device:	JLink INFO	T5AB4 010:799.295   
+2020-Jul-02 12:34:35  . . . . . Segger_is_connected_to_device:	JLink INFO	JLINK_IsConnected()  
+2020-Jul-02 12:34:35  . . . . . Segger_is_connected_to_device:	JLink INFO	T5AB4 010:799.888   
+2020-Jul-02 12:34:35  . . . . . Segger_is_connected_to_device:	JLink INFO	- 0.880ms returns TRUE  
+2020-Jul-02 12:34:35  . . . . Segger_disconnect_from_emu:	Disable trace before closing connection.
+
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:800.998   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	JLINK_WriteU32(0xE000EDFC, 0x00000000)  
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:801.563     
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	Debug reg: DEMCR
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:802.158     
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	CPU_WriteMem(4 bytes @ 0xE000EDFC)
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	T5AB4 010:803.285   
+2020-Jul-02 12:34:35  . . . . . Segger_write_u32:	JLink INFO	- 2.584ms returns 0  
+2020-Jul-02 12:34:35  . . . . Segger_disconnect_from_emu:	JLink INFO	T5AB4 010:803.869 
+2020-Jul-02 12:34:35  . . . . Segger_disconnect_from_emu:	JLink INFO	JLINK_Unlock()  
+2020-Jul-02 12:34:35  . . . . Segger_disconnect_from_emu:	JLink INFO	T5AB4 010:815.587 
+2020-Jul-02 12:34:35  . . . . Segger_disconnect_from_emu:	JLink INFO	JLINK_Close()  
+2020-Jul-02 12:34:35  . . Segger_close:	Freeing Library.
+
+2020-Jul-02 12:34:35  nRF_close_dll:	Freeing Library.
+
