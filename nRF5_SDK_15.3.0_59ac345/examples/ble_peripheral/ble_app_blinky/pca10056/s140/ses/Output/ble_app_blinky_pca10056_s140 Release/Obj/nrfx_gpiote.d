@@ -1,5 +1,5 @@
 Output/ble_app_blinky_pca10056_s140\ Release/Obj/nrfx_gpiote.o: \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\modules\nrfx\drivers\src\nrfx_gpiote.c \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\modules\nrfx\drivers\src\nrfx_gpiote.c \
  ../../../../../../modules/nrfx/nrfx.h \
  ../../../../../../integration/nrfx/nrfx_config.h ../config/sdk_config.h \
  ../../../../../../modules/nrfx/drivers/nrfx_common.h \

@@ -1,5 +1,5 @@
 Output/ble_app_blinky_pca10056_s140\ Release/Obj/nrfx_spis.o: \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\modules\nrfx\drivers\src\nrfx_spis.c \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\modules\nrfx\drivers\src\nrfx_spis.c \
  ../../../../../../modules/nrfx/nrfx.h \
  ../../../../../../integration/nrfx/nrfx_config.h ../config/sdk_config.h \
  ../../../../../../modules/nrfx/drivers/nrfx_common.h \
@@ -53,7 +53,7 @@ Output/ble_app_blinky_pca10056_s140\ Release/Obj/nrfx_spis.o: \
  ../../../../../../modules/nrfx/drivers/include/nrfx_spis.h \
  ../../../../../../modules/nrfx/hal/nrf_spis.h \
  ../../../../../../modules/nrfx/hal/nrf_gpio.h \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\modules\nrfx\drivers\src\prs/nrfx_prs.h \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\modules\nrfx\drivers\src\prs/nrfx_prs.h \
  ../../../../../../integration/nrfx/nrfx_log.h \
  ../../../../../../components/libraries/log/nrf_log.h \
  ../../../../../../components/libraries/util/sdk_common.h \

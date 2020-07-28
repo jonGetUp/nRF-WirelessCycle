@@ -1,5 +1,5 @@
 Output/ble_app_blinky_pca10056_s140\ Release/Obj/nrf_log_backend_uart.o: \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\components\libraries\log\src\nrf_log_backend_uart.c \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\components\libraries\log\src\nrf_log_backend_uart.c \
  ../../../../../../components/libraries/util/sdk_common.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/stdint.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/stdbool.h \
@@ -49,10 +49,10 @@ Output/ble_app_blinky_pca10056_s140\ Release/Obj/nrf_log_backend_uart.o: \
  ../../../../../../components/libraries/experimental_section_vars/nrf_section.h \
  ../../../../../../components/libraries/util/nordic_common.h \
  ../../../../../../components/libraries/log/nrf_log_types.h \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\components\libraries\log\src\nrf_log_backend_serial.h \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\components\libraries\log\src\nrf_log_backend_serial.h \
  ../../../../../../components/libraries/log/nrf_log_backend_interface.h \
  ../../../../../../external/fprintf/nrf_fprintf.h \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\components\libraries\log\src\nrf_log_internal.h \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\components\libraries\log\src\nrf_log_internal.h \
  ../../../../../../components/libraries/log/nrf_log_types.h \
  ../../../../../../integration/nrfx/legacy/nrf_drv_uart.h \
  ../../../../../../modules/nrfx/nrfx.h \

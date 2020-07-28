@@ -1,5 +1,5 @@
 Output/ble_tuto_characteristics_pca10056_s140\ Release/Obj/nrf_fstorage_sd.o: \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\components\libraries\fstorage\nrf_fstorage_sd.c \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\components\libraries\fstorage\nrf_fstorage_sd.c \
  ../../../../../../components/libraries/util/sdk_common.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/stdint.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/stdbool.h \
@@ -29,8 +29,8 @@ Output/ble_tuto_characteristics_pca10056_s140\ Release/Obj/nrf_fstorage_sd.o: \
  ../../../../../../components/softdevice/s140/headers/nrf_svc.h \
  ../../../../../../components/libraries/util/sdk_macros.h \
  ../../../../../../components/libraries/util/nrf_assert.h \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\components\libraries\fstorage\nrf_fstorage_sd.h \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\components\libraries\fstorage\nrf_fstorage.h \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\components\libraries\fstorage\nrf_fstorage_sd.h \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\components\libraries\fstorage\nrf_fstorage.h \
  ../../../../../../components/libraries/util/sdk_errors.h \
  ../../../../../../components/libraries/experimental_section_vars/nrf_section.h \
  ../../../../../../components/libraries/util/nordic_common.h \

@@ -1,6 +1,6 @@
 Output/ble_tuto_characteristics_pca10056_s140\ Release/Obj/bsp.o: \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\components\libraries\bsp\bsp.c \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\components\libraries\bsp\bsp.h \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\components\libraries\bsp\bsp.c \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\components\libraries\bsp\bsp.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/stdint.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/stdbool.h \
  ../../../../../../components/boards/boards.h \
@@ -56,5 +56,5 @@ Output/ble_tuto_characteristics_pca10056_s140\ Release/Obj/bsp.o: \
  ../../../../../../components/boards/pca10056.h \
  ../../../../../../components/libraries/button/app_button.h \
  ../../../../../../components/libraries/util/app_error.h \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\components\libraries\bsp\bsp_config.h \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\components\libraries\bsp\bsp_config.h \
  ../../../../../../components/libraries/timer/app_timer.h

@@ -52,10 +52,11 @@
  </TraceWindow>
  <Watch1>
   <Watches active="1" update="Never">
-   <Watchpoint expression="m_tx_buf" name="m_tx_buf" radix="-1" linenumber="0" filename=""/>
-   <Watchpoint expression="m_length" name="m_length" radix="-1" linenumber="0" filename=""/>
+   <Watchpoint expression="m_tx_buf" name="m_tx_buf" radix="-1" linenumber="0" filename="../ses"/>
+   <Watchpoint expression="m_length" name="m_length" radix="-1" linenumber="0" filename="../ses"/>
    <Watchpoint expression="p_tx_buffer" name="p_tx_buffer" radix="-1" linenumber="413" filename="../../../../../../modules/nrfx/drivers/src/nrfx_spis.c"/>
-   <Watchpoint expression="m_rx_buf" name="m_rx_buf" radix="-1" linenumber="630" filename="../../../main.c"/>
+   <Watchpoint expression="m_rx_buf" name="m_rx_buf" radix="-1" linenumber="655" filename="../../../main.c"/>
+   <Watchpoint expression="p_evt_write" name="p_evt_write" radix="16" linenumber="90" filename="../../../../../../components/ble/ble_services/ble_lbs/ble_lbs.c"/>
   </Watches>
  </Watch1>
  <Watch2>
@@ -68,12 +69,17 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="686" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../main.c" selected="0" top="674" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="44" y="175" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../components/ble/ble_services/ble_lbs/ble_lbs.c" selected="0" top="157" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="167" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../components/ble/ble_services/ble_lbs/ble_lbs.h" selected="0" top="150" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="84" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../components/libraries/log/src/nrf_log_backend_uart.c" selected="0" top="72" codecName=""/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="396" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h" selected="1" top="380" codecName=""/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="830" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../config/sdk_config.h" selected="0" top="818" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="149" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../main.c" selected="1" top="144" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="88" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../components/ble/ble_services/ble_lbs/ble_lbs.c" selected="0" top="67" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="50" y="129" useTextEdit="1" openedFrom="C:/Users/jogas/Google Drive/Bachelor/_Software/nRF52840/nRF-WirelessCycle/nRF5_SDK_15.3.0_59ac345/components/ble/ble_services/ble_lbs/ble_lbs.c" useBinaryEdit="0" left="0" path="../../../../../../components/ble/ble_services/ble_lbs/ble_lbs.h" selected="0" top="118" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="84" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../components/libraries/log/src/nrf_log_backend_uart.c" selected="0" top="72" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="396" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h" selected="0" top="380" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="14" y="7747" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../config/sdk_config.h" selected="0" top="7733" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../components/libraries/button/app_button.c" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../integration/nrfx/legacy/nrf_drv_clock.c" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="569" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../components/ble/common/ble_conn_params.c" selected="0" top="549" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="99" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../components/libraries/util/app_error_weak.c" selected="0" top="84" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="352" useTextEdit="1" openedFrom="C:/Users/jogas/Google Drive/Bachelor/_Software/nRF52840/nRF-WirelessCycle/nRF5_SDK_15.3.0_59ac345/components/ble/ble_services/ble_lbs/ble_lbs.c" useBinaryEdit="0" left="0" path="../../../../../../components/softdevice/s140/headers/ble_gatts.h" selected="0" top="337" codecName="Default"/>
  </Files>
- <ARMCrossStudioWindow activeProject="ble_app_blinky_pca10056_s140" fileDialogDefaultFilter="" autoConnectTarget="J-Link" buildConfiguration="Release" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/jogas/Google Drive/Bachelor/_Software/nRF52840/nRF5_SDK_15.3.0_59ac345/modules/nrfx/drivers/src" debugSearchPath="" autoConnectCapabilities="3711"/>
+ <ARMCrossStudioWindow activeProject="ble_app_blinky_pca10056_s140" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Release" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/jogas/Google Drive/Bachelor/_Software/nRF52840/nRF5_SDK_15.3.0_59ac345/modules/nrfx/drivers/src" debugSearchPath="" autoConnectCapabilities="3711"/>
 </session>

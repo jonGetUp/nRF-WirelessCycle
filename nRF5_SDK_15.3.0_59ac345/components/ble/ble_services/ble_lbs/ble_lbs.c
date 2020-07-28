@@ -52,11 +52,37 @@ static void on_write(ble_lbs_t * p_lbs, ble_evt_t const * p_ble_evt)
 {
     ble_gatts_evt_write_t const * p_evt_write = &p_ble_evt->evt.gatts_evt.params.write;
 
+    //LED Char
     if (   (p_evt_write->handle == p_lbs->led_char_handles.value_handle)
         && (p_evt_write->len == 1)  //to change
         && (p_lbs->led_write_handler != NULL))
     {
         p_lbs->led_write_handler(p_ble_evt->evt.gap_evt.conn_handle, p_lbs, p_evt_write->data[0]);
+    }
+
+    //Our char
+    if ((p_evt_write->handle == p_lbs->char_handles_1.value_handle)
+        && (p_lbs->characteristic1_value_write_handler != NULL))
+    {
+        // Make sure that the data is 4 bytes (or whatever the size of your characteristic)
+        // It has to match the exact byte size of the characteristic to avoid problems
+        int8_t len = p_evt_write->len;
+        if (len != 4)
+        {
+            NRF_LOG_INFO("ERROR: incomplete package");
+            NRF_LOG_INFO("len: %d", len);
+            return;
+        }
+        
+        // Data must be sent from in Little Endian Format and 4 bytes
+        // Convert the little endian 4 bytes of data into 32 bit unsigned int
+        uint32_t *characteristic1_value_adr;
+        uint32_t characteristic1_value_val;
+        characteristic1_value_adr = (uint32_t*) p_evt_write->data;
+        characteristic1_value_val = *characteristic1_value_adr;
+
+        // Call the write handler function. Implementation is in the main.
+        p_lbs->characteristic1_value_write_handler(characteristic1_value_val);
     }
 }
 
@@ -85,6 +111,8 @@ uint32_t ble_lbs_init(ble_lbs_t * p_lbs, const ble_lbs_init_t * p_lbs_init)
 
     // Initialize service structure.
     p_lbs->led_write_handler = p_lbs_init->led_write_handler;
+    // BLE_WRITE: transfer the pointers from the init instance to the module instance
+    p_lbs->characteristic1_value_write_handler = p_lbs_init->characteristic1_value_write_handler;
 
     // Add service.
     ble_uuid128_t base_uuid = {LBS_UUID_BASE};
@@ -125,15 +153,36 @@ uint32_t ble_lbs_init(ble_lbs_t * p_lbs, const ble_lbs_init_t * p_lbs_init)
     memset(&add_char_params, 0, sizeof(add_char_params));
     add_char_params.uuid             = LBS_UUID_LED_CHAR;
     add_char_params.uuid_type        = p_lbs->uuid_type;
-    add_char_params.init_len         = sizeof(uint8_t);
     add_char_params.max_len          = sizeof(uint8_t);
+    add_char_params.init_len         = sizeof(uint8_t);
     add_char_params.char_props.read  = 1;
     add_char_params.char_props.write = 1;
 
     add_char_params.read_access  = SEC_OPEN;  //Access open.
     add_char_params.write_access = SEC_OPEN;
 
-    return characteristic_add(p_lbs->service_handle, &add_char_params, &p_lbs->led_char_handles);
+    characteristic_add(p_lbs->service_handle, &add_char_params, &p_lbs->led_char_handles);
+
+    if (err_code != NRF_SUCCESS)
+    {
+        return err_code;
+    }
+
+    // Add Serial Number characteristic.
+    memset(&add_char_params, 0, sizeof(add_char_params));
+    add_char_params.uuid             = BLE_UUID_CHARACTERISTIC_1;
+    add_char_params.uuid_type        = p_lbs->uuid_type;
+    add_char_params.max_len          = 4;
+    add_char_params.init_len         = 4;
+    uint8_t value2[4]                = {0x12,0x34,0x56,0x78};
+    add_char_params.p_init_value     = value2;
+    add_char_params.char_props.read  = 1;
+    add_char_params.char_props.write = 1;
+
+    add_char_params.read_access  = SEC_OPEN;  //Access open.
+    add_char_params.write_access = SEC_OPEN;
+
+    return characteristic_add(p_lbs->service_handle, &add_char_params, &p_lbs->char_handles_1);  // adding characteristic handles to the attribute table
 }
 
 

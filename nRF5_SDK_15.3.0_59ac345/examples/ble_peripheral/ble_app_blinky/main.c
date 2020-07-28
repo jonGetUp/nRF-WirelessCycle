@@ -138,6 +138,19 @@ static uint8_t m_enc_advdata[BLE_GAP_ADV_SET_DATA_SIZE_MAX];                    
 static uint8_t m_enc_scan_response_data[BLE_GAP_ADV_SET_DATA_SIZE_MAX];         /**< Buffer for storing an encoded scan data. */
 
 
+// BLE_WRITE:
+/**@brief Function for handling write events to the LED characteristic.
+ *
+ * @param[in] characteristic1_value     value that was received from the phone
+ */
+// called from our_services.c from on_write();
+// Make a note of the arguments that are passed to this handler, we will use that later on
+static void characteristic1_value_write_handler(uint32_t characteristic1_value)
+{
+	NRF_LOG_INFO("We have received the characteristic1 value into our App:  %x", characteristic1_value);
+}
+// Add other handlers here...
+
 //tell the SPI master wich variable to return
 void spis_send_function_code(uint8_t functionCode)
 {
@@ -394,7 +407,12 @@ static void services_init(void)
 
     // Initialize LBS.
     init.led_write_handler = led_write_handler;
+    // BLE_WRITE: Initialize Our Service module.
+    init.characteristic1_value_write_handler = characteristic1_value_write_handler;
+    // Add other handlers here...
 
+    // BLE_WRITE: We need to add the init instance pointer to our service instance 
+    // Initialize our service
     err_code = ble_lbs_init(&m_lbs, &init);
     APP_ERROR_CHECK(err_code);
 }
@@ -575,6 +593,13 @@ static void ble_stack_init(void)
 
     // Register a handler for BLE events.
     NRF_SDH_BLE_OBSERVER(m_ble_observer, APP_BLE_OBSERVER_PRIO, ble_evt_handler, NULL);
+
+    
+      // BLE_WRITE: Register a handler for BLE our service events.
+    // OUR_JOB: Step 3.C Call ble_our_service_on_ble_evt() to do housekeeping of ble connections related to our service and characteristics
+    // Needed for associating the observer with the event handler of the service
+    //NRF_SDH_BLE_OBSERVER(m_our_service_observer, APP_BLE_OBSERVER_PRIO, ble_our_service_on_ble_evt, (void*) &m_our_service); 
+
 }
 
 
@@ -626,15 +651,6 @@ static void buttons_init(void)
 }
 
 
-static void log_init(void)
-{
-    ret_code_t err_code = NRF_LOG_INIT(NULL);
-    APP_ERROR_CHECK(err_code);
-
-    NRF_LOG_DEFAULT_BACKENDS_INIT();
-}
-
-
 /**@brief Function for initializing power management.
  */
 static void power_management_init(void)
@@ -678,6 +694,14 @@ static void gpio_output_voltage_setup(void)
         // System reset is needed to update UICR registers.
         NVIC_SystemReset();
     }
+}
+
+static void log_init(void)
+{
+    ret_code_t err_code = NRF_LOG_INIT(NULL);
+    APP_ERROR_CHECK(err_code);
+
+    NRF_LOG_DEFAULT_BACKENDS_INIT();
 }
 
 void spis_reset_tx_buffer(void)

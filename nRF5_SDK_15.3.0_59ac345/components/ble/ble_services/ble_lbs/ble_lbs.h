@@ -74,6 +74,10 @@
 #include "ble_srv_common.h"
 #include "nrf_sdh_ble.h"
 
+#include "nrf_log.h"
+#include "nrf_log_ctrl.h"
+#include "nrf_log_default_backends.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -90,10 +94,30 @@ NRF_SDH_BLE_OBSERVER(_name ## _obs,                                             
                      ble_lbs_on_ble_evt, &_name)
 
 #define LBS_UUID_BASE        {0x23, 0xD1, 0xBC, 0xEA, 0x5F, 0x78, 0x23, 0x15, \
-                              0xDE, 0xEF, 0x12, 0x12, 0x00, 0x00, 0x00, 0x00} // 128-bit base UUID
+                              0xDE, 0xEF, 0x12, 0x12, 0x00, 0x00, 0x00, 0x00} // 128-bit base UUID, 0x00 designed by the service and char UUID
 #define LBS_UUID_SERVICE     0x1523
 #define LBS_UUID_BUTTON_CHAR 0x1524
 #define LBS_UUID_LED_CHAR    0x1525
+#define BLE_UUID_CHARACTERISTIC_1 0xCAFE
+
+
+
+// BLE_WRITE:
+/** @brief Our Service init structure. This structure contains all options and data needed for
+ *        initialization of the service.*/
+ //This is used to pass the write handlers for different characteristics from main.c
+ //This is essentially like public constructor. All of the content will be copied to instance.
+ //Note that "uint32_t characteristic1_value" part had to match from Step 1
+typedef void (*ble_os_characteristic1_value_write_handler_t) (uint32_t characteristic1_value);
+
+//// Add other handlers here...
+//typedef struct
+//{
+//	/**< Event handler to be called when the Characteristic1 is written */
+//    ble_os_characteristic1_value_write_handler_t characteristic1_value_write_handler; 
+//    // Add other handlers here...
+//
+//} ble_os_init_t;
 
 
 // Forward declaration of the ble_lbs_t type.
@@ -106,6 +130,10 @@ typedef void (*ble_lbs_led_write_handler_t) (uint16_t conn_handle, ble_lbs_t * p
 typedef struct
 {
     ble_lbs_led_write_handler_t led_write_handler; /**< Event handler to be called when the LED Characteristic is written. */
+    /**< Event handler to be called when the Characteristic1 is written */
+    ble_os_characteristic1_value_write_handler_t characteristic1_value_write_handler; 
+    // Add other handlers here...
+
 } ble_lbs_init_t;
 
 /**@brief LED Button Service structure. This structure contains various status information for the service. */
@@ -114,9 +142,18 @@ struct ble_lbs_s
     uint16_t                    service_handle;      /**< Handle of LED Button Service (as provided by the BLE stack). */
     ble_gatts_char_handles_t    led_char_handles;    /**< Handles related to the LED Characteristic. */
     ble_gatts_char_handles_t    button_char_handles; /**< Handles related to the Button Characteristic. */
+    ble_gatts_char_handles_t    char_handles_1;      // Adding handles for the characteristic to our structure
+
     uint8_t                     uuid_type;           /**< UUID type for the LED Button Service. */
     ble_lbs_led_write_handler_t led_write_handler;   /**< Event handler to be called when the LED Characteristic is written. */
-};                                                   /**< can hold 16-bit handles for the characteristic value, user descriptor, CCCD and SCCD */
+                                                     /**< can hold 16-bit handles for the characteristic value, user descriptor, CCCD and SCCD */
+    // BLE_WRITE: Write handlers. Upon BLE write, these handler will be called
+    // Their implementation is in the main.c
+    ble_os_characteristic1_value_write_handler_t characteristic1_value_write_handler;  /**< Event handler to be called when the Characteristic1 is written. */
+    // Add other handlers here...
+
+};                                                  
+
 
 
 

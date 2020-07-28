@@ -1,15 +1,15 @@
 Output/ble_tuto_characteristics_pca10056_s140\ Release/Obj/nrf_crypto_ecdsa.o: \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\components\libraries\crypto\nrf_crypto_ecdsa.c \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\components\libraries\crypto\nrf_crypto_error.h \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\components\libraries\crypto\nrf_crypto_ecdsa.c \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\components\libraries\crypto\nrf_crypto_error.h \
  ../../../../../../components/libraries/util/sdk_errors.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/stdint.h \
  ../../../../../../components/softdevice/s140/headers/nrf_error.h \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\components\libraries\crypto\nrf_crypto_ecc.h \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\components\libraries\crypto\nrf_crypto_ecc.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/stddef.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/__crossworks.h \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\components\libraries\crypto\nrf_crypto_ecc_shared.h \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\components\libraries\crypto\nrf_crypto_ecc_shared.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/stdbool.h \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\components\libraries\crypto\nrf_crypto_ecc_backend.h \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\components\libraries\crypto\nrf_crypto_ecc_backend.h \
  ../config/sdk_config.h \
  ../../../../../../components/libraries/util/nordic_common.h \
  ../../../../../../components/libraries/crypto/backend/cc310/cc310_backend_ecc.h \
@@ -35,9 +35,9 @@ Output/ble_tuto_characteristics_pca10056_s140\ Release/Obj/nrf_crypto_ecdsa.o: \
  ../../../../../../components/libraries/crypto/backend/oberon/oberon_backend_ecc.h \
  ../../../../../../components/libraries/crypto/backend/micro_ecc/micro_ecc_backend_ecc.h \
  ../../../../../../components/libraries/crypto/backend/optiga/optiga_backend_ecc.h \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\components\libraries\crypto\nrf_crypto_ecdsa.h \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\components\libraries\crypto\nrf_crypto_ecdsa_shared.h \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\components\libraries\crypto\nrf_crypto_ecdsa_backend.h \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\components\libraries\crypto\nrf_crypto_ecdsa.h \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\components\libraries\crypto\nrf_crypto_ecdsa_shared.h \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\components\libraries\crypto\nrf_crypto_ecdsa_backend.h \
  ../../../../../../components/libraries/crypto/backend/cc310/cc310_backend_ecdsa.h \
  ../../../../../../components/libraries/crypto/nrf_crypto_ecdsa_shared.h \
  ../../../../../../external/nrf_cc310/include/crys_ecpki_types.h \
@@ -46,7 +46,7 @@ Output/ble_tuto_characteristics_pca10056_s140\ Release/Obj/nrf_crypto_ecdsa.o: \
  ../../../../../../components/libraries/crypto/backend/oberon/oberon_backend_ecdsa.h \
  ../../../../../../components/libraries/crypto/backend/micro_ecc/micro_ecc_backend_ecdsa.h \
  ../../../../../../components/libraries/crypto/backend/optiga/optiga_backend_ecdsa.h \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\components\libraries\crypto\nrf_crypto_mem.h \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\components\libraries\crypto\nrf_crypto_mem.h \
  ../../../../../../components/libraries/util/sdk_common.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/string.h \
  ../../../../../../components/libraries/util/nordic_common.h \
@@ -70,7 +70,7 @@ Output/ble_tuto_characteristics_pca10056_s140\ Release/Obj/nrf_crypto_ecdsa.o: \
  ../../../../../../components/softdevice/s140/headers/nrf_svc.h \
  ../../../../../../components/libraries/util/sdk_macros.h \
  ../../../../../../components/libraries/util/nrf_assert.h \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\components\libraries\crypto\nrf_crypto_types.h \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\components\libraries\crypto\nrf_crypto_types.h \
  ../../../../../../components/libraries/util/sdk_alloca.h \
  ../../../../../../components/libraries/util/app_util.h \
  ../../../../../../components/libraries/util/sdk_macros.h

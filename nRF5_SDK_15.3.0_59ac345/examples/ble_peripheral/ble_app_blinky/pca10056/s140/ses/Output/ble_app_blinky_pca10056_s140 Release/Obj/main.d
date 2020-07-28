@@ -1,5 +1,5 @@
 Output/ble_app_blinky_pca10056_s140\ Release/Obj/main.o: \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF5_SDK_15.3.0_59ac345\examples\ble_peripheral\ble_app_blinky\main.c \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\examples\ble_peripheral\ble_app_blinky\main.c \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/stdint.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/string.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/__crossworks.h \
@@ -86,14 +86,6 @@ Output/ble_app_blinky_pca10056_s140\ Release/Obj/main.o: \
  ../../../../../../components/libraries/timer/app_timer.h \
  ../../../../../../components/libraries/button/app_button.h \
  ../../../../../../components/ble/ble_services/ble_lbs/ble_lbs.h \
- ../../../../../../components/ble/nrf_ble_gatt/nrf_ble_gatt.h \
- ../../../../../../components/ble/nrf_ble_qwr/nrf_ble_qwr.h \
- ../../../../../../components/libraries/pwr_mgmt/nrf_pwr_mgmt.h \
- ../../../../../../components/libraries/delay/nrf_delay.h \
- ../../../../../../integration/nrfx/legacy/nrf_drv_spis.h \
- ../../../../../../modules/nrfx/drivers/include/nrfx_spis.h \
- ../../../../../../modules/nrfx/hal/nrf_spis.h \
- ../../../../../../modules/nrfx/hal/nrf_gpio.h \
  ../../../../../../components/libraries/log/nrf_log.h \
  ../../../../../../components/libraries/experimental_section_vars/nrf_section.h \
  ../../../../../../components/libraries/strerror/nrf_strerror.h \
@@ -107,4 +99,12 @@ Output/ble_app_blinky_pca10056_s140\ Release/Obj/main.o: \
  ../../../../../../components/libraries/memobj/nrf_memobj.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/stdlib.h \
  ../../../../../../components/libraries/balloc/nrf_balloc.h \
- ../../../../../../components/libraries/log/nrf_log_default_backends.h
+ ../../../../../../components/libraries/log/nrf_log_default_backends.h \
+ ../../../../../../components/ble/nrf_ble_gatt/nrf_ble_gatt.h \
+ ../../../../../../components/ble/nrf_ble_qwr/nrf_ble_qwr.h \
+ ../../../../../../components/libraries/pwr_mgmt/nrf_pwr_mgmt.h \
+ ../../../../../../components/libraries/delay/nrf_delay.h \
+ ../../../../../../integration/nrfx/legacy/nrf_drv_spis.h \
+ ../../../../../../modules/nrfx/drivers/include/nrfx_spis.h \
+ ../../../../../../modules/nrfx/hal/nrf_spis.h \
+ ../../../../../../modules/nrfx/hal/nrf_gpio.h
