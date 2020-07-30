@@ -9262,7 +9262,7 @@ OUTPUT(Output/Release/Exe/ble_app_blinky_pca10056_s140.elf elf32-littlearm)
  .debug_aranges
                 0x0000000000001188       0x28 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
 
-.debug_str      0x0000000000000000    0xab2ac
+.debug_str      0x0000000000000000    0xab2ae
  .debug_str     0x0000000000000000       0xe8 Output/ble_app_blinky_pca10056_s140 Release/Obj/thumb_crt0.o
  .debug_str     0x00000000000000e8    0x8efee Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_log_backend_rtt.o
                                       0x9161d (size before relaxing)
@@ -9332,29 +9332,29 @@ OUTPUT(Output/Release/Exe/ble_app_blinky_pca10056_s140.elf elf32-littlearm)
                                       0x8db2e (size before relaxing)
  .debug_str     0x000000000009dd29      0x790 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrfx_spis.o
                                       0x916c1 (size before relaxing)
- .debug_str     0x000000000009e4b9     0x9ab2 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
-                                      0x9de64 (size before relaxing)
- .debug_str     0x00000000000a7f6b      0x571 Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
+ .debug_str     0x000000000009e4b9     0x9ab4 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
+                                      0x9de66 (size before relaxing)
+ .debug_str     0x00000000000a7f6d      0x571 Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
                                       0x7ed9e (size before relaxing)
- .debug_str     0x00000000000a84dc      0x5bf Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
+ .debug_str     0x00000000000a84de      0x5bf Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
                                       0x8c1e3 (size before relaxing)
- .debug_str     0x00000000000a8a9b      0x3ca Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
+ .debug_str     0x00000000000a8a9d      0x3ca Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
                                       0x8df86 (size before relaxing)
- .debug_str     0x00000000000a8e65      0x87f Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
+ .debug_str     0x00000000000a8e67      0x87f Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
                                       0x8d835 (size before relaxing)
- .debug_str     0x00000000000a96e4      0x4ba Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
+ .debug_str     0x00000000000a96e6      0x4ba Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
                                       0x83024 (size before relaxing)
- .debug_str     0x00000000000a9b9e      0x522 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
+ .debug_str     0x00000000000a9ba0      0x522 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
                                       0x8eafa (size before relaxing)
- .debug_str     0x00000000000aa0c0      0x26a Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
+ .debug_str     0x00000000000aa0c2      0x26a Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
                                       0x8ccf7 (size before relaxing)
- .debug_str     0x00000000000aa32a      0x1b2 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_lbs.o
-                                      0x9227f (size before relaxing)
- .debug_str     0x00000000000aa4dc      0x544 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
+ .debug_str     0x00000000000aa32c      0x1b2 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_lbs.o
+                                      0x92281 (size before relaxing)
+ .debug_str     0x00000000000aa4de      0x544 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
                                       0x8a36a (size before relaxing)
- .debug_str     0x00000000000aaa20      0x6b8 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
+ .debug_str     0x00000000000aaa22      0x6b8 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
                                       0x8f119 (size before relaxing)
- .debug_str     0x00000000000ab0d8      0x1d4 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
+ .debug_str     0x00000000000ab0da      0x1d4 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
                                       0x89371 (size before relaxing)
 
 .debug_ranges   0x0000000000000000     0x37c0

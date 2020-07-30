@@ -98,7 +98,7 @@ NRF_SDH_BLE_OBSERVER(_name ## _obs,                                             
 #define LBS_UUID_SERVICE     0x1523
 #define LBS_UUID_BUTTON_CHAR 0x1524
 #define LBS_UUID_LED_CHAR    0x1525
-#define BLE_UUID_CHARACTERISTIC_1 0xCAFE
+#define BLE_UUID_SERIAL_NUMBER_CHAR 0xCAFE
 
 
 

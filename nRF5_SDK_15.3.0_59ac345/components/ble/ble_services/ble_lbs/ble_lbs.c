@@ -170,7 +170,7 @@ uint32_t ble_lbs_init(ble_lbs_t * p_lbs, const ble_lbs_init_t * p_lbs_init)
 
     // Add Serial Number characteristic.
     memset(&add_char_params, 0, sizeof(add_char_params));
-    add_char_params.uuid             = BLE_UUID_CHARACTERISTIC_1;
+    add_char_params.uuid             = BLE_UUID_SERIAL_NUMBER_CHAR;
     add_char_params.uuid_type        = p_lbs->uuid_type;
     add_char_params.max_len          = 4;
     add_char_params.init_len         = 4;
