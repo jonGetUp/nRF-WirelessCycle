@@ -43,6 +43,17 @@
 #include "ble_srv_common.h"
 
 
+void littleTo_bigEndian(uint32_t* littleEndian, uint8_t bigEndian[], uint32_t size)
+{
+    for(int32_t i = 0; i<size; i++)
+    {
+        bigEndian[size-1-i] = littleEndian[i];
+//         & 0x000000FF)<<8*i;
+//        bigEndian[size-1] = (littleEndian[i] & 0x000000FF)<<8*i;
+        //(*littleEndian & 0x000000FF<<8*i)<<8*(size-1-i*2);
+    }
+}
+
 /**@brief Function for handling the Write event (write command)
  *
  * @param[in] p_lbs      LED Button Service structure.
@@ -78,29 +89,11 @@ static void on_write(ble_lbs_t * p_lbs, ble_evt_t const * p_ble_evt)
         // Convert the little endian 4 bytes of data into 32 bit unsigned int
         uint32_t *characteristic1_value_adr;
         uint32_t characteristic1_value_val;
-        uint32_t characteristic1_value_val_big_endian=0;
         characteristic1_value_adr = (uint32_t*) p_evt_write->data;  //take the adress contain in the pointer
         characteristic1_value_val = *characteristic1_value_adr;     //take the contain of the pointer
 
-        characteristic1_value_val_big_endian += (characteristic1_value_val & 0x000000FF<<8*0)<<8*3;
-        characteristic1_value_val_big_endian += (characteristic1_value_val & 0x000000FF<<8*1)<<8*1;
-        characteristic1_value_val_big_endian += (characteristic1_value_val & 0x000000FF<<8*2)>>8*1;
-        characteristic1_value_val_big_endian += (characteristic1_value_val & 0x000000FF<<8*3)>>8*3;
-        
-        for(int8_t i = 0; i<4; i++)
-        {
-          if(i<2)
-          {
-            characteristic1_value_val_big_endian += (characteristic1_value_val & 0x000000FF<<8*i)<<8*(4-1-i*2);
-          }//else
-//          {
-//            characteristic1_value_val_big_endian += (characteristic1_value_val & 0x000000FF<<8*i)>>(8*(4-1-i));
-//          }
-          NRF_LOG_INFO("i:%x tmp%x, char=%x", i,(characteristic1_value_val & 0x000000FF<<8*i), characteristic1_value_val_big_endian);
-        }
-
         // Call the write handler function. Implementation is in the main.
-        p_lbs->characteristic1_value_write_handler(characteristic1_value_val_big_endian);
+        p_lbs->characteristic1_value_write_handler(characteristic1_value_val);  //Define const!!!
     }
 }
 
@@ -244,5 +237,6 @@ uint32_t ble_lbs_batVolt_characteristic_update(uint16_t conn_handle, ble_lbs_t *
     }
   return NRF_SUCCESS; //nothing has be send
 }
+
 
 #endif // NRF_MODULE_ENABLED(BLE_LBS)

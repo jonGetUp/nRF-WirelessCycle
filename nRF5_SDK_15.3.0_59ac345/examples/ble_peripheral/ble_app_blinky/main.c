@@ -137,17 +137,43 @@ static uint8_t m_adv_handle = BLE_GAP_ADV_SET_HANDLE_NOT_SET;                   
 static uint8_t m_enc_advdata[BLE_GAP_ADV_SET_DATA_SIZE_MAX];                    /**< Buffer for storing an encoded advertising set. */
 static uint8_t m_enc_scan_response_data[BLE_GAP_ADV_SET_DATA_SIZE_MAX];         /**< Buffer for storing an encoded scan data. */
 
+void send_pulse_IRQ_BT(void)
+{
+    //txBuffer loaded and ready to be readed -> pulse Interrupt request to the master
+    nrf_gpio_pin_set(IRQ_BT_PIN);    
+    nrf_delay_us(10); //delay min allow the PIC to detect the pulse
+    nrf_gpio_pin_clear(IRQ_BT_PIN);
+}
+
+void spis_reset_tx_buffer(void)
+{
+    for(int i=0; i < SPI_BUFFER_SIZE; i++)
+    {
+        m_tx_buf[i] = 0;
+    }
+}
 
 // BLE_WRITE:
 /**@brief Function for handling write events to the LED characteristic.
  *
- * @param[in] characteristic1_value     value that was received from the phone
+ * @param[in] characteristic1_value table of uint8_t containing the value that was received from the phone
  */
 // called from our_services.c from on_write();
 // Make a note of the arguments that are passed to this handler, we will use that later on
 static void characteristic1_value_write_handler(uint32_t characteristic1_value)
 {
+        spis_reset_tx_buffer();
 	NRF_LOG_INFO("We have received the characteristic1 value into our App:  %x", characteristic1_value);
+        m_tx_buf[0] = 0x0B; //function code
+        m_tx_buf[1] = 0x04; //data size (bytes)
+        //little to big endian conversion
+        m_tx_buf[5] = (uint8_t)  characteristic1_value; //desired function code
+        m_tx_buf[4] = (uint8_t) (characteristic1_value>>8); //desired function code
+        m_tx_buf[3] = (uint8_t) (characteristic1_value>>16); //desired function code
+        m_tx_buf[2] = (uint8_t) (characteristic1_value>>24); //desired function code
+
+        send_pulse_IRQ_BT();
+        
 }
 // Add other handlers here...
 
@@ -167,9 +193,7 @@ void spis_send_function_code(uint8_t functionCode)
 //        break;
 //    }
     //txBuffer loaded and ready to be readed -> pulse Interrupt request to the master
-    nrf_gpio_pin_set(IRQ_BT_PIN);
-    nrf_delay_us(10); //delay min allow the PIC to detect the pulse
-    nrf_gpio_pin_clear(IRQ_BT_PIN);
+    send_pulse_IRQ_BT();
             
 //    switch(frameIndex)
 //    {
@@ -189,7 +213,7 @@ void spis_send_function_code(uint8_t functionCode)
 void spis_write_master_serial_number(void)
 {
     m_tx_buf[0] = 0x0B; //Acknowledge, send function code and data
-    m_tx_buf[1] = 0x01; //data size
+    m_tx_buf[1] = 0x04; //data size (bytes)
     m_tx_buf[2] = (uint8_t) serialNumber; //desired function code
     m_tx_buf[3] = (uint8_t) (serialNumber>>8); //desired function code
     m_tx_buf[4] = (uint8_t) (serialNumber>>16); //desired function code
@@ -379,15 +403,15 @@ static void led_write_handler(uint16_t conn_handle, ble_lbs_t * p_lbs, uint8_t l
     {
         //bsp_board_led_on(LEDBUTTON_LED);
         NRF_LOG_INFO("Received LED ON!");
-        serialNumber = 0xAABBCCDD;
+        //serialNumber = 0xAABBCCDD;
     }
     else
     {
         //bsp_board_led_off(LEDBUTTON_LED);
         NRF_LOG_INFO("Received LED OFF!");
-        serialNumber = 0x00000000;
+//        serialNumber = 0x00000000;
     }
-    spis_write_master_serial_number();
+    //spis_write_master_serial_number();
 }
 
 
@@ -702,14 +726,6 @@ static void log_init(void)
     APP_ERROR_CHECK(err_code);
 
     NRF_LOG_DEFAULT_BACKENDS_INIT();
-}
-
-void spis_reset_tx_buffer(void)
-{
-    for(int i=0; i < SPI_BUFFER_SIZE; i++)
-    {
-        m_tx_buf[i] = 0;
-    }
 }
 
 void spis_read_batVolt_master(void)
