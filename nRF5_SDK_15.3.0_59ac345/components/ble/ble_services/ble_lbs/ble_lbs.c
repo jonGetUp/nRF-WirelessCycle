@@ -140,8 +140,8 @@ uint32_t ble_lbs_init(ble_lbs_t * p_lbs, const ble_lbs_init_t * p_lbs_init)
     memset(&add_char_params, 0, sizeof(add_char_params));
     add_char_params.uuid              = LBS_UUID_BUTTON_CHAR;
     add_char_params.uuid_type         = p_lbs->uuid_type;
-    add_char_params.init_len          = 2;//sizeof(uint8_t);
-    add_char_params.max_len           = 2;//sizeof(uint8_t);
+    add_char_params.init_len          = 2;
+    add_char_params.max_len           = 2;
     uint8_t value[2]                  = {0xD2,0x04};
     add_char_params.p_init_value      = value; //init first value
     add_char_params.char_props.read   = 1;
@@ -196,21 +196,6 @@ uint32_t ble_lbs_init(ble_lbs_t * p_lbs, const ble_lbs_init_t * p_lbs_init)
     return characteristic_add(p_lbs->service_handle, &add_char_params, &p_lbs->char_handles_1);  // adding characteristic handles to the attribute table
 }
 
-
-uint32_t ble_lbs_on_button_change(uint16_t conn_handle, ble_lbs_t * p_lbs, uint8_t button_state)
-{
-    ble_gatts_hvx_params_t params;
-    uint16_t len = sizeof(button_state);
-
-    memset(&params, 0, sizeof(params));
-    params.type   = BLE_GATT_HVX_NOTIFICATION;
-    params.handle = p_lbs->button_char_handles.value_handle;
-    params.p_data = &button_state;
-    params.p_len  = &len;
-
-    return sd_ble_gatts_hvx(conn_handle, &params);
-}
-
 static int32_t battery_value_local;
 // ALREADY_DONE_FOR_YOU: Function to be called when updating characteristic value
 uint32_t ble_lbs_batVolt_characteristic_update(uint16_t conn_handle, ble_lbs_t *p_lbs, uint16_t *battery_value)
@@ -221,7 +206,7 @@ uint32_t ble_lbs_batVolt_characteristic_update(uint16_t conn_handle, ble_lbs_t *
   {
     if(battery_value_local != *battery_value)  //battery changed
     {
-        uint16_t               len = 2;//sizeof(battery_value);
+        uint16_t               len = 2;
         ble_gatts_hvx_params_t hvx_params;          //Handle Value X(notification or indication)
         memset(&hvx_params, 0, sizeof(hvx_params));
 

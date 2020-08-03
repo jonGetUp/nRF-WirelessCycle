@@ -72,21 +72,15 @@
 #include "nrf_log_ctrl.h"
 #include "nrf_log_default_backends.h"
 
-
-#define ADVERTISING_LED                 BSP_BOARD_LED_0                         /**< Is on when device is advertising. */
-#define CONNECTED_LED                   BSP_BOARD_LED_1                         /**< Is on when device has connected. */
-#define LEDBUTTON_LED                   BSP_BOARD_LED_2                         /**< LED to be toggled with the help of the LED Button Service. */
-#define LEDBUTTON_BUTTON                BSP_BUTTON_0                            /**< Button that will trigger the notification event with the LED Button Service */
 #define IRQ_BT_PIN                      NRF_GPIO_PIN_MAP(1,4)                  /**< Interrupt request for SPI slave */
 
-#define DEVICE_NAME                     "Nordic_Blinky"                         /**< Name of device. Will be included in the advertising data. */
+#define DEVICE_NAME                     "EBike"                         /**< Name of device. Will be included in the advertising data. */
 
 #define APP_BLE_OBSERVER_PRIO           3                                       /**< Application's BLE observer priority. You shouldn't need to modify this value. */
 #define APP_BLE_CONN_CFG_TAG            1                                       /**< A tag identifying the SoftDevice BLE configuration. */
 
 #define APP_ADV_INTERVAL                64                                      /**< The advertising interval (in units of 0.625 ms; this value corresponds to 40 ms). */
 #define APP_ADV_DURATION                BLE_GAP_ADV_TIMEOUT_GENERAL_UNLIMITED   /**< The advertising time-out (in units of seconds). When set to 0, we will never time out. */
-
 
 #define MIN_CONN_INTERVAL               MSEC_TO_UNITS(100, UNIT_1_25_MS)        /**< Minimum acceptable connection interval (0.5 seconds). */
 #define MAX_CONN_INTERVAL               MSEC_TO_UNITS(200, UNIT_1_25_MS)        /**< Maximum acceptable connection interval (1 second). */
@@ -97,7 +91,15 @@
 #define NEXT_CONN_PARAMS_UPDATE_DELAY   APP_TIMER_TICKS(5000)                   /**< Time between each call to sd_ble_gap_conn_param_update after the first call (5 seconds). */
 #define MAX_CONN_PARAMS_UPDATE_COUNT    3                                       /**< Number of attempts before giving up the connection parameter negotiation. */
 
-#define BUTTON_DETECTION_DELAY          APP_TIMER_TICKS(50)                     /**< Delay from a GPIOTE event until a button is reported as pushed (in number of timer ticks). */
+/*GAP security parameters -> see advertising tuto*/
+//#define SEC_PARAM_BOND                  1                                       /**< Perform bonding. */
+//#define SEC_PARAM_MITM                  0                                       /**< Man In The Middle protection not required. */
+//#define SEC_PARAM_LESC                  0                                       /**< LE Secure Connections not enabled. */
+//#define SEC_PARAM_KEYPRESS              0                                       /**< Keypress notifications not enabled. */
+//#define SEC_PARAM_IO_CAPABILITIES       BLE_GAP_IO_CAPS_NONE                    /**< No I/O capabilities. */
+//#define SEC_PARAM_OOB                   0                                       /**< Out Of Band data not available. */
+//#define SEC_PARAM_MIN_KEY_SIZE          7                                       /**< Minimum encryption key size. */
+//#define SEC_PARAM_MAX_KEY_SIZE          16                                      /**< Maximum encryption key size. */
 
 #define DEAD_BEEF                       0xDEADBEEF                              /**< Value used as error code on stack dump, can be used to identify stack location on stack unwind. */
 
@@ -108,15 +110,12 @@
 static const nrf_drv_spis_t spis = NRF_DRV_SPIS_INSTANCE(SPIS_INSTANCE);/**< SPIS instance. */
 //#define TEST_STRING "nordic"
 
-static uint8_t       m_tx_buf[SPI_BUFFER_SIZE] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};//TEST_STRING;           /**< TX buffer.  {0x41,0xAA};*/
-static uint8_t       m_rx_buf[sizeof(m_tx_buf)];    /**< RX buffer. 1 byte more than the expected message*///2+1];//
-static const uint8_t m_length = sizeof(m_tx_buf);        /**< Transfer length. */
-int8_t frameIndex = 0;  //can be assigned the value -1
-uint8_t frameError = 0;
-uint8_t frameFonctionCode = 0;
-uint8_t fonctionCode = 0;
-uint16_t batVolt = 0;
+static uint8_t       m_tx_buf[SPI_BUFFER_SIZE];   /**< TX buffer.  {0x41,0xAA};*/
+static uint8_t       m_rx_buf[sizeof(m_tx_buf)];  /**< RX buffer. 1 byte more than the expected message*///2+1];//
+static const uint8_t m_length = sizeof(m_tx_buf); /**< Transfer length. */
 
+//Characteristics
+uint16_t batVolt = 0;
 uint32_t serialNumber = 0;
 
 static volatile bool spis_xfer_done; /**< Flag used to indicate that SPIS instance completed the transfer. */
@@ -127,12 +126,10 @@ NRF_BLE_GATT_DEF(m_gatt);                                                       
 NRF_BLE_QWR_DEF(m_qwr);                                                         /**< Context for the Queued Write module.*/
 
 // OUR_JOB: Step 3.G, Declare an app_timer id variable and define our timer interval and define a timer interval
-APP_TIMER_DEF(m_lbs_timer_id);
-#define LBS_CHAR_TIMER_INTERVAL     APP_TIMER_TICKS(1000) // 1000 ms intervals
-
+//APP_TIMER_DEF(m_lbs_timer_id);
+//#define LBS_CHAR_TIMER_INTERVAL     APP_TIMER_TICKS(1000) // 1000 ms intervals
 
 static uint16_t m_conn_handle = BLE_CONN_HANDLE_INVALID;                        /**< Handle of the current connection. */
-
 static uint8_t m_adv_handle = BLE_GAP_ADV_SET_HANDLE_NOT_SET;                   /**< Advertising handle used to identify an advertising set. */
 static uint8_t m_enc_advdata[BLE_GAP_ADV_SET_DATA_SIZE_MAX];                    /**< Buffer for storing an encoded advertising set. */
 static uint8_t m_enc_scan_response_data[BLE_GAP_ADV_SET_DATA_SIZE_MAX];         /**< Buffer for storing an encoded scan data. */
@@ -163,7 +160,7 @@ void spis_reset_tx_buffer(void)
 static void characteristic1_value_write_handler(uint32_t characteristic1_value)
 {
         spis_reset_tx_buffer();
-	NRF_LOG_INFO("We have received the characteristic1 value into our App:  %x", characteristic1_value);
+	NRF_LOG_INFO("Write command, Serial number:  %x", characteristic1_value);
         m_tx_buf[0] = 0x0B; //function code
         m_tx_buf[1] = 0x04; //data size (bytes)
         //little to big endian conversion
@@ -173,56 +170,8 @@ static void characteristic1_value_write_handler(uint32_t characteristic1_value)
         m_tx_buf[2] = (uint8_t) (characteristic1_value>>24); //desired function code
 
         send_pulse_IRQ_BT();
-        
 }
 // Add other handlers here...
-
-//tell the SPI master wich variable to return
-void spis_send_function_code(uint8_t functionCode)
-{
-    m_tx_buf[0] = 0x7F; //Acknowledge, send function code and data
-    m_tx_buf[1] = 0x01; //data size
-    m_tx_buf[2] = functionCode; //desired function code
-
-//    switch(functionCode)
-//    {
-//      case 0x03:
-//        m_tx_buf[2] = 0x03; //desired function code
-//        break;
-//      default:
-//        break;
-//    }
-    //txBuffer loaded and ready to be readed -> pulse Interrupt request to the master
-    send_pulse_IRQ_BT();
-            
-//    switch(frameIndex)
-//    {
-//      case 0:
-//        m_tx_buf[0] = 0x7F; //Acknowledge, send function code and data
-//        break;
-//      case 1:
-//        m_tx_buf[0] = 0x0B; //Acknowledge, send function code and data
-//        break;
-//      case 2:
-//        frameIndex = -1;    //Read the last byte
-//        break;
-//    }
-}
-
-//write the master serial number
-void spis_write_master_serial_number(void)
-{
-    m_tx_buf[0] = 0x0B; //Acknowledge, send function code and data
-    m_tx_buf[1] = 0x04; //data size (bytes)
-    m_tx_buf[2] = (uint8_t) serialNumber; //desired function code
-    m_tx_buf[3] = (uint8_t) (serialNumber>>8); //desired function code
-    m_tx_buf[4] = (uint8_t) (serialNumber>>16); //desired function code
-    m_tx_buf[5] = (uint8_t) (serialNumber>>24); //desired function code
-
-    nrf_gpio_pin_set(IRQ_BT_PIN);
-    nrf_delay_us(10); //delay min allow the PIC to detect the pulse
-    nrf_gpio_pin_clear(IRQ_BT_PIN);
-}
 
 /**@brief Struct that contains pointers to the encoded advertising data. */
 static ble_gap_adv_data_t m_adv_data =
@@ -257,21 +206,21 @@ void assert_nrf_callback(uint16_t line_num, const uint8_t * p_file_name)
 }
 
 
-/**@brief Function for the LEDs initialization.
- *
- * @details Initializes all LEDs used by the application.
- */
-static void leds_init(void)
-{
-    bsp_board_init(BSP_INIT_LEDS);
-}
+///**@brief Function for the LEDs initialization.
+// *
+// * @details Initializes all LEDs used by the application.
+// */
+//static void leds_init(void)
+//{
+//    bsp_board_init(BSP_INIT_LEDS);
+//}
 
-static void timer_timeout_handler(void * p_context)
-{
-    // OUR_JOB: Step 3.F, Update temperature and characteristic value.
-    spis_send_function_code(0x03);  //
-    ble_lbs_batVolt_characteristic_update(m_conn_handle, &m_lbs, &batVolt);  //call the characteristic update function
-}
+//static void timer_timeout_handler(void * p_context)
+//{
+//    // OUR_JOB: Step 3.F, Update temperature and characteristic value.
+//    //spis_send_function_code(0x03);  //
+//    ble_lbs_batVolt_characteristic_update(m_conn_handle, &m_lbs, &batVolt);  //call the characteristic update function
+//}
 
 /**@brief Function for the Timer initialization.
  *
@@ -284,7 +233,7 @@ static void timers_init(void)
     APP_ERROR_CHECK(err_code);
 
     // OUR_JOB: Step 3.H, Initiate our timer
-    app_timer_create(&m_lbs_timer_id, APP_TIMER_MODE_REPEATED, timer_timeout_handler);
+    //app_timer_create(&m_lbs_timer_id, APP_TIMER_MODE_REPEATED, timer_timeout_handler);
     //call the timeout handler, repeatedly (else APP_TIMER_MODE_SINGLE_SHOT)
 }
 
@@ -305,6 +254,9 @@ static void gap_params_init(void)
     err_code = sd_ble_gap_device_name_set(&sec_mode,
                                           (const uint8_t *)DEVICE_NAME,
                                           strlen(DEVICE_NAME));
+    APP_ERROR_CHECK(err_code);
+
+    err_code = sd_ble_gap_appearance_set(BLE_APPEARANCE_CYCLING_POWER_SENSOR);
     APP_ERROR_CHECK(err_code);
 
     memset(&gap_conn_params, 0, sizeof(gap_conn_params));
@@ -347,7 +299,6 @@ static void advertising_init(void)
     advdata.name_type          = BLE_ADVDATA_FULL_NAME;
     advdata.include_appearance = true;
     advdata.flags              = BLE_GAP_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
-
 
     memset(&srdata, 0, sizeof(srdata));
     srdata.uuids_complete.uuid_cnt = sizeof(adv_uuids) / sizeof(adv_uuids[0]);
@@ -396,22 +347,16 @@ static void nrf_qwr_error_handler(uint32_t nrf_error)
  */
 static void led_write_handler(uint16_t conn_handle, ble_lbs_t * p_lbs, uint8_t led_state)
 {
-    //the led characteristic have been write, we must write this value to the pic
-    
-    //nrf_gpio_pin_toggle(IRQ_BT_PIN);
+    //the led characteristic have been write
     if (led_state)
     {
-        //bsp_board_led_on(LEDBUTTON_LED);
         NRF_LOG_INFO("Received LED ON!");
-        //serialNumber = 0xAABBCCDD;
     }
     else
     {
-        //bsp_board_led_off(LEDBUTTON_LED);
         NRF_LOG_INFO("Received LED OFF!");
-//        serialNumber = 0x00000000;
     }
-    //spis_write_master_serial_number();
+
 }
 
 
@@ -506,8 +451,7 @@ static void advertising_start(void)
 
     err_code = sd_ble_gap_adv_start(m_adv_handle, APP_BLE_CONN_CFG_TAG);
     APP_ERROR_CHECK(err_code);
-
-    bsp_board_led_on(ADVERTISING_LED);
+    NRF_LOG_INFO("Advertise");
 }
 
 
@@ -524,24 +468,17 @@ static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
     {
         case BLE_GAP_EVT_CONNECTED:
             NRF_LOG_INFO("Connected");
-            bsp_board_led_on(CONNECTED_LED);
-            bsp_board_led_off(ADVERTISING_LED);
             m_conn_handle = p_ble_evt->evt.gap_evt.conn_handle;
             err_code = nrf_ble_qwr_conn_handle_assign(&m_qwr, m_conn_handle);
             APP_ERROR_CHECK(err_code);
-            err_code = app_button_enable();
-            APP_ERROR_CHECK(err_code);
-            app_timer_start(m_lbs_timer_id, LBS_CHAR_TIMER_INTERVAL, NULL);  //start adv timer
+            //app_timer_start(m_lbs_timer_id, LBS_CHAR_TIMER_INTERVAL, NULL);  //start adv timer
             break;
 
         case BLE_GAP_EVT_DISCONNECTED:
             NRF_LOG_INFO("Disconnected");
-            bsp_board_led_off(CONNECTED_LED);
             m_conn_handle = BLE_CONN_HANDLE_INVALID;
-            err_code = app_button_disable();
-            APP_ERROR_CHECK(err_code);
             advertising_start();
-            app_timer_stop(m_lbs_timer_id);  //stop adv timer
+            //app_timer_stop(m_lbs_timer_id);  //stop adv timer
             break;
 
         case BLE_GAP_EVT_SEC_PARAMS_REQUEST:
@@ -623,57 +560,7 @@ static void ble_stack_init(void)
     // OUR_JOB: Step 3.C Call ble_our_service_on_ble_evt() to do housekeeping of ble connections related to our service and characteristics
     // Needed for associating the observer with the event handler of the service
     //NRF_SDH_BLE_OBSERVER(m_our_service_observer, APP_BLE_OBSERVER_PRIO, ble_our_service_on_ble_evt, (void*) &m_our_service); 
-
 }
-
-
-/**@brief Function for handling events from the button handler module.
- *
- * @param[in] pin_no        The pin that the event applies to.
- * @param[in] button_action The button action (press/release).
- */
-static void button_event_handler(uint8_t pin_no, uint8_t button_action)
-{
-    ret_code_t err_code;
-
-    switch (pin_no)
-    {
-        case LEDBUTTON_BUTTON:
-            NRF_LOG_INFO("Send button state change.");
-            err_code = ble_lbs_on_button_change(m_conn_handle, &m_lbs, button_action);
-            if (err_code != NRF_SUCCESS &&
-                err_code != BLE_ERROR_INVALID_CONN_HANDLE &&
-                err_code != NRF_ERROR_INVALID_STATE &&
-                err_code != BLE_ERROR_GATTS_SYS_ATTR_MISSING)
-            {
-                APP_ERROR_CHECK(err_code);
-            }
-            break;
-
-        default:
-            APP_ERROR_HANDLER(pin_no);
-            break;
-    }
-}
-
-
-/**@brief Function for initializing the button handler module.
- */
-static void buttons_init(void)
-{
-    ret_code_t err_code;
-
-    //The array must be static because a pointer to it will be saved in the button handler module.
-    static app_button_cfg_t buttons[] =
-    {
-        {LEDBUTTON_BUTTON, false, BUTTON_PULL, button_event_handler}
-    };
-
-    err_code = app_button_init(buttons, ARRAY_SIZE(buttons),
-                               BUTTON_DETECTION_DELAY);
-    APP_ERROR_CHECK(err_code);
-}
-
 
 /**@brief Function for initializing power management.
  */
@@ -700,6 +587,7 @@ static void idle_state_handle(void)
 /**
  * Function for configuring UICR_REGOUT0 register
  * to set GPIO output voltage to 3.3V.
+ * PIC18f can only detect voltage above 3V
  */
 static void gpio_output_voltage_setup(void)
 {
@@ -728,32 +616,6 @@ static void log_init(void)
     NRF_LOG_DEFAULT_BACKENDS_INIT();
 }
 
-void spis_read_batVolt_master(void)
-{
-        batVolt = (((uint16_t)m_rx_buf[2])<<8)& 0xFF00; //read 8 LSB
-        batVolt = batVolt + (((uint16_t)m_rx_buf[3]) & 0x00FF);                 //read 8 MSB
-
-//    switch(frameIndex)
-//    {
-//      case 0:
-//        m_tx_buf[0] = 0x0B; //Acknowledge, send function code and data
-//        break;
-//      case 1:
-//        batVolt = ((uint16_t)m_rx_buf[0]) & 0x00FF;  //read 8 MSB
-//        break;
-//      case 2:
-//        batVolt = batVolt + ((((uint16_t)m_rx_buf[0])<<8)& 0xFF00);     //read 8 LSB
-//        frameIndex = -1;
-//        break;
-//      case 3:
-//        frameIndex = -1;  
-//        break;
-//      default:
-//        frameIndex = -1;
-//        break;
-//    }
-}
-
 /**
  * @brief SPIS user event handler.
  *
@@ -763,49 +625,49 @@ void spis_event_handler(nrf_drv_spis_event_t event)
 {
     if (event.evt_type == NRF_DRV_SPIS_XFER_DONE)
     {
-        spis_reset_tx_buffer();
+        //spis transfer done -> set flag
         spis_xfer_done = true;
-        //NRF_LOG_INFO(" Transfer completed. Received: %x",(uint32_t)(m_rx_buf[0]<<16 & m_rx_buf[1]<<8 & m_rx_buf[2]));
-        NRF_LOG_INFO(" Transfer completed. Received: %x",m_rx_buf[0]);
+        NRF_LOG_INFO(" Transfer completed. Received function code: %x",m_rx_buf[0]);
         //m_rx_buffer cleared when readed
-
-        //first sended byte is the fonctionCode
-//        if(frameIndex == 0)
-//        {
-          frameFonctionCode = m_rx_buf[0];
-//        }
-        switch(frameFonctionCode)
+        uint8_t functionCode = m_rx_buf[0];
+        //first sended byte is the functionCode
+        switch(functionCode)
         {
           case 0x7F:
-            //spis_send_function_code();
+            //never used, nRF only write PIC, no read
+//            //tell the SPI master wich variable to return
+//            spis_reset_tx_buffer();
+//            m_tx_buf[0] = 0x7F; //Acknowledge, send function code and data
+//            m_tx_buf[1] = 0x01; //data size
+//            m_tx_buf[2] = functionCode; //desired function code
+//            //txBuffer loaded and ready to be readed -> pulse Interrupt request to the master
+//            send_pulse_IRQ_BT();
             break;
           case 0x03:
-            spis_read_batVolt_master();
+            batVolt = (((uint16_t)m_rx_buf[2])<<8)& 0xFF00;         //read 8 LSB
+            batVolt = batVolt + (((uint16_t)m_rx_buf[3]) & 0x00FF); //read 8 MSB
+            ble_lbs_batVolt_characteristic_update(m_conn_handle, &m_lbs, &batVolt);  //call the characteristic update function
             break;
-          case 0x00:  //do nothing, master read the slave
+          case 0x00:
+            //do nothing, master read the slave txBuffer
             break;
           default:
-            //communication error
-            NRF_LOG_INFO("ILLEGAL FUNCTION");
-            //1: send function code with MSB at 1
-            spis_reset_tx_buffer();
-            m_tx_buf[0] = frameFonctionCode + 0x80; 
-//            frameError = 1;
-//            //2: send exception code illegal function 
-//            if(frameIndex == 1)
-//            {
-              m_tx_buf[1] = ILLEGAL_FUNCTION;
-//            }
-//            //3. let the PIC read the ILLEGAL FUNCTION excpetion code and reset the index
-//            if(frameIndex > 1)
-//            {
-//              frameIndex = -1;
-//              frameError = 0;
-//              //return; //exit the function whitout incrementing the frameIndex
-//            }
+            //Is MSB set?
+            if((functionCode & 0x80) == 0x80)
+            {
+              NRF_LOG_INFO("SPI: ERROR");
+            }else
+            {
+              //Function code doesn't exist
+              NRF_LOG_INFO("SPI: ILLEGAL FUNCTION");
+              //Return exception code
+//              spis_reset_tx_buffer();
+//              m_tx_buf[0] = functionCode + 0x80;
+//              m_tx_buf[1] = ILLEGAL_FUNCTION;
+//              send_pulse_IRQ_BT();
+            }
             break;
         }
-        frameIndex++;
     }
 }
 
@@ -814,17 +676,10 @@ void spis_event_handler(nrf_drv_spis_event_t event)
  */
 static void spi_init(void)
 {
-      // Enable the constant latency sub power mode to minimize the time it takes
+    // Enable the constant latency sub power mode to minimize the time it takes
     // for the SPIS peripheral to become active after the CSN line is asserted
     // (when the CPU is in sleep mode).
     NRF_POWER->TASKS_CONSTLAT = 1;
-
-    //bsp_board_init(BSP_INIT_LEDS);
-
-    //APP_ERROR_CHECK(NRF_LOG_INIT(NULL));
-    //NRF_LOG_DEFAULT_BACKENDS_INIT();
-
-    NRF_LOG_INFO("SPIS example");
     
     //SPI configuration
     nrf_drv_spis_config_t spis_config = NRF_DRV_SPIS_DEFAULT_CONFIG;
@@ -862,9 +717,8 @@ int main(void)
 {
     // Initialize.
     log_init();
-    leds_init();
+    //leds_init();
     timers_init();
-    buttons_init();
     power_management_init();
     gpio_output_voltage_setup();
     spi_init();
@@ -875,9 +729,11 @@ int main(void)
     advertising_init();
     conn_params_init();
 
-    nrf_gpio_cfg_output(IRQ_BT_PIN);  // Set IRQ PIN pin as output
+    // Set IRQ PIN pin as output
+    nrf_gpio_cfg_output(IRQ_BT_PIN);  
+
     // Start execution.
-    NRF_LOG_INFO("Blinky example started.");
+    NRF_LOG_INFO("Connected Ebike program started.");
     advertising_start();
 
     // Enter main loop.
