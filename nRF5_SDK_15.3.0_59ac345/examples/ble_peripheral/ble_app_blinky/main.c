@@ -107,6 +107,9 @@
 #define SPIS_INSTANCE 1 /**< SPIS instance index. */
 #define ILLEGAL_FUNCTION 0x01
 #define SPI_BUFFER_SIZE 10
+#define FC_SMARTPHONE_CONNECTED 0x1D
+#define SIZE_SMARTPHONE_CONNECTED 0x01
+
 static const nrf_drv_spis_t spis = NRF_DRV_SPIS_INSTANCE(SPIS_INSTANCE);/**< SPIS instance. */
 //#define TEST_STRING "nordic"
 
@@ -160,6 +163,7 @@ void spis_reset_tx_buffer(void)
 static void characteristic1_value_write_handler(uint32_t characteristic1_value)
 {
         spis_reset_tx_buffer();
+
 	NRF_LOG_INFO("Write command, Serial number:  %x", characteristic1_value);
         m_tx_buf[0] = 0x0B; //function code
         m_tx_buf[1] = 0x04; //data size (bytes)
@@ -472,6 +476,13 @@ static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
             err_code = nrf_ble_qwr_conn_handle_assign(&m_qwr, m_conn_handle);
             APP_ERROR_CHECK(err_code);
             //app_timer_start(m_lbs_timer_id, LBS_CHAR_TIMER_INTERVAL, NULL);  //start adv timer
+
+            //Indicate the smartphone connection to the PIC
+            spis_reset_tx_buffer();
+            m_tx_buf[0] = FC_SMARTPHONE_CONNECTED; //function code
+            m_tx_buf[1] = SIZE_SMARTPHONE_CONNECTED; //data size (bytes)
+            m_tx_buf[2] = 0x01; //desired function code
+            send_pulse_IRQ_BT();
             break;
 
         case BLE_GAP_EVT_DISCONNECTED:
@@ -479,6 +490,13 @@ static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
             m_conn_handle = BLE_CONN_HANDLE_INVALID;
             advertising_start();
             //app_timer_stop(m_lbs_timer_id);  //stop adv timer
+            
+            //Indicate the samrtphone disconnection to the PIC
+            spis_reset_tx_buffer();
+            m_tx_buf[0] = FC_SMARTPHONE_CONNECTED; //function code
+            m_tx_buf[1] = SIZE_SMARTPHONE_CONNECTED; //data size (bytes)
+            m_tx_buf[2] = 0x00; //desired function code
+            send_pulse_IRQ_BT();
             break;
 
         case BLE_GAP_EVT_SEC_PARAMS_REQUEST:
