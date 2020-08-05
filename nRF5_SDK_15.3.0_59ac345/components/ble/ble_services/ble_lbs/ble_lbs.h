@@ -98,7 +98,7 @@ NRF_SDH_BLE_OBSERVER(_name ## _obs,                                             
 #define LBS_UUID_SERVICE     0x0001//0x1523
 #define LBS_UUID_BUTTON_CHAR 0x0002//0x1524
 #define LBS_UUID_LED_CHAR    0x0003//0x1525
-#define BLE_UUID_SERIAL_NUMBER_CHAR 0xCAFE
+#define BLE_UUID_SERIAL_NUMBER_CHAR 0x0004
 
 // BLE_WRITE:
 /** @brief Our Service init structure. This structure contains all options and data needed for
@@ -196,6 +196,8 @@ uint32_t ble_lbs_on_button_change(uint16_t conn_handle, ble_lbs_t * p_lbs, uint8
  * @retval NRF_SUCCESS If the notification was sent successfully. Otherwise, an error code is returned.
  */
 uint32_t ble_lbs_batVolt_characteristic_update(uint16_t conn_handle, ble_lbs_t *p_lbs, uint16_t *battery_value);
+
+uint32_t ble_lbs_characteristic_1_update(uint16_t conn_handle, ble_lbs_t *p_lbs, uint16_t * characteristic_1);
 
 #ifdef __cplusplus
 }

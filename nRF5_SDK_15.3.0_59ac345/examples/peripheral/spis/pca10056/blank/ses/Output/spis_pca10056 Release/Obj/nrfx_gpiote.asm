@@ -163,7 +163,7 @@ nrf_gpio_cfg_sense_set:
 channel_free:
 .LVL10:
 .LFB228:
-	.file 3 "C:\\Users\\jogas\\Google Drive\\Bachelor\\_Software\\nRF52840\\nRF5_SDK_15.3.0_59ac345\\examples\\peripheral\\spis\\pca10056\\blank\\ses\\nrfx_gpiote.c"
+	.file 3 "C:\\Users\\jogas\\Google Drive\\Bachelor\\_Software\\nRF52840\\nRF-WirelessCycle\\nRF5_SDK_15.3.0_59ac345\\examples\\peripheral\\spis\\pca10056\\blank\\ses\\nrfx_gpiote.c"
 	.loc 3 222 1 is_stmt 1 view -0
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 0, uses_anonymous_args = 0
@@ -58043,9 +58043,6 @@ m_nrf_log_GPIOTE_logs_data_const:
 	.ascii	"GPIOTE_INTENSET_IN6_Disabled (0UL)\000"
 .LASF11886:
 	.ascii	"GPIOTE_CH_NUM 8\000"
-.LASF8157:
-	.ascii	"RTC_INTENCLR_COMPARE3_Msk (0x1UL << RTC_INTENCLR_CO"
-	.ascii	"MPARE3_Pos)\000"
 .LASF9589:
 	.ascii	"TWIM_INTENSET_LASTRX_Msk (0x1UL << TWIM_INTENSET_LA"
 	.ascii	"STRX_Pos)\000"
@@ -61259,6 +61256,9 @@ m_nrf_log_GPIOTE_logs_data_const:
 .LASF4093:
 	.ascii	"NFCT_INTENSET_FIELDLOST_Msk (0x1UL << NFCT_INTENSET"
 	.ascii	"_FIELDLOST_Pos)\000"
+.LASF10231:
+	.ascii	"UARTE_INTENSET_RXTO_Msk (0x1UL << UARTE_INTENSET_RX"
+	.ascii	"TO_Pos)\000"
 .LASF333:
 	.ascii	"__ULLACCUM_IBIT__ 32\000"
 .LASF1426:
@@ -61705,8 +61705,9 @@ m_nrf_log_GPIOTE_logs_data_const:
 	.ascii	"(1UL)\000"
 .LASF1618:
 	.ascii	"AAR_EVENTS_END_EVENTS_END_Generated (1UL)\000"
-.LASF2921:
-	.ascii	"LPCOMP_RESULT_RESULT_Above (1UL)\000"
+.LASF8157:
+	.ascii	"RTC_INTENCLR_COMPARE3_Msk (0x1UL << RTC_INTENCLR_CO"
+	.ascii	"MPARE3_Pos)\000"
 .LASF2906:
 	.ascii	"LPCOMP_INTENCLR_UP_Enabled (1UL)\000"
 .LASF8698:
@@ -66609,9 +66610,9 @@ m_nrf_log_GPIOTE_logs_data_const:
 .LASF5914:
 	.ascii	"POWER_RAM_POWER_S3RETENTION_Msk (0x1UL << POWER_RAM"
 	.ascii	"_POWER_S3RETENTION_Pos)\000"
-.LASF10231:
-	.ascii	"UARTE_INTENSET_RXTO_Msk (0x1UL << UARTE_INTENSET_RX"
-	.ascii	"TO_Pos)\000"
+.LASF3592:
+	.ascii	"MWU_REGIONEN_RGN3RA_Msk (0x1UL << MWU_REGIONEN_RGN3"
+	.ascii	"RA_Pos)\000"
 .LASF2413:
 	.ascii	"FICR_DEVICEADDRTYPE_DEVICEADDRTYPE_Public (0UL)\000"
 .LASF12305:
@@ -67152,8 +67153,6 @@ m_nrf_log_GPIOTE_logs_data_const:
 	.ascii	"I2S_INTENSET_RXPTRUPD_Pos (1UL)\000"
 .LASF8153:
 	.ascii	"RTC_INTENSET_TICK_Disabled (0UL)\000"
-.LASF5158:
-	.ascii	"GPIO_DIRSET_PIN13_Input (0UL)\000"
 .LASF9820:
 	.ascii	"TWIS_INTENCLR_WRITE_Disabled (0UL)\000"
 .LASF3828:
@@ -68860,6 +68859,9 @@ m_nrf_log_GPIOTE_logs_data_const:
 	.ascii	"MWU_INTENSET_REGION3WA_Enabled (1UL)\000"
 .LASF5056:
 	.ascii	"GPIO_DIR_PIN2_Input (0UL)\000"
+.LASF12646:
+	.ascii	"NRF_LOG_ITEM_DATA_CONST(_name) CONCAT_2(NRF_LOG_ITE"
+	.ascii	"M_DATA(_name),_const)\000"
 .LASF4874:
 	.ascii	"GPIO_IN_PIN15_Pos (15UL)\000"
 .LASF7291:
@@ -69169,10 +69171,8 @@ m_nrf_log_GPIOTE_logs_data_const:
 	.ascii	"USBD_EPSTATUS_EPOUT6_NoData (0UL)\000"
 .LASF10183:
 	.ascii	"UARTE_INTEN_RXTO_Pos (17UL)\000"
-.LASF13205:
-	.ascii	"C:\\Users\\jogas\\Google Drive\\Bachelor\\_Software"
-	.ascii	"\\nRF52840\\nRF5_SDK_15.3.0_59ac345\\examples\\peri"
-	.ascii	"pheral\\spis\\pca10056\\blank\\ses\000"
+.LASF5158:
+	.ascii	"GPIO_DIRSET_PIN13_Input (0UL)\000"
 .LASF11339:
 	.ascii	"WDT_CONFIG_HALT_Msk (0x1UL << WDT_CONFIG_HALT_Pos)\000"
 .LASF890:
@@ -69550,9 +69550,11 @@ m_nrf_log_GPIOTE_logs_data_const:
 .LASF12555:
 	.ascii	"NRFX_ERROR_DRV_TWI_ERR_ANACK NRF_ERROR_DRV_TWI_ERR_"
 	.ascii	"ANACK\000"
-.LASF12646:
-	.ascii	"NRF_LOG_ITEM_DATA_CONST(_name) CONCAT_2(NRF_LOG_ITE"
-	.ascii	"M_DATA(_name),_const)\000"
+.LASF13205:
+	.ascii	"C:\\Users\\jogas\\Google Drive\\Bachelor\\_Software"
+	.ascii	"\\nRF52840\\nRF-WirelessCycle\\nRF5_SDK_15.3.0_59ac"
+	.ascii	"345\\examples\\peripheral\\spis\\pca10056\\blank\\s"
+	.ascii	"es\000"
 .LASF12398:
 	.ascii	"MACRO_REPEAT_FOR_18(n_list,macro,...) macro(GET_VA_"
 	.ascii	"ARG_1(BRACKET_EXTRACT(n_list)), __VA_ARGS__) MACRO_"
@@ -70454,6 +70456,8 @@ m_nrf_log_GPIOTE_logs_data_const:
 	.ascii	"SPIS_RXD_MAXCNT_MAXCNT_Pos (0UL)\000"
 .LASF7043:
 	.ascii	"QDEC_INTENSET_DBLRDY_Set (1UL)\000"
+.LASF5405:
+	.ascii	"GPIO_LATCH_PIN27_Latched (1UL)\000"
 .LASF9933:
 	.ascii	"UART_EVENTS_RXDRDY_EVENTS_RXDRDY_Msk (0x1UL << UART"
 	.ascii	"_EVENTS_RXDRDY_EVENTS_RXDRDY_Pos)\000"
@@ -70704,10 +70708,6 @@ m_nrf_log_GPIOTE_logs_data_const:
 	.ascii	"RTC_INTENCLR_COMPARE1_Enabled (1UL)\000"
 .LASF1979:
 	.ascii	"COMP_TASKS_START_TASKS_START_Trigger (1UL)\000"
-.LASF13204:
-	.ascii	"C:\\Users\\jogas\\Google Drive\\Bachelor\\_Software"
-	.ascii	"\\nRF52840\\nRF5_SDK_15.3.0_59ac345\\examples\\peri"
-	.ascii	"pheral\\spis\\pca10056\\blank\\ses\\nrfx_gpiote.c\000"
 .LASF5360:
 	.ascii	"GPIO_DIRCLR_PIN5_Clear (1UL)\000"
 .LASF381:
@@ -71473,9 +71473,8 @@ m_nrf_log_GPIOTE_logs_data_const:
 	.ascii	"N3_Pos)\000"
 .LASF11085:
 	.ascii	"USBD_BREQUEST_BREQUEST_STD_SET_INTERFACE (11UL)\000"
-.LASF3592:
-	.ascii	"MWU_REGIONEN_RGN3RA_Msk (0x1UL << MWU_REGIONEN_RGN3"
-	.ascii	"RA_Pos)\000"
+.LASF9343:
+	.ascii	"TWI_TASKS_STARTTX_TASKS_STARTTX_Trigger (1UL)\000"
 .LASF2611:
 	.ascii	"GPIOTE_INTENCLR_IN6_Disabled (0UL)\000"
 .LASF4404:
@@ -73494,6 +73493,11 @@ m_nrf_log_GPIOTE_logs_data_const:
 	.ascii	"S_SR21_Pos)\000"
 .LASF2831:
 	.ascii	"I2S_PSEL_SDOUT_PIN_Pos (0UL)\000"
+.LASF13204:
+	.ascii	"C:\\Users\\jogas\\Google Drive\\Bachelor\\_Software"
+	.ascii	"\\nRF52840\\nRF-WirelessCycle\\nRF5_SDK_15.3.0_59ac"
+	.ascii	"345\\examples\\peripheral\\spis\\pca10056\\blank\\s"
+	.ascii	"es\\nrfx_gpiote.c\000"
 .LASF13131:
 	.ascii	"pin_configured_set\000"
 .LASF8880:
@@ -80450,8 +80454,8 @@ m_nrf_log_GPIOTE_logs_data_const:
 	.ascii	"GPIO_OUT_PIN10_Pos (10UL)\000"
 .LASF7577:
 	.ascii	"RADIO_SHORTS_DISABLED_TXEN_Enabled (1UL)\000"
-.LASF5405:
-	.ascii	"GPIO_LATCH_PIN27_Latched (1UL)\000"
+.LASF2921:
+	.ascii	"LPCOMP_RESULT_RESULT_Above (1UL)\000"
 .LASF4452:
 	.ascii	"GPIO_OUT_PIN9_Low (0UL)\000"
 .LASF12744:
@@ -81836,8 +81840,6 @@ m_nrf_log_GPIOTE_logs_data_const:
 	.ascii	"ADC_IRQn SAADC_IRQn\000"
 .LASF9341:
 	.ascii	"TWI_TASKS_STARTTX_TASKS_STARTTX_Pos (0UL)\000"
-.LASF9343:
-	.ascii	"TWI_TASKS_STARTTX_TASKS_STARTTX_Trigger (1UL)\000"
 .LASF10853:
 	.ascii	"USBD_INTENCLR_ENDEPIN7_Disabled (0UL)\000"
 .LASF8550:

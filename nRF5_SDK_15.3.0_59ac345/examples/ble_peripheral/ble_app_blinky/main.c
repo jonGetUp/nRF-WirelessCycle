@@ -107,13 +107,14 @@
 #define SPIS_INSTANCE 1 /**< SPIS instance index. */
 #define ILLEGAL_FUNCTION 0x01
 #define SPI_BUFFER_SIZE 10
+#define FC_BATVOLT 0x03
+#define FC_SERIAL_NUMBER 0x0A
 #define FC_SMARTPHONE_CONNECTED 0x1D
 #define SIZE_SMARTPHONE_CONNECTED 0x01
 
 static const nrf_drv_spis_t spis = NRF_DRV_SPIS_INSTANCE(SPIS_INSTANCE);/**< SPIS instance. */
-//#define TEST_STRING "nordic"
 
-static uint8_t       m_tx_buf[SPI_BUFFER_SIZE];   /**< TX buffer.  {0x41,0xAA};*/
+static uint8_t       m_tx_buf[SPI_BUFFER_SIZE] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};   /**< TX buffer.*/
 static uint8_t       m_rx_buf[sizeof(m_tx_buf)];  /**< RX buffer. 1 byte more than the expected message*///2+1];//
 static const uint8_t m_length = sizeof(m_tx_buf); /**< Transfer length. */
 
@@ -123,19 +124,38 @@ uint32_t serialNumber = 0;
 
 static volatile bool spis_xfer_done; /**< Flag used to indicate that SPIS instance completed the transfer. */
 /****SPI****/
-
 BLE_LBS_DEF(m_lbs);                                                             /**< LED Button Service instance. */
 NRF_BLE_GATT_DEF(m_gatt);                                                       /**< GATT module instance. */
 NRF_BLE_QWR_DEF(m_qwr);                                                         /**< Context for the Queued Write module.*/
 
 // OUR_JOB: Step 3.G, Declare an app_timer id variable and define our timer interval and define a timer interval
-//APP_TIMER_DEF(m_lbs_timer_id);
-//#define LBS_CHAR_TIMER_INTERVAL     APP_TIMER_TICKS(1000) // 1000 ms intervals
+APP_TIMER_DEF(m_lbs_timer_id);
+#define LBS_CHAR_TIMER_INTERVAL     APP_TIMER_TICKS(1000) // 1000 ms intervals
 
 static uint16_t m_conn_handle = BLE_CONN_HANDLE_INVALID;                        /**< Handle of the current connection. */
 static uint8_t m_adv_handle = BLE_GAP_ADV_SET_HANDLE_NOT_SET;                   /**< Advertising handle used to identify an advertising set. */
 static uint8_t m_enc_advdata[BLE_GAP_ADV_SET_DATA_SIZE_MAX];                    /**< Buffer for storing an encoded advertising set. */
 static uint8_t m_enc_scan_response_data[BLE_GAP_ADV_SET_DATA_SIZE_MAX];         /**< Buffer for storing an encoded scan data. */
+
+/**@brief Struct that contains pointers to the encoded advertising data. */
+static ble_gap_adv_data_t m_adv_data =
+{
+    .adv_data =
+    {
+        .p_data = m_enc_advdata,
+        .len    = BLE_GAP_ADV_SET_DATA_SIZE_MAX
+    },
+    .scan_rsp_data =
+    {
+        .p_data = m_enc_scan_response_data,
+        .len    = BLE_GAP_ADV_SET_DATA_SIZE_MAX
+
+    }
+};
+
+void spis_event_handler(nrf_drv_spis_event_t event);
+static void spi_init(void);
+void spis_handle(void);
 
 void send_pulse_IRQ_BT(void)
 {
@@ -162,36 +182,21 @@ void spis_reset_tx_buffer(void)
 // Make a note of the arguments that are passed to this handler, we will use that later on
 static void characteristic1_value_write_handler(uint32_t characteristic1_value)
 {
-        spis_reset_tx_buffer();
+    NRF_LOG_INFO("Write command, Serial number:  %x", characteristic1_value);
 
-	NRF_LOG_INFO("Write command, Serial number:  %x", characteristic1_value);
-        m_tx_buf[0] = 0x0B; //function code
-        m_tx_buf[1] = 0x04; //data size (bytes)
-        //little to big endian conversion
-        m_tx_buf[5] = (uint8_t)  characteristic1_value; //desired function code
-        m_tx_buf[4] = (uint8_t) (characteristic1_value>>8); //desired function code
-        m_tx_buf[3] = (uint8_t) (characteristic1_value>>16); //desired function code
-        m_tx_buf[2] = (uint8_t) (characteristic1_value>>24); //desired function code
-
-        send_pulse_IRQ_BT();
+    nrf_gpio_pin_set(IRQ_BT_PIN);
+    spis_reset_tx_buffer();
+    m_tx_buf[0] = 0x0B; //function code
+    m_tx_buf[1] = 0x04; //data size (bytes)
+    //little to big endian conversion
+    m_tx_buf[5] = (uint8_t)  characteristic1_value;
+    m_tx_buf[4] = (uint8_t) (characteristic1_value>>8);
+    m_tx_buf[3] = (uint8_t) (characteristic1_value>>16);
+    m_tx_buf[2] = (uint8_t) (characteristic1_value>>24);
+    nrf_delay_us(100);  //delay min allow the PIC to detect the pulse
+    nrf_gpio_pin_clear(IRQ_BT_PIN);
 }
 // Add other handlers here...
-
-/**@brief Struct that contains pointers to the encoded advertising data. */
-static ble_gap_adv_data_t m_adv_data =
-{
-    .adv_data =
-    {
-        .p_data = m_enc_advdata,
-        .len    = BLE_GAP_ADV_SET_DATA_SIZE_MAX
-    },
-    .scan_rsp_data =
-    {
-        .p_data = m_enc_scan_response_data,
-        .len    = BLE_GAP_ADV_SET_DATA_SIZE_MAX
-
-    }
-};
 
 /**@brief Function for assert macro callback.
  *
@@ -219,12 +224,12 @@ void assert_nrf_callback(uint16_t line_num, const uint8_t * p_file_name)
 //    bsp_board_init(BSP_INIT_LEDS);
 //}
 
-//static void timer_timeout_handler(void * p_context)
-//{
-//    // OUR_JOB: Step 3.F, Update temperature and characteristic value.
-//    //spis_send_function_code(0x03);  //
-//    ble_lbs_batVolt_characteristic_update(m_conn_handle, &m_lbs, &batVolt);  //call the characteristic update function
-//}
+static void timer_timeout_handler(void * p_context)
+{
+    // OUR_JOB: Step 3.F, Update temperature and characteristic value.
+    //spis_send_function_code(0x03);  //
+    //ble_lbs_batVolt_characteristic_update(m_conn_handle, &m_lbs, &batVolt);  //call the characteristic update function
+}
 
 /**@brief Function for the Timer initialization.
  *
@@ -237,7 +242,7 @@ static void timers_init(void)
     APP_ERROR_CHECK(err_code);
 
     // OUR_JOB: Step 3.H, Initiate our timer
-    //app_timer_create(&m_lbs_timer_id, APP_TIMER_MODE_REPEATED, timer_timeout_handler);
+    app_timer_create(&m_lbs_timer_id, APP_TIMER_MODE_REPEATED, timer_timeout_handler);
     //call the timeout handler, repeatedly (else APP_TIMER_MODE_SINGLE_SHOT)
 }
 
@@ -475,28 +480,32 @@ static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
             m_conn_handle = p_ble_evt->evt.gap_evt.conn_handle;
             err_code = nrf_ble_qwr_conn_handle_assign(&m_qwr, m_conn_handle);
             APP_ERROR_CHECK(err_code);
-            //app_timer_start(m_lbs_timer_id, LBS_CHAR_TIMER_INTERVAL, NULL);  //start adv timer
-
+            app_timer_start(m_lbs_timer_id, LBS_CHAR_TIMER_INTERVAL, NULL);  //start adv timer
+            
             //Indicate the smartphone connection to the PIC
+            nrf_gpio_pin_set(IRQ_BT_PIN);  
             spis_reset_tx_buffer();
-            m_tx_buf[0] = FC_SMARTPHONE_CONNECTED; //function code
-            m_tx_buf[1] = SIZE_SMARTPHONE_CONNECTED; //data size (bytes)
-            m_tx_buf[2] = 0x01; //desired function code
-            send_pulse_IRQ_BT();
+            m_tx_buf[0] = FC_SMARTPHONE_CONNECTED;    //function code
+            m_tx_buf[1] = SIZE_SMARTPHONE_CONNECTED;  //data size (bytes)
+            m_tx_buf[2] = 0x01;                       //desired function code
+            nrf_delay_us(1000);                        //delay min allow the PIC to detect the pulse
+            nrf_gpio_pin_clear(IRQ_BT_PIN);
             break;
 
         case BLE_GAP_EVT_DISCONNECTED:
             NRF_LOG_INFO("Disconnected");
             m_conn_handle = BLE_CONN_HANDLE_INVALID;
             advertising_start();
-            //app_timer_stop(m_lbs_timer_id);  //stop adv timer
+            app_timer_stop(m_lbs_timer_id);  //stop adv timer
             
             //Indicate the samrtphone disconnection to the PIC
+            nrf_gpio_pin_set(IRQ_BT_PIN);  
             spis_reset_tx_buffer();
             m_tx_buf[0] = FC_SMARTPHONE_CONNECTED; //function code
             m_tx_buf[1] = SIZE_SMARTPHONE_CONNECTED; //data size (bytes)
             m_tx_buf[2] = 0x00; //desired function code
-            send_pulse_IRQ_BT();
+            nrf_delay_us(1000);                        //delay min allow the PIC to detect the pulse
+            nrf_gpio_pin_clear(IRQ_BT_PIN);
             break;
 
         case BLE_GAP_EVT_SEC_PARAMS_REQUEST:
@@ -651,8 +660,11 @@ void spis_event_handler(nrf_drv_spis_event_t event)
         //first sended byte is the functionCode
         switch(functionCode)
         {
+          case 0x00:
+              //do nothing, master read the slave txBuffer
+              break;
           case 0x7F:
-            //never used, nRF only write PIC, no read
+              //never used, nRF only write PIC, no read
 //            //tell the SPI master wich variable to return
 //            spis_reset_tx_buffer();
 //            m_tx_buf[0] = 0x7F; //Acknowledge, send function code and data
@@ -661,14 +673,20 @@ void spis_event_handler(nrf_drv_spis_event_t event)
 //            //txBuffer loaded and ready to be readed -> pulse Interrupt request to the master
 //            send_pulse_IRQ_BT();
             break;
-          case 0x03:
+          case FC_BATVOLT:
+            //ble profil value format is little endian
             batVolt = (((uint16_t)m_rx_buf[2])<<8)& 0xFF00;         //read 8 LSB
             batVolt = batVolt + (((uint16_t)m_rx_buf[3]) & 0x00FF); //read 8 MSB
             ble_lbs_batVolt_characteristic_update(m_conn_handle, &m_lbs, &batVolt);  //call the characteristic update function
             break;
-          case 0x00:
-            //do nothing, master read the slave txBuffer
-            break;
+          case FC_SERIAL_NUMBER:
+            //write the ble characteristic in little endian
+            serialNumber = (((uint32_t)m_rx_buf[2])<<24) +  //LSB
+                           (((uint32_t)m_rx_buf[3])<<16) +
+                           (((uint32_t)m_rx_buf[4])<<8)  +
+                           ((uint32_t)m_rx_buf[5]);         //MSB
+            ble_lbs_characteristic_1_update(m_conn_handle, &m_lbs, &serialNumber);
+            break;          
           default:
             //Is MSB set?
             if((functionCode & 0x80) == 0x80)
@@ -753,12 +771,12 @@ int main(void)
     // Start execution.
     NRF_LOG_INFO("Connected Ebike program started.");
     advertising_start();
-
+   
     // Enter main loop.
     while(1)
     {
-        idle_state_handle();
         spis_handle();
+        //idle_state_handle();
     }
 }
 

@@ -107,7 +107,8 @@ int main(void)
         //wait until transfer is done (wait that the master give the clock)
         while (!spis_xfer_done)
         {
-            __WFE();  //Wait For Event
+            //__WFE();  //Wait For Event
+            sd_app_evt_wait();
         }
 
         NRF_LOG_FLUSH();

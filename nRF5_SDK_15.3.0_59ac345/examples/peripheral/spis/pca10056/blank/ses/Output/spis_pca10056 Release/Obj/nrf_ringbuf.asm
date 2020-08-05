@@ -24,7 +24,7 @@
 nrf_ringbuf_init:
 .LVL0:
 .LFB142:
-	.file 1 "C:\\Users\\jogas\\Google Drive\\Bachelor\\_Software\\nRF52840\\nRF5_SDK_15.3.0_59ac345\\examples\\peripheral\\spis\\pca10056\\blank\\ses\\nrf_ringbuf.c"
+	.file 1 "C:\\Users\\jogas\\Google Drive\\Bachelor\\_Software\\nRF52840\\nRF-WirelessCycle\\nRF5_SDK_15.3.0_59ac345\\examples\\peripheral\\spis\\pca10056\\blank\\ses\\nrf_ringbuf.c"
 	.loc 1 48 1 view -0
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 0, uses_anonymous_args = 0
@@ -41977,9 +41977,6 @@ nrf_ringbuf_free:
 	.ascii	"TWIS_INTENSET_WRITE_Pos (25UL)\000"
 .LASF2681:
 	.ascii	"GPIOTE_INTENSET_IN6_Disabled (0UL)\000"
-.LASF8272:
-	.ascii	"RTC_INTENCLR_COMPARE3_Msk (0x1UL << RTC_INTENCLR_CO"
-	.ascii	"MPARE3_Pos)\000"
 .LASF9704:
 	.ascii	"TWIM_INTENSET_LASTRX_Msk (0x1UL << TWIM_INTENSET_LA"
 	.ascii	"STRX_Pos)\000"
@@ -45406,8 +45403,9 @@ nrf_ringbuf_free:
 	.ascii	"(1UL)\000"
 .LASF1733:
 	.ascii	"AAR_EVENTS_END_EVENTS_END_Generated (1UL)\000"
-.LASF3036:
-	.ascii	"LPCOMP_RESULT_RESULT_Above (1UL)\000"
+.LASF8272:
+	.ascii	"RTC_INTENCLR_COMPARE3_Msk (0x1UL << RTC_INTENCLR_CO"
+	.ascii	"MPARE3_Pos)\000"
 .LASF3021:
 	.ascii	"LPCOMP_INTENCLR_UP_Enabled (1UL)\000"
 .LASF8813:
@@ -45762,10 +45760,6 @@ nrf_ringbuf_free:
 .LASF2787:
 	.ascii	"I2S_EVENTS_RXPTRUPD_EVENTS_RXPTRUPD_Generated (1UL)"
 	.ascii	"\000"
-.LASF12360:
-	.ascii	"C:\\Users\\jogas\\Google Drive\\Bachelor\\_Software"
-	.ascii	"\\nRF52840\\nRF5_SDK_15.3.0_59ac345\\examples\\peri"
-	.ascii	"pheral\\spis\\pca10056\\blank\\ses\\nrf_ringbuf.c\000"
 .LASF9219:
 	.ascii	"SPIS_RXD_MAXCNT_MAXCNT_Msk (0xFFFFUL << SPIS_RXD_MA"
 	.ascii	"XCNT_MAXCNT_Pos)\000"
@@ -49608,6 +49602,11 @@ nrf_ringbuf_free:
 	.ascii	"RADIO_DACNF_ENA6_Pos (6UL)\000"
 .LASF10137:
 	.ascii	"UART_ERRORSRC_FRAMING_NotPresent (0UL)\000"
+.LASF12360:
+	.ascii	"C:\\Users\\jogas\\Google Drive\\Bachelor\\_Software"
+	.ascii	"\\nRF52840\\nRF-WirelessCycle\\nRF5_SDK_15.3.0_59ac"
+	.ascii	"345\\examples\\peripheral\\spis\\pca10056\\blank\\s"
+	.ascii	"es\\nrf_ringbuf.c\000"
 .LASF10390:
 	.ascii	"UARTE_INTENCLR_TXSTARTED_Pos (20UL)\000"
 .LASF1727:
@@ -49955,9 +49954,9 @@ nrf_ringbuf_free:
 .LASF6029:
 	.ascii	"POWER_RAM_POWER_S3RETENTION_Msk (0x1UL << POWER_RAM"
 	.ascii	"_POWER_S3RETENTION_Pos)\000"
-.LASF10346:
-	.ascii	"UARTE_INTENSET_RXTO_Msk (0x1UL << UARTE_INTENSET_RX"
-	.ascii	"TO_Pos)\000"
+.LASF3707:
+	.ascii	"MWU_REGIONEN_RGN3RA_Msk (0x1UL << MWU_REGIONEN_RGN3"
+	.ascii	"RA_Pos)\000"
 .LASF2528:
 	.ascii	"FICR_DEVICEADDRTYPE_DEVICEADDRTYPE_Public (0UL)\000"
 .LASF12046:
@@ -50467,8 +50466,6 @@ nrf_ringbuf_free:
 	.ascii	"I2S_INTENSET_RXPTRUPD_Pos (1UL)\000"
 .LASF8268:
 	.ascii	"RTC_INTENSET_TICK_Disabled (0UL)\000"
-.LASF5273:
-	.ascii	"GPIO_DIRSET_PIN13_Input (0UL)\000"
 .LASF9935:
 	.ascii	"TWIS_INTENCLR_WRITE_Disabled (0UL)\000"
 .LASF3943:
@@ -52372,10 +52369,8 @@ nrf_ringbuf_free:
 	.ascii	"USBD_EPSTATUS_EPOUT6_NoData (0UL)\000"
 .LASF10298:
 	.ascii	"UARTE_INTEN_RXTO_Pos (17UL)\000"
-.LASF12361:
-	.ascii	"C:\\Users\\jogas\\Google Drive\\Bachelor\\_Software"
-	.ascii	"\\nRF52840\\nRF5_SDK_15.3.0_59ac345\\examples\\peri"
-	.ascii	"pheral\\spis\\pca10056\\blank\\ses\000"
+.LASF5273:
+	.ascii	"GPIO_DIRSET_PIN13_Input (0UL)\000"
 .LASF11454:
 	.ascii	"WDT_CONFIG_HALT_Msk (0x1UL << WDT_CONFIG_HALT_Pos)\000"
 .LASF554:
@@ -52732,6 +52727,11 @@ nrf_ringbuf_free:
 	.ascii	"PPI_CHG2_CH11_Pos PPI_CHG_CH11_Pos\000"
 .LASF3373:
 	.ascii	"MWU_NMIENSET_REGION0WA_Set (1UL)\000"
+.LASF12361:
+	.ascii	"C:\\Users\\jogas\\Google Drive\\Bachelor\\_Software"
+	.ascii	"\\nRF52840\\nRF-WirelessCycle\\nRF5_SDK_15.3.0_59ac"
+	.ascii	"345\\examples\\peripheral\\spis\\pca10056\\blank\\s"
+	.ascii	"es\000"
 .LASF6201:
 	.ascii	"POWER_RAM_POWERSET_S0POWER_Pos (0UL)\000"
 .LASF1744:
@@ -54506,9 +54506,8 @@ nrf_ringbuf_free:
 	.ascii	"N3_Pos)\000"
 .LASF11200:
 	.ascii	"USBD_BREQUEST_BREQUEST_STD_SET_INTERFACE (11UL)\000"
-.LASF3707:
-	.ascii	"MWU_REGIONEN_RGN3RA_Msk (0x1UL << MWU_REGIONEN_RGN3"
-	.ascii	"RA_Pos)\000"
+.LASF9458:
+	.ascii	"TWI_TASKS_STARTTX_TASKS_STARTTX_Trigger (1UL)\000"
 .LASF2726:
 	.ascii	"GPIOTE_INTENCLR_IN6_Disabled (0UL)\000"
 .LASF9979:
@@ -57034,6 +57033,9 @@ nrf_ringbuf_free:
 	.ascii	"_READY_Pos)\000"
 .LASF11282:
 	.ascii	"USBD_EPOUTEN_ISOOUT_Pos (8UL)\000"
+.LASF10346:
+	.ascii	"UARTE_INTENSET_RXTO_Msk (0x1UL << UARTE_INTENSET_RX"
+	.ascii	"TO_Pos)\000"
 .LASF5868:
 	.ascii	"POWER_RESETREAS_VBUS_Detected (1UL)\000"
 .LASF1029:
@@ -62873,6 +62875,8 @@ nrf_ringbuf_free:
 	.ascii	"GPIO_OUT_PIN10_Pos (10UL)\000"
 .LASF7692:
 	.ascii	"RADIO_SHORTS_DISABLED_TXEN_Enabled (1UL)\000"
+.LASF3036:
+	.ascii	"LPCOMP_RESULT_RESULT_Above (1UL)\000"
 .LASF4567:
 	.ascii	"GPIO_OUT_PIN9_Low (0UL)\000"
 .LASF11900:
@@ -64155,8 +64159,6 @@ nrf_ringbuf_free:
 	.ascii	"ADC_IRQn SAADC_IRQn\000"
 .LASF9456:
 	.ascii	"TWI_TASKS_STARTTX_TASKS_STARTTX_Pos (0UL)\000"
-.LASF9458:
-	.ascii	"TWI_TASKS_STARTTX_TASKS_STARTTX_Trigger (1UL)\000"
 .LASF10968:
 	.ascii	"USBD_INTENCLR_ENDEPIN7_Disabled (0UL)\000"
 .LASF8665:

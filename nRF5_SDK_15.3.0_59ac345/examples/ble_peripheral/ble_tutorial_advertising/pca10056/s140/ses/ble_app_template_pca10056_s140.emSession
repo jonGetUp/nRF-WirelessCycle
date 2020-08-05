@@ -52,10 +52,10 @@
   <Trace enabled="Yes"/>
  </TraceWindow>
  <Watch1>
-  <Watches active="1" update="Never"/>
+  <Watches active="0" update="Never"/>
  </Watch1>
  <Watch2>
-  <Watches active="0" update="Never"/>
+  <Watches active="1" update="Never"/>
  </Watch2>
  <Watch3>
   <Watches active="0" update="Never"/>
@@ -64,7 +64,7 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="734" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../main.c" selected="1" top="739" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="734" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../main.c" selected="1" top="699" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../config/sdk_config.h" selected="0" top="30" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="959" useTextEdit="1" openedFrom="C:/Users/jogas/Google Drive/Bachelor/_Software/nRF52840/nRF-WirelessCycle/nRF5_SDK_15.3.0_59ac345/examples/ble_peripheral/ble_tutorial_advertising/main.c" useBinaryEdit="0" left="0" path="../../../../../../components/softdevice/s140/headers/ble_gap.h" selected="0" top="940" codecName="Default"/>
  </Files>
