@@ -1,9 +1,15 @@
-Output/ble_app_blinky_pca10056_s140\ Release/Obj/main.o: \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\examples\ble_peripheral\ble_app_blinky\main.c \
+Output/ble_app_blinky_pca10056_s140\ Release/Obj/spi.o: \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\examples\ble_peripheral\ble_app_blinky\Src\spi.c \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\examples\ble_peripheral\ble_app_blinky\Src\spi.h \
+ ../../../../../../integration/nrfx/legacy/nrf_drv_spis.h \
+ ../../../../../../modules/nrfx/drivers/include/nrfx_spis.h \
+ ../../../../../../modules/nrfx/nrfx.h \
+ ../../../../../../integration/nrfx/nrfx_config.h ../config/sdk_config.h \
+ ../../../../../../modules/nrfx/drivers/nrfx_common.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/stdint.h \
- C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/string.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/stddef.h \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/__crossworks.h \
- ../../../../../../components/libraries/util/nordic_common.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/stdbool.h \
  ../../../../../../modules/nrfx/mdk/nrf.h \
  ../../../../../../modules/nrfx/mdk/nrf52840.h \
  ../../../../../../components/toolchain/cmsis/include/core_cm4.h \
@@ -16,13 +22,6 @@ Output/ble_app_blinky_pca10056_s140\ Release/Obj/main.o: \
  ../../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h \
  ../../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h \
  ../../../../../../modules/nrfx/mdk/compiler_abstraction.h \
- ../../../../../../components/boards/boards.h \
- ../../../../../../modules/nrfx/hal/nrf_gpio.h \
- ../../../../../../modules/nrfx/nrfx.h \
- ../../../../../../integration/nrfx/nrfx_config.h ../config/sdk_config.h \
- ../../../../../../modules/nrfx/drivers/nrfx_common.h \
- C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/stddef.h \
- C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/stdbool.h \
  ../../../../../../modules/nrfx/mdk/nrf_peripherals.h \
  ../../../../../../modules/nrfx/mdk/nrf52840_peripherals.h \
  ../../../../../../integration/nrfx/nrfx_glue.h \
@@ -35,6 +34,7 @@ Output/ble_app_blinky_pca10056_s140\ Release/Obj/main.o: \
  ../../../../../../components/libraries/util/nordic_common.h \
  ../../../../../../components/softdevice/s140/headers/nrf52/nrf_mbr.h \
  ../../../../../../components/softdevice/s140/headers/nrf_svc.h \
+ ../../../../../../components/libraries/util/nordic_common.h \
  ../../../../../../components/libraries/util/app_util_platform.h \
  ../../../../../../components/softdevice/s140/headers/nrf_soc.h \
  ../../../../../../components/softdevice/s140/headers/nrf_svc.h \
@@ -53,28 +53,11 @@ Output/ble_app_blinky_pca10056_s140\ Release/Obj/main.o: \
  ../../../../../../components/libraries/util/sdk_resources.h \
  ../../../../../../components/softdevice/s140/headers/nrf_sd_def.h \
  ../../../../../../modules/nrfx/drivers/nrfx_errors.h \
- ../../../../../../components/boards/pca10056.h \
- ../../../../../../components/libraries/util/app_error.h \
- ../../../Src/ble_ebike_service.h \
- ../../../../../../components/softdevice/s140/headers/ble.h \
- ../../../../../../components/softdevice/s140/headers/ble_err.h \
- ../../../../../../components/softdevice/s140/headers/ble_gap.h \
- ../../../../../../components/softdevice/s140/headers/ble_hci.h \
- ../../../../../../components/softdevice/s140/headers/ble_ranges.h \
- ../../../../../../components/softdevice/s140/headers/ble_types.h \
- ../../../../../../components/softdevice/s140/headers/ble_l2cap.h \
- ../../../../../../components/softdevice/s140/headers/ble_gatt.h \
- ../../../../../../components/softdevice/s140/headers/ble_gattc.h \
- ../../../../../../components/softdevice/s140/headers/ble_gatts.h \
- ../../../../../../components/ble/common/ble_srv_common.h \
- ../../../../../../components/softdevice/s140/headers/ble_types.h \
- ../../../../../../components/softdevice/s140/headers/ble_gap.h \
- ../../../../../../components/softdevice/s140/headers/ble_gatt.h \
- ../../../../../../components/softdevice/common/nrf_sdh_ble.h \
- ../../../../../../components/libraries/experimental_section_vars/nrf_section_iter.h \
- ../../../../../../components/libraries/experimental_section_vars/nrf_section.h \
+ ../../../../../../modules/nrfx/hal/nrf_spis.h \
+ ../../../../../../modules/nrfx/hal/nrf_gpio.h \
  ../../../../../../components/libraries/log/nrf_log.h \
  ../../../../../../components/libraries/util/sdk_common.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/string.h \
  ../../../../../../components/libraries/util/sdk_os.h \
  ../../../../../../components/libraries/util/app_util.h \
  ../../../../../../components/libraries/util/sdk_macros.h \
@@ -91,24 +74,38 @@ Output/ble_app_blinky_pca10056_s140\ Release/Obj/main.o: \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/stdlib.h \
  ../../../../../../components/libraries/balloc/nrf_balloc.h \
  ../../../../../../components/libraries/log/nrf_log_default_backends.h \
- ../../../Src/ble_config.h \
  ../../../../../../components/softdevice/common/nrf_sdh.h \
- ../../../Src/ble_ebike_service.h \
+ ../../../../../../components/libraries/experimental_section_vars/nrf_section_iter.h \
+ ../../../../../../components/libraries/experimental_section_vars/nrf_section.h \
+ ../../../../../../components/boards/boards.h \
+ ../../../../../../modules/nrfx/hal/nrf_gpio.h \
+ ../../../../../../components/boards/pca10056.h \
+ ../../../../../../components/ble/ble_services/ble_lbs/ble_lbs.h \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\examples\ble_peripheral\ble_app_blinky\Src\ble_config.h \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\examples\ble_peripheral\ble_app_blinky\Src\ble_ebike_service.h \
+ ../../../../../../components/softdevice/s140/headers/ble.h \
+ ../../../../../../components/softdevice/s140/headers/ble_err.h \
+ ../../../../../../components/softdevice/s140/headers/ble_gap.h \
+ ../../../../../../components/softdevice/s140/headers/ble_hci.h \
+ ../../../../../../components/softdevice/s140/headers/ble_ranges.h \
+ ../../../../../../components/softdevice/s140/headers/ble_types.h \
+ ../../../../../../components/softdevice/s140/headers/ble_l2cap.h \
+ ../../../../../../components/softdevice/s140/headers/ble_gatt.h \
+ ../../../../../../components/softdevice/s140/headers/ble_gattc.h \
+ ../../../../../../components/softdevice/s140/headers/ble_gatts.h \
+ ../../../../../../components/ble/common/ble_srv_common.h \
+ ../../../../../../components/softdevice/s140/headers/ble_types.h \
+ ../../../../../../components/softdevice/s140/headers/ble_gap.h \
+ ../../../../../../components/softdevice/s140/headers/ble_gatt.h \
+ ../../../../../../components/softdevice/common/nrf_sdh_ble.h \
  ../../../../../../components/softdevice/s140/headers/ble_err.h \
  ../../../../../../components/softdevice/s140/headers/ble_hci.h \
  ../../../../../../components/ble/common/ble_advdata.h \
  ../../../../../../components/ble/common/ble_conn_params.h \
  ../../../../../../components/ble/common/ble_srv_common.h \
  ../../../../../../components/libraries/timer/app_timer.h \
+ ../../../../../../components/libraries/util/app_error.h \
  ../../../../../../components/libraries/button/app_button.h \
  ../../../../../../components/ble/nrf_ble_gatt/nrf_ble_gatt.h \
  ../../../../../../components/ble/nrf_ble_qwr/nrf_ble_qwr.h \
- ../../../../../../components/libraries/delay/nrf_delay.h \
- ../../../Src/spi.h \
- ../../../../../../integration/nrfx/legacy/nrf_drv_spis.h \
- ../../../../../../modules/nrfx/drivers/include/nrfx_spis.h \
- ../../../../../../modules/nrfx/hal/nrf_spis.h \
- ../../../../../../modules/nrfx/hal/nrf_gpio.h \
- ../../../../../../components/ble/ble_services/ble_lbs/ble_lbs.h \
- ../../../../../../components/libraries/pwr_mgmt/nrf_pwr_mgmt.h \
- ../../../Src/spi.h
+ ../../../../../../components/libraries/delay/nrf_delay.h
