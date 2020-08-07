@@ -153,40 +153,69 @@ static ble_gap_adv_data_t m_adv_data =
     }
 };
 
-void spis_event_handler(nrf_drv_spis_event_t event);
+//prototype declaration
+static void led_write_handler(uint16_t conn_handle, ble_lbs_t * p_lbs, uint8_t led_state);
+static void characteristic1_value_write_handler(uint32_t characteristic1_value);
+
+static void timers_init(void);
+static void timer_timeout_handler(void * p_context);
+
+static void gap_params_init(void);
+static void gatt_init(void);
+static void advertising_init(void);
+static void services_init(void);
+static void nrf_qwr_error_handler(uint32_t nrf_error);
+static void on_conn_params_evt(ble_conn_params_evt_t * p_evt);
+static void conn_params_error_handler(uint32_t nrf_error);
+static void conn_params_init(void);
+static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context);
+static void ble_stack_init(void);
+static void advertising_start(void);
+
+static void log_init(void);
+static void power_management_init(void);
+static void gpio_output_voltage_setup(void);
+static void idle_state_handle(void);
+void assert_nrf_callback(uint16_t line_num, const uint8_t * p_file_name);
+
 static void spi_init(void);
-void spis_handle(void);
+void spis_event_handler(nrf_drv_spis_event_t event);
+static void spis_handle(void);
+static void spis_reset_tx_buffer(void);
 
-void send_pulse_IRQ_BT(void)
-{
-    //txBuffer loaded and ready to be readed -> pulse Interrupt request to the master
-    nrf_gpio_pin_set(IRQ_BT_PIN);    
-    nrf_delay_us(10); //delay min allow the PIC to detect the pulse
-    nrf_gpio_pin_clear(IRQ_BT_PIN);
-}
+/******************************************************************************/
+/* BLE_WRITE: Callback function                                               */
+/******************************************************************************/
 
-void spis_reset_tx_buffer(void)
+/**@brief Function for handling write events to the LED characteristic.
+ *
+ * @param[in] p_lbs     Instance of LED Button Service to which the write applies.
+ * @param[in] led_state Written/desired state of the LED.
+ */
+static void led_write_handler(uint16_t conn_handle, ble_lbs_t * p_lbs, uint8_t led_state)
 {
-    for(int i=0; i < SPI_BUFFER_SIZE; i++)
+    //the led characteristic have been write
+    if (led_state)
     {
-        m_tx_buf[i] = 0;
+        NRF_LOG_INFO("Received LED ON!");
+    }
+    else
+    {
+        NRF_LOG_INFO("Received LED OFF!");
     }
 }
 
-// BLE_WRITE:
-/**@brief Function for handling write events to the LED characteristic.
- *
- * @param[in] characteristic1_value table of uint8_t containing the value that was received from the phone
- */
-// called from our_services.c from on_write();
-// Make a note of the arguments that are passed to this handler, we will use that later on
+/*******************************************************************************
+ * @brief  Write a given value in eeprom
+ * @param  characteristic1_value containing the value that was received from the phone
+ ******************************************************************************/
 static void characteristic1_value_write_handler(uint32_t characteristic1_value)
 {
     NRF_LOG_INFO("Write command, Serial number:  %x", characteristic1_value);
 
     nrf_gpio_pin_set(IRQ_BT_PIN);
     spis_reset_tx_buffer();
-    m_tx_buf[0] = 0x0B; //function code
+    m_tx_buf[0] = FC_SERIAL_NUMBER; //function code
     m_tx_buf[1] = 0x04; //data size (bytes)
     //little to big endian conversion
     m_tx_buf[5] = (uint8_t)  characteristic1_value;
@@ -198,39 +227,9 @@ static void characteristic1_value_write_handler(uint32_t characteristic1_value)
 }
 // Add other handlers here...
 
-/**@brief Function for assert macro callback.
- *
- * @details This function will be called in case of an assert in the SoftDevice.
- *
- * @warning This handler is an example only and does not fit a final product. You need to analyze
- *          how your product is supposed to react in case of Assert.
- * @warning On assert from the SoftDevice, the system can only recover on reset.
- *
- * @param[in] line_num    Line number of the failing ASSERT call.
- * @param[in] p_file_name File name of the failing ASSERT call.
- */
-void assert_nrf_callback(uint16_t line_num, const uint8_t * p_file_name)
-{
-    app_error_handler(DEAD_BEEF, line_num, p_file_name);
-}
-
-
-///**@brief Function for the LEDs initialization.
-// *
-// * @details Initializes all LEDs used by the application.
-// */
-//static void leds_init(void)
-//{
-//    bsp_board_init(BSP_INIT_LEDS);
-//}
-
-static void timer_timeout_handler(void * p_context)
-{
-    // OUR_JOB: Step 3.F, Update temperature and characteristic value.
-    //spis_send_function_code(0x03);  //
-    //ble_lbs_batVolt_characteristic_update(m_conn_handle, &m_lbs, &batVolt);  //call the characteristic update function
-}
-
+/******************************************************************************/
+/* TIMER                                                                      */
+/******************************************************************************/
 /**@brief Function for the Timer initialization.
  *
  * @details Initializes the timer module. This creates and starts application timers.
@@ -246,6 +245,16 @@ static void timers_init(void)
     //call the timeout handler, repeatedly (else APP_TIMER_MODE_SINGLE_SHOT)
 }
 
+static void timer_timeout_handler(void * p_context)
+{
+    // OUR_JOB: Step 3.F, Update temperature and characteristic value.
+    //spis_send_function_code(0x03);  //
+    //ble_lbs_batVolt_characteristic_update(m_conn_handle, &m_lbs, &batVolt);  //call the characteristic update function
+}
+
+/******************************************************************************/
+/* Ble Profil                                                                 */
+/******************************************************************************/
 
 /**@brief Function for the GAP initialization.
  *
@@ -335,40 +344,6 @@ static void advertising_init(void)
     APP_ERROR_CHECK(err_code);
 }
 
-
-/**@brief Function for handling Queued Write Module errors.
- *
- * @details A pointer to this function will be passed to each service which may need to inform the
- *          application about an error.
- *
- * @param[in]   nrf_error   Error code containing information about what went wrong.
- */
-static void nrf_qwr_error_handler(uint32_t nrf_error)
-{
-    APP_ERROR_HANDLER(nrf_error);
-}
-
-
-/**@brief Function for handling write events to the LED characteristic.
- *
- * @param[in] p_lbs     Instance of LED Button Service to which the write applies.
- * @param[in] led_state Written/desired state of the LED.
- */
-static void led_write_handler(uint16_t conn_handle, ble_lbs_t * p_lbs, uint8_t led_state)
-{
-    //the led characteristic have been write
-    if (led_state)
-    {
-        NRF_LOG_INFO("Received LED ON!");
-    }
-    else
-    {
-        NRF_LOG_INFO("Received LED OFF!");
-    }
-
-}
-
-
 /**@brief Function for initializing services that will be used by the application.
  */
 static void services_init(void)
@@ -393,6 +368,18 @@ static void services_init(void)
     // Initialize our service
     err_code = ble_lbs_init(&m_lbs, &init);
     APP_ERROR_CHECK(err_code);
+}
+
+/**@brief Function for handling Queued Write Module errors.
+ *
+ * @details A pointer to this function will be passed to each service which may need to inform the
+ *          application about an error.
+ *
+ * @param[in]   nrf_error   Error code containing information about what went wrong.
+ */
+static void nrf_qwr_error_handler(uint32_t nrf_error)
+{
+    APP_ERROR_HANDLER(nrf_error);
 }
 
 
@@ -450,19 +437,6 @@ static void conn_params_init(void)
     err_code = ble_conn_params_init(&cp_init);
     APP_ERROR_CHECK(err_code);
 }
-
-
-/**@brief Function for starting advertising.
- */
-static void advertising_start(void)
-{
-    ret_code_t           err_code;
-
-    err_code = sd_ble_gap_adv_start(m_adv_handle, APP_BLE_CONN_CFG_TAG);
-    APP_ERROR_CHECK(err_code);
-    NRF_LOG_INFO("Advertise");
-}
-
 
 /**@brief Function for handling BLE events.
  *
@@ -557,7 +531,6 @@ static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
     }
 }
 
-
 /**@brief Function for initializing the BLE stack.
  *
  * @details Initializes the SoftDevice and the BLE event interrupt.
@@ -589,6 +562,29 @@ static void ble_stack_init(void)
     //NRF_SDH_BLE_OBSERVER(m_our_service_observer, APP_BLE_OBSERVER_PRIO, ble_our_service_on_ble_evt, (void*) &m_our_service); 
 }
 
+/**@brief Function for starting advertising.
+ */
+static void advertising_start(void)
+{
+    ret_code_t           err_code;
+
+    err_code = sd_ble_gap_adv_start(m_adv_handle, APP_BLE_CONN_CFG_TAG);
+    APP_ERROR_CHECK(err_code);
+    NRF_LOG_INFO("Advertise");
+}
+
+
+/******************************************************************************/
+/* nRF Init                                                                   */
+/******************************************************************************/
+static void log_init(void)
+{
+    ret_code_t err_code = NRF_LOG_INIT(NULL);
+    APP_ERROR_CHECK(err_code);
+
+    NRF_LOG_DEFAULT_BACKENDS_INIT();
+}
+
 /**@brief Function for initializing power management.
  */
 static void power_management_init(void)
@@ -596,19 +592,6 @@ static void power_management_init(void)
     ret_code_t err_code;
     err_code = nrf_pwr_mgmt_init();
     APP_ERROR_CHECK(err_code);
-}
-
-
-/**@brief Function for handling the idle state (main loop).
- *
- * @details If there is no pending log operation, then sleep until next the next event occurs.
- */
-static void idle_state_handle(void)
-{
-    if (NRF_LOG_PROCESS() == false)
-    {
-        nrf_pwr_mgmt_run();
-    }
 }
 
 /**
@@ -635,12 +618,56 @@ static void gpio_output_voltage_setup(void)
     }
 }
 
-static void log_init(void)
+/**@brief Function for handling the idle state (main loop).
+ *
+ * @details If there is no pending log operation, then sleep until next the next event occurs.
+ */
+static void idle_state_handle(void)
 {
-    ret_code_t err_code = NRF_LOG_INIT(NULL);
-    APP_ERROR_CHECK(err_code);
+    if (NRF_LOG_PROCESS() == false)
+    {
+        nrf_pwr_mgmt_run();
+    }
+}
 
-    NRF_LOG_DEFAULT_BACKENDS_INIT();
+/**@brief Function for assert macro callback.
+ *
+ * @details This function will be called in case of an assert in the SoftDevice.
+ *
+ * @warning This handler is an example only and does not fit a final product. You need to analyze
+ *          how your product is supposed to react in case of Assert.
+ * @warning On assert from the SoftDevice, the system can only recover on reset.
+ *
+ * @param[in] line_num    Line number of the failing ASSERT call.
+ * @param[in] p_file_name File name of the failing ASSERT call.
+ */
+void assert_nrf_callback(uint16_t line_num, const uint8_t * p_file_name)
+{
+    app_error_handler(DEAD_BEEF, line_num, p_file_name);
+}
+
+/******************************************************************************/
+/* SPI slave                                                                  */
+/******************************************************************************/
+
+/**
+ * Function for configuring the spi peripheral as slave
+ */
+static void spi_init(void)
+{
+    // Enable the constant latency sub power mode to minimize the time it takes
+    // for the SPIS peripheral to become active after the CSN line is asserted
+    // (when the CPU is in sleep mode).
+    NRF_POWER->TASKS_CONSTLAT = 1;
+    
+    //SPI configuration
+    nrf_drv_spis_config_t spis_config = NRF_DRV_SPIS_DEFAULT_CONFIG;
+    spis_config.csn_pin               = APP_SPIS_CS_PIN;
+    spis_config.miso_pin              = APP_SPIS_MISO_PIN;
+    spis_config.mosi_pin              = APP_SPIS_MOSI_PIN;
+    spis_config.sck_pin               = APP_SPIS_SCK_PIN;
+    //SPI init with event handler callback function
+    APP_ERROR_CHECK(nrf_drv_spis_init(&spis, &spis_config, spis_event_handler));
 }
 
 /**
@@ -671,7 +698,7 @@ void spis_event_handler(nrf_drv_spis_event_t event)
 //            m_tx_buf[1] = 0x01; //data size
 //            m_tx_buf[2] = functionCode; //desired function code
 //            //txBuffer loaded and ready to be readed -> pulse Interrupt request to the master
-//            send_pulse_IRQ_BT();
+//            
             break;
           case FC_BATVOLT:
             //ble profil value format is little endian
@@ -700,7 +727,7 @@ void spis_event_handler(nrf_drv_spis_event_t event)
 //              spis_reset_tx_buffer();
 //              m_tx_buf[0] = functionCode + 0x80;
 //              m_tx_buf[1] = ILLEGAL_FUNCTION;
-//              send_pulse_IRQ_BT();
+//              
             }
             break;
         }
@@ -708,27 +735,7 @@ void spis_event_handler(nrf_drv_spis_event_t event)
 }
 
 /**
- * Function for configuring the spi peripheral as slave
- */
-static void spi_init(void)
-{
-    // Enable the constant latency sub power mode to minimize the time it takes
-    // for the SPIS peripheral to become active after the CSN line is asserted
-    // (when the CPU is in sleep mode).
-    NRF_POWER->TASKS_CONSTLAT = 1;
-    
-    //SPI configuration
-    nrf_drv_spis_config_t spis_config = NRF_DRV_SPIS_DEFAULT_CONFIG;
-    spis_config.csn_pin               = APP_SPIS_CS_PIN;
-    spis_config.miso_pin              = APP_SPIS_MISO_PIN;
-    spis_config.mosi_pin              = APP_SPIS_MOSI_PIN;
-    spis_config.sck_pin               = APP_SPIS_SCK_PIN;
-    //SPI init with event handler callback function
-    APP_ERROR_CHECK(nrf_drv_spis_init(&spis, &spis_config, spis_event_handler));
-}
-
-/**
- * Function call in the while(1), handle the SPI communications
+ * @Brief Function call in the while(1), handle the SPI communications
  */
 void spis_handle(void)
 {
@@ -747,13 +754,24 @@ void spis_handle(void)
     NRF_LOG_FLUSH();
 }
 
+/*******************************************************************************
+ * @brief Reset the tx_Buffer to 0x00, to override all tx bytes
+ ******************************************************************************/
+void spis_reset_tx_buffer(void)
+{
+    for(int i=0; i < SPI_BUFFER_SIZE; i++)
+    {
+        m_tx_buf[i] = 0;
+    }
+}
+
+
 /**@brief Function for application main entry.
  */
 int main(void)
 {
     // Initialize.
     log_init();
-    //leds_init();
     timers_init();
     power_management_init();
     gpio_output_voltage_setup();
@@ -765,7 +783,7 @@ int main(void)
     advertising_init();
     conn_params_init();
 
-    // Set IRQ PIN pin as output
+    // Set IRQ_BT PIN pin as output
     nrf_gpio_cfg_output(IRQ_BT_PIN);  
 
     // Start execution.
