@@ -1,8 +1,14 @@
+/********************************************************************************/
 /**
- * @brief Connected Ebike Application main file.
+ * @file ble_config.h
  *
- * This file contains the source code for a sample server application using the EBIke service.
+ * @brief Connected Ebike Application main file.
+ *        This file contains the source code for a server application using the EBIke service.
+ *
+ * @author Gaspoz Jonathan
+ *
  */
+/********************************************************************************/
 
 #include <stdint.h>
 #include <string.h>

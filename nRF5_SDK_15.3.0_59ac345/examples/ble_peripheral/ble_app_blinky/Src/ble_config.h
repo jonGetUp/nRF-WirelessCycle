@@ -41,12 +41,12 @@
 
 #include "spi.h"
 
+/******************************************************************************/
+/* Define                                                                     */
+/******************************************************************************/
+#define IRQ_BT_PIN                      NRF_GPIO_PIN_MAP(1,4)                   /**< Interrupt request for SPI slave */
 
-//#ifdef __cplusplus
-//extern "C" {
-//#endif
-
-#define DEVICE_NAME                     "EBike"                         /**< Name of device. Will be included in the advertising data. */
+#define DEVICE_NAME                     "EBike"                                 /**< Name of device. Will be included in the advertising data. */
 
 #define APP_BLE_OBSERVER_PRIO           3                                       /**< Application's BLE observer priority. You shouldn't need to modify this value. */
 #define APP_BLE_CONN_CFG_TAG            1                                       /**< A tag identifying the SoftDevice BLE configuration. */
@@ -75,55 +75,136 @@
 
 #define DEAD_BEEF                       0xDEADBEEF                              /**< Value used as error code on stack dump, can be used to identify stack location on stack unwind. */
 
-#define IRQ_BT_PIN                      NRF_GPIO_PIN_MAP(1,4)                  /**< Interrupt request for SPI slave */
-
 extern uint16_t m_conn_handle;                        /**< Handle of the current connection. */
 extern uint8_t m_adv_handle;                   /**< Advertising handle used to identify an advertising set. */
 extern uint8_t m_enc_advdata[BLE_GAP_ADV_SET_DATA_SIZE_MAX];                    /**< Buffer for storing an encoded advertising set. */
 extern uint8_t m_enc_scan_response_data[BLE_GAP_ADV_SET_DATA_SIZE_MAX];         /**< Buffer for storing an encoded scan data. */
 
-extern ble_gap_adv_data_t m_adv_data;
+extern ble_gap_adv_data_t m_adv_data;                                           /**< Struct that contains pointers to the encoded advertising data. */
 
-//! m_ indicate static!!!!!
+// m_ indicate static for nordic!!!!!
 BLE_LBS_DEF(m_lbs);                                                             /**< data structure used to control LED Button Service instance. */
 NRF_BLE_GATT_DEF(m_gatt);                                                       /**< data structure used to control GATT module instance. */
 NRF_BLE_QWR_DEF(m_qwr);                                                         /**< Context for the Queued Write module.*/
-//
-//
 
-//Timer
+/******************************************************************************/
+/* Timer                                                                      */
+/******************************************************************************/
 // OUR_JOB: Step 3.G, Declare an app_timer id variable and define our timer interval and define a timer interval
-APP_TIMER_DEF(m_lbs_timer_id);
-#define LBS_CHAR_TIMER_INTERVAL     APP_TIMER_TICKS(1000) // 1000 ms intervals
+APP_TIMER_DEF(m_ebike_s_timer_id);
+#define EBIKE_S_CHAR_TIMER_INTERVAL     APP_TIMER_TICKS(1000) // 1000 ms intervals
 
+/**@brief Timer initialization.
+ *
+ * @details Initializes the timer module. This creates the application timers.
+ */
 void timers_init(void);
+
+/**@brief Timer handler
+ *
+ * @details Call every xxxx ms, execute some methodes
+ */
 void timer_timeout_handler(void * p_context);
 
-void led_write_handler(uint16_t conn_handle, ble_ebike_s_t * p_ebike_s, uint8_t led_state);
-void characteristic1_value_write_handler(uint32_t characteristic1_value);
+/******************************************************************************/
+/* BLE_WRITE handler function                                                 */
+/******************************************************************************/
+/**@brief Function for handling write events to the UNBLOCK_SM characteristic.
+ *
+ * @param[in] p_ebike_s Instance of EBIKE Service to which the write applies.
+ * @param[in] unblock_sm_state Written/desired state
+ */
+void unblock_sm_write_handler(uint16_t conn_handle, ble_ebike_s_t * p_ebike_s, uint8_t unblock_sm_state);
 
+/**@brief Function for handling write events to the SERIAL_NUMBER characteristic.
+ *
+ * @param[in] p_ebike_s Instance of EBIKE Service to which the write applies.
+ * @param[in] serial_number_value Written/desired value
+ */
+void serial_number_value_write_handler(uint32_t serial_number_value);
+
+/******************************************************************************/
+/* BLE CONFIG                                                                 */
+/******************************************************************************/
+/**@brief Function for the GAP initialization.
+ *
+ * @details This function sets up all the necessary GAP (Generic Access Profile) parameters of the
+ *          device including the device name, appearance, and the preferred connection parameters.
+ */
 void gap_params_init(void);
+
+/**@brief Function for initializing the GATT module.
+ */
 void gatt_init(void);
+
+/**@brief Function for initializing services that will be used by the application.
+ */
 void services_init(void);
+
+/**@brief Function for initializing the Advertising functionality.
+ *
+ * @details Encodes the required advertising data and passes it to the stack.
+ *          Also builds a structure to be passed to the stack when starting advertising.
+ */
 void advertising_init(void);
+
+/**@brief Function for initializing the BLE stack.
+ *
+ * @details Initializes the SoftDevice and the BLE event interrupt.
+ */
 void ble_stack_init(void);
+
+/**@brief Function for handling Queued Write Module errors.
+ *
+ * @details A pointer to this function will be passed to each service which may need to inform the
+ *          application about an error.
+ *
+ * @param[in]   nrf_error   Error code containing information about what went wrong.
+ */
 void nrf_qwr_error_handler(uint32_t nrf_error);
 
+/**@brief Function for handling the Connection Parameters Module.
+ *
+ * @details This function will be called for all events in the Connection Parameters Module that
+ *          are passed to the application.
+ *
+ * @note All this function does is to disconnect. This could have been done by simply
+ *       setting the disconnect_on_fail config parameter, but instead we use the event
+ *       handler mechanism to demonstrate its use.
+ *
+ * @param[in] p_evt  Event received from the Connection Parameters Module.
+ */
 void on_conn_params_evt(ble_conn_params_evt_t * p_evt);
+
+/**@brief Function for handling a Connection Parameters error.
+ *
+ * @param[in] nrf_error  Error code containing information about what went wrong.
+ */
 void conn_params_error_handler(uint32_t nrf_error);
+
+/**@brief Function for initializing the Connection Parameters module.
+ */
 void conn_params_init(void);
+
+/**@brief Function for handling BLE events.
+ *
+ * @param[in]   p_ble_evt   Bluetooth stack event.
+ * @param[in]   p_context   Unused.
+ */
 void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context);
 
+/**@brief Function for starting advertising.
+ */
 void advertising_start(void);
 
+/******************************************************************************/
+/* BLE_READ update ble profil                                                 */
+/******************************************************************************/
 void update_batVolt(uint16_t* batVolt);
-void update_pack_serialNumber(uint32_t *serialNumber);
+void update_pack_serialNumber(uint32_t* serialNumber);
+void update_unblock_sm(uint8_t* unblock_sm);
+//>>>>>>>>>> Add others update methodes here....
 
-
-///** @} */
-//#ifdef __cplusplus
-//}
-//#endif
 #endif /* BLE_CONFIG_H__ */
 
 /**

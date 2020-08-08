@@ -27,33 +27,62 @@
 #include "ble_ebike_service.h"
 #include "ble_config.h"
 
-//
-//#ifdef __cplusplus
-//extern "C" {
-//#endif
 
 /****SPI****/
 #define SPIS_INSTANCE 1 /**< SPIS instance index. */
-#define ILLEGAL_FUNCTION 0x01
 #define SPI_BUFFER_SIZE 10
-#define FC_BATVOLT 0x03
-#define FC_SERIAL_NUMBER 0x0A
-#define FC_SMARTPHONE_CONNECTED 0x1D
+
+//Data packets size
+#define SIZE_BATVOLT 0x02
+#define SIZE_SERIAL_NUMBER 0x04
 #define SIZE_SMARTPHONE_CONNECTED 0x01
+#define SIZE_UNBLOCK_SM 0x01
+    
+//Function Code
+typedef enum
+{
+    FC_BATVOLT = 0x02,
+    FC_SERIAL_NUMBER = 0x05,
+    FC_UNBLOCK_SM = 0x0C,
+    FC_SMARTPHONE_CONNECTED = 0x0D
+}FC_ENUM;
+
+struct BMS_STATE
+{
+    uint16_t            batVolt;                // battery voltage in mV
+    //--------------------------------------------------------------------------
+    uint32_t            pack_serialNumber;      // Smartphone admin password
+    //--------------------------------------------------------------------------
+    uint8_t             unblock_sm;             // Allow to unblock the state machine when in SM_BATTERY_DEAD
+};
+
+extern struct BMS_STATE bmsState; 
 
 extern uint8_t       m_tx_buf[SPI_BUFFER_SIZE];   /**< TX buffer.*/
 extern uint8_t       m_rx_buf[sizeof(m_tx_buf)];
 
+/** @Brief Function for configuring the spi peripheral as slave
+ */
 void spi_init(void);
+
+/**
+ * @brief SPIS user event handler.
+ *
+ * @param event
+ */
 void spis_event_handler(nrf_drv_spis_event_t event);
+
+/** @Brief Function call in the while(1), handle the SPI communications
+ */
 void spis_handle(void);
+
+/** @brief Reset the tx_Buffer to 0x00, to override all tx bytes
+ */
 void spis_reset_tx_buffer(void);
 
 
+
 ///** @} */
-//#ifdef __cplusplus
-//}
-//#endif
 #endif /* SPI_H__ */
 
 /**

@@ -23,10 +23,6 @@ ble_gap_adv_data_t m_adv_data =
 /******************************************************************************/
 /* TIMER                                                                      */
 /******************************************************************************/
-/**@brief Function for the Timer initialization.
- *
- * @details Initializes the timer module. This creates and starts application timers.
- */
 void timers_init(void)
 {
     // Initialize timer module.
@@ -34,7 +30,7 @@ void timers_init(void)
     APP_ERROR_CHECK(err_code);
 
     // OUR_JOB: Step 3.H, Initiate our timer
-    app_timer_create(&m_lbs_timer_id, APP_TIMER_MODE_REPEATED, timer_timeout_handler);
+    app_timer_create(&m_ebike_s_timer_id, APP_TIMER_MODE_REPEATED, timer_timeout_handler);
     //call the timeout handler, repeatedly (else APP_TIMER_MODE_SINGLE_SHOT)
 }
 
@@ -42,51 +38,37 @@ void timer_timeout_handler(void * p_context)
 {
     // OUR_JOB: Step 3.F, Update temperature and characteristic value.
     //spis_send_function_code(0x03);  //
-    //ble_lbs_batVolt_characteristic_update(m_conn_handle, &m_lbs, &batVolt);  //call the characteristic update function
+    //ble_ebike_s_batvolt_char_update(m_conn_handle, &m_lbs, &batVolt);  //call the characteristic update function
 }
-
-
 
 /******************************************************************************/
 /* BLE_WRITE: Callback function                                               */
 /******************************************************************************/
-
-/**@brief Function for handling write events to the LED characteristic.
- *
- * @param[in] p_ebike_s Instance of LED Button Service to which the write applies.
- * @param[in] led_state Written/desired state of the LED.
- */
-void led_write_handler(uint16_t conn_handle, ble_ebike_s_t * p_ebike_s, uint8_t led_state)
+void unblock_sm_write_handler(uint16_t conn_handle, ble_ebike_s_t * p_ebike_s, uint8_t unblock_sm_state)
 {
-    //the led characteristic have been write
-    if (led_state)
-    {
-        NRF_LOG_INFO("Received LED ON!");
-    }
-    else
-    {
-        NRF_LOG_INFO("Received LED OFF!");
-    }
+    NRF_LOG_INFO("-SPI: load tx %x Unblock state machine: %d",FC_UNBLOCK_SM, unblock_sm_state);
+    nrf_gpio_pin_set(IRQ_BT_PIN);
+    spis_reset_tx_buffer();
+    m_tx_buf[0] = FC_UNBLOCK_SM; //function code
+    m_tx_buf[1] = SIZE_UNBLOCK_SM; //data size (bytes)
+    m_tx_buf[2] = unblock_sm_state;
+    nrf_delay_ms(1);  //delay min allow the PIC to detect the pulse
+    nrf_gpio_pin_clear(IRQ_BT_PIN);
 }
 
-/*******************************************************************************
- * @brief  Write a given value in eeprom
- * @param  characteristic1_value containing the value that was received from the phone
- ******************************************************************************/
-void characteristic1_value_write_handler(uint32_t characteristic1_value)
+void serial_number_value_write_handler(uint32_t serial_number_value)
 {
-    NRF_LOG_INFO("Write command, Serial number:  %x", characteristic1_value);
-
+    NRF_LOG_INFO("-SPI: load tx %x Serial number: %d",FC_SERIAL_NUMBER, serial_number_value);
     nrf_gpio_pin_set(IRQ_BT_PIN);
     spis_reset_tx_buffer();
     m_tx_buf[0] = FC_SERIAL_NUMBER; //function code
-    m_tx_buf[1] = 0x04; //data size (bytes)
+    m_tx_buf[1] = SIZE_SERIAL_NUMBER; //data size (bytes)
     //little to big endian conversion
-    m_tx_buf[5] = (uint8_t)  characteristic1_value;
-    m_tx_buf[4] = (uint8_t) (characteristic1_value>>8);
-    m_tx_buf[3] = (uint8_t) (characteristic1_value>>16);
-    m_tx_buf[2] = (uint8_t) (characteristic1_value>>24);
-    nrf_delay_us(100);  //delay min allow the PIC to detect the pulse
+    m_tx_buf[5] = (uint8_t)  serial_number_value;
+    m_tx_buf[4] = (uint8_t) (serial_number_value>>8);
+    m_tx_buf[3] = (uint8_t) (serial_number_value>>16);
+    m_tx_buf[2] = (uint8_t) (serial_number_value>>24);
+    nrf_delay_ms(1);  //delay min allow the PIC to detect the pulse
     nrf_gpio_pin_clear(IRQ_BT_PIN);
 
 }
@@ -94,14 +76,8 @@ void characteristic1_value_write_handler(uint32_t characteristic1_value)
 
 
 /******************************************************************************/
-/* Ble Profil                                                                 */
+/* Ble CONFIG                                                                 */
 /******************************************************************************/
-
-/**@brief Function for the GAP initialization.
- *
- * @details This function sets up all the necessary GAP (Generic Access Profile) parameters of the
- *          device including the device name, appearance, and the preferred connection parameters.
- */
 void gap_params_init(void)
 {
     ret_code_t              err_code;
@@ -129,17 +105,12 @@ void gap_params_init(void)
     APP_ERROR_CHECK(err_code);
 }
 
-
-/**@brief Function for initializing the GATT module.
- */
 void gatt_init(void)
 {
     ret_code_t err_code = nrf_ble_gatt_init(&m_gatt, NULL);
     APP_ERROR_CHECK(err_code);
 }
 
-/**@brief Function for initializing services that will be used by the application.
- */
 void services_init(void)
 {
     ret_code_t         err_code;
@@ -152,23 +123,18 @@ void services_init(void)
     err_code = nrf_ble_qwr_init(&m_qwr, &qwr_init);
     APP_ERROR_CHECK(err_code);
 
-    // Initialize LBS.
-    init.led_write_handler = led_write_handler;
+    // Initialize EBIKE service.
+    init.unblock_sm_write_handler = unblock_sm_write_handler;
     // BLE_WRITE: Initialize Our Service module.
-    init.characteristic1_value_write_handler = characteristic1_value_write_handler;
+    init.serial_number_value_write_handler = serial_number_value_write_handler;
     // Add other handlers here...
 
     // BLE_WRITE: We need to add the init instance pointer to our service instance 
     // Initialize our service
-    err_code = ble_lbs_init(&m_lbs, &init);
+    err_code = ble_ebike_s_init(&m_lbs, &init);
     APP_ERROR_CHECK(err_code);
 }
 
-/**@brief Function for initializing the Advertising functionality.
- *
- * @details Encodes the required advertising data and passes it to the stack.
- *          Also builds a structure to be passed to the stack when starting advertising.
- */
 void advertising_init(void)
 {
     ret_code_t    err_code;
@@ -210,10 +176,6 @@ void advertising_init(void)
     APP_ERROR_CHECK(err_code);
 }
 
-/**@brief Function for initializing the BLE stack.
- *
- * @details Initializes the SoftDevice and the BLE event interrupt.
- */
 void ble_stack_init(void)
 {
     ret_code_t err_code;
@@ -241,29 +203,11 @@ void ble_stack_init(void)
     //NRF_SDH_BLE_OBSERVER(m_our_service_observer, APP_BLE_OBSERVER_PRIO, ble_our_service_on_ble_evt, (void*) &m_our_service); 
 }
 
-/**@brief Function for handling Queued Write Module errors.
- *
- * @details A pointer to this function will be passed to each service which may need to inform the
- *          application about an error.
- *
- * @param[in]   nrf_error   Error code containing information about what went wrong.
- */
 void nrf_qwr_error_handler(uint32_t nrf_error)
 {
     APP_ERROR_HANDLER(nrf_error);
 }
 
-/**@brief Function for handling the Connection Parameters Module.
- *
- * @details This function will be called for all events in the Connection Parameters Module that
- *          are passed to the application.
- *
- * @note All this function does is to disconnect. This could have been done by simply
- *       setting the disconnect_on_fail config parameter, but instead we use the event
- *       handler mechanism to demonstrate its use.
- *
- * @param[in] p_evt  Event received from the Connection Parameters Module.
- */
 void on_conn_params_evt(ble_conn_params_evt_t * p_evt)
 {
     ret_code_t err_code;
@@ -275,19 +219,11 @@ void on_conn_params_evt(ble_conn_params_evt_t * p_evt)
     }
 }
 
-
-/**@brief Function for handling a Connection Parameters error.
- *
- * @param[in] nrf_error  Error code containing information about what went wrong.
- */
 void conn_params_error_handler(uint32_t nrf_error)
 {
     APP_ERROR_HANDLER(nrf_error);
 }
 
-
-/**@brief Function for initializing the Connection Parameters module.
- */
 void conn_params_init(void)
 {
     ret_code_t             err_code;
@@ -308,11 +244,6 @@ void conn_params_init(void)
     APP_ERROR_CHECK(err_code);
 }
 
-/**@brief Function for handling BLE events.
- *
- * @param[in]   p_ble_evt   Bluetooth stack event.
- * @param[in]   p_context   Unused.
- */
 void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
 {
     ret_code_t err_code;
@@ -324,7 +255,7 @@ void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
             m_conn_handle = p_ble_evt->evt.gap_evt.conn_handle;
             err_code = nrf_ble_qwr_conn_handle_assign(&m_qwr, m_conn_handle);
             APP_ERROR_CHECK(err_code);
-            app_timer_start(m_lbs_timer_id, LBS_CHAR_TIMER_INTERVAL, NULL);  //start adv timer
+            app_timer_start(m_ebike_s_timer_id, EBIKE_S_CHAR_TIMER_INTERVAL, NULL);  //start adv timer
             
             //Indicate the smartphone connection to the PIC
             nrf_gpio_pin_set(IRQ_BT_PIN);  
@@ -332,17 +263,16 @@ void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
             m_tx_buf[0] = FC_SMARTPHONE_CONNECTED;    //function code
             m_tx_buf[1] = SIZE_SMARTPHONE_CONNECTED;  //data size (bytes)
             m_tx_buf[2] = 0x01;                       //desired function code
-            nrf_delay_us(1000);                        //delay min allow the PIC to detect the pulse
+            nrf_delay_ms(1);                        //delay min allow the PIC to detect the pulse
             nrf_gpio_pin_clear(IRQ_BT_PIN);
-            uint16_t bat = 0xAAAA;
-            //ble_lbs_batVolt_characteristic_update(m_conn_handle, &m_lbs, &bat);
+            NRF_LOG_INFO("-SPI: load tx %x Connect: %d",FC_SMARTPHONE_CONNECTED, 0x01);
             break;
 
         case BLE_GAP_EVT_DISCONNECTED:
             NRF_LOG_INFO("Disconnected");
             m_conn_handle = BLE_CONN_HANDLE_INVALID;
             advertising_start();
-            app_timer_stop(m_lbs_timer_id);  //stop adv timer
+            app_timer_stop(m_ebike_s_timer_id);  //stop adv timer
             
             //Indicate the samrtphone disconnection to the PIC
             nrf_gpio_pin_set(IRQ_BT_PIN);  
@@ -350,8 +280,9 @@ void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
             m_tx_buf[0] = FC_SMARTPHONE_CONNECTED; //function code
             m_tx_buf[1] = SIZE_SMARTPHONE_CONNECTED; //data size (bytes)
             m_tx_buf[2] = 0x00; //desired function code
-            nrf_delay_us(1000);                        //delay min allow the PIC to detect the pulse
+            nrf_delay_ms(1);                        //delay min allow the PIC to detect the pulse
             nrf_gpio_pin_clear(IRQ_BT_PIN);
+            NRF_LOG_INFO("-SPI: load tx %x Connect: %d",FC_SMARTPHONE_CONNECTED, 0x00);
             break;
 
         case BLE_GAP_EVT_SEC_PARAMS_REQUEST:
@@ -403,8 +334,6 @@ void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
     }
 }
 
-/**@brief Function for starting advertising.
- */
 void advertising_start(void)
 {
     ret_code_t           err_code;
@@ -414,12 +343,20 @@ void advertising_start(void)
     NRF_LOG_INFO("Advertise");
 }
 
+/******************************************************************************/
+/* BLE_READ update ble profil                                                 */
+/******************************************************************************/
 void update_batVolt(uint16_t* batVolt)
 {
-    ble_lbs_batVolt_characteristic_update(m_conn_handle, &m_lbs, batVolt);  //call the characteristic update function
+    ble_ebike_s_batvolt_char_update(m_conn_handle, &m_lbs, batVolt);  //call the characteristic update function
 }
 
 void update_pack_serialNumber(uint32_t *serialNumber)
 {
-    ble_lbs_characteristic_1_update(m_conn_handle, &m_lbs, serialNumber);
+    ble_ebike_s_serial_number_char_update(m_conn_handle, &m_lbs, serialNumber);
 }
+
+void update_unblock_sm(uint8_t* unblock_sm){
+    ble_ebike_s_unblock_sm_char_update(m_conn_handle, &m_lbs, unblock_sm);
+}
+//>>>>>>>>>> Add others update methodes here....

@@ -1,3 +1,13 @@
+/********************************************************************************/
+/**
+ * @file ble_ebike_service.h
+ *
+ * @brief Bluetooth profil service and characteristics structure initialization
+ *
+ * @author Gaspoz Jonathan
+ *
+ */
+/********************************************************************************/
 #ifndef BLE_EBIKE_SERVICE_H__
 #define BLE_EBIKE_SERVICE_H__
 
@@ -20,7 +30,7 @@
 static ble_ebike_s_t _name;                                                      \
 NRF_SDH_BLE_OBSERVER(_name ## _obs,                                              \
                      BLE_LBS_BLE_OBSERVER_PRIO,                                  \
-                     ble_lbs_on_ble_evt, &_name)
+                     ble_ebike_s_on_ble_evt, &_name)
 
 #define EBIKE_S_UUID_BASE     {0x23, 0xD1, 0xBC, 0xEA, 0x5F, 0x78, 0x23, 0x15,   \
                                0xDE, 0xEF, 0x12, 0x12, 0x00, 0x00, 0x00, 0x00} // 128-bit base UUID, 0x00 designed by the service and char UUID
@@ -28,6 +38,7 @@ NRF_SDH_BLE_OBSERVER(_name ## _obs,                                             
 #define EBIKE_S_UUID_BATVOLT_CHAR       0x0002
 #define EBIKE_S_UUID_UNBLOCK_SM_CHAR    0x0003
 #define EBIKE_S_UUID_SERIAL_NUMBER_CHAR 0x0004
+//>>>>>>>>>> Add other UUIDs here....
 
 // Forward declaration of the ble_ebike_s_t type.
 typedef struct ble_ebike_s ble_ebike_s_t;
@@ -40,10 +51,9 @@ typedef struct ble_ebike_s ble_ebike_s_t;
  *        initialization of the service.
  *        This is used to pass the write handlers for different characteristics from main.c
  *        This is essentially like public constructor. All of the content will be copied to instance.
- *        Note that "uint32_t characteristic1_value" part had to match from Step 1 */
+ *        Note that "uint32_t serial_number_value" part had to match from Step 1 */
 typedef void (*ble_ebike_s_unblock_sm_write_handler_t) (uint16_t conn_handle, ble_ebike_s_t * p_ebike_s, uint8_t new_state); //to change uint32_t
-typedef void (*ble_os_characteristic1_value_write_handler_t) (uint32_t characteristic1_value);
-
+typedef void (*ble_ebike_s_serial_number_write_handler_t) (uint32_t serial_number_value);
 //>>>>>>>>>> Add other handlers here...
 
 
@@ -52,9 +62,9 @@ typedef void (*ble_os_characteristic1_value_write_handler_t) (uint32_t character
  *        initialization of the service.*/
 typedef struct
 {
-    ble_ebike_s_unblock_sm_write_handler_t led_write_handler; /**< Event handler to be called when the LED Characteristic is written. */
+    ble_ebike_s_unblock_sm_write_handler_t unblock_sm_write_handler; /**< Event handler to be called when the LED Characteristic is written. */
     /**< Event handler to be called when the Characteristic1 is written */
-    ble_os_characteristic1_value_write_handler_t characteristic1_value_write_handler; 
+    ble_ebike_s_serial_number_write_handler_t serial_number_value_write_handler; 
     //>>>>>>>>>> Add other handlers here....
 
 } ble_ebike_s_init_t;
@@ -62,17 +72,18 @@ typedef struct
 /**@brief LED Button Service structure. This structure contains various status information for the service. */
 struct ble_ebike_s
 {
-    uint16_t                    service_handle;      /**< Handle of LED Button Service (as provided by the BLE stack). */
-    ble_gatts_char_handles_t    led_char_handles;    /**< Handles related to the LED Characteristic. */
-    ble_gatts_char_handles_t    button_char_handles; /**< Handles related to the Button Characteristic. */
-    ble_gatts_char_handles_t    char_handles_1;      // Adding handles for the characteristic to our structure
+    uint16_t                    service_handle;      /**< Handle of EBIKE Service (as provided by the BLE stack). */
+    ble_gatts_char_handles_t    unblock_sm_char_handles;    /**< Handles related to the unblock_sm Characteristic. */
+    ble_gatts_char_handles_t    batvolt_char_handles; /**< Handles related to the BatVolt Characteristic. */
+    ble_gatts_char_handles_t    serial_number_char_handles;      /**< Adding handles for the characteristic to our structure */
+    //>>>>>>>>>> Add other handlers here....
 
     uint8_t                     uuid_type;           /**< UUID type for the LED Button Service. */
-    ble_ebike_s_unblock_sm_write_handler_t led_write_handler;   /**< Event handler to be called when the LED Characteristic is written. */
+    ble_ebike_s_unblock_sm_write_handler_t unblock_sm_write_handler;   /**< Event handler to be called when the LED Characteristic is written. */
                                                      /**< can hold 16-bit handles for the characteristic value, user descriptor, CCCD and SCCD */
     // BLE_WRITE: Write handlers. Upon BLE write, these handler will be called
     // Their implementation is in the ble_config.c
-    ble_os_characteristic1_value_write_handler_t characteristic1_value_write_handler;  /**< Event handler to be called when the Characteristic1 is written. */
+    ble_ebike_s_serial_number_write_handler_t serial_number_value_write_handler;  /**< Event handler to be called when the Characteristic1 is written. */
     //>>>>>>>>>> Add other handlers here...
 };                                                  
 
@@ -92,7 +103,7 @@ static void on_write(ble_ebike_s_t * p_ebike_s, ble_evt_t const * p_ble_evt);
  *
  * @retval NRF_SUCCESS If the service was initialized successfully. Otherwise, an error code is returned.
  */
-uint32_t ble_lbs_init(ble_ebike_s_t * p_ebike_s, const ble_ebike_s_init_t * p_ebike_s_init);
+uint32_t ble_ebike_s_init(ble_ebike_s_t * p_ebike_s, const ble_ebike_s_init_t * p_ebike_s_init);
 
 
 /**@brief Function for handling the application's BLE stack events related to our service and characteristic.
@@ -102,7 +113,7 @@ uint32_t ble_lbs_init(ble_ebike_s_t * p_ebike_s, const ble_ebike_s_init_t * p_eb
  * @param[in] p_ble_evt  Event received from the BLE stack.
  * @param[in] p_context  EBike Service structure.
  */
-void ble_lbs_on_ble_evt(ble_evt_t const * p_ble_evt, void * p_context);
+void ble_ebike_s_on_ble_evt(ble_evt_t const * p_ble_evt, void * p_context);
 
 /**@brief Function for sending a battery voltage notification.
  *
@@ -112,7 +123,7 @@ void ble_lbs_on_ble_evt(ble_evt_t const * p_ble_evt, void * p_context);
  *
  * @retval NRF_SUCCESS If the notification was sent successfully. Otherwise, an error code is returned.
  */
-uint32_t ble_lbs_batVolt_characteristic_update(uint16_t conn_handle, ble_ebike_s_t *p_ebike_s, uint16_t *battery_value);
+uint32_t ble_ebike_s_batvolt_char_update(uint16_t conn_handle, ble_ebike_s_t *p_ebike_s, uint16_t *battery_value);
 
 /**@brief Function for sending a serial_number notification.
  *
@@ -122,7 +133,18 @@ uint32_t ble_lbs_batVolt_characteristic_update(uint16_t conn_handle, ble_ebike_s
  *
  * @retval NRF_SUCCESS If the notification was sent successfully. Otherwise, an error code is returned.
  */
-uint32_t ble_lbs_characteristic_1_update(uint16_t conn_handle, ble_ebike_s_t *p_ebike_s, uint32_t * serial_number);
+uint32_t ble_ebike_s_serial_number_char_update(uint16_t conn_handle, ble_ebike_s_t *p_ebike_s, uint32_t * serial_number);
+
+/**@brief Function for sending an unblock_sm notification.
+ *
+ ' @param[in] conn_handle   Handle of the peripheral connection to which the battery voltage notification will be sent.
+ * @param[in] p_ebike_s     EBike Service structure.
+ * @param[in] unblock_sm    New unblock_sm
+ *
+ * @retval NRF_SUCCESS If the notification was sent successfully. Otherwise, an error code is returned.
+ */
+uint32_t ble_ebike_s_unblock_sm_char_update(uint16_t conn_handle, ble_ebike_s_t *p_ebike_s, uint8_t * unblock_sm);
+//>>>>>>>>>> Add other update methodes here....
 
 #endif // BLE_EBIKE_SERVICE_H__
 
