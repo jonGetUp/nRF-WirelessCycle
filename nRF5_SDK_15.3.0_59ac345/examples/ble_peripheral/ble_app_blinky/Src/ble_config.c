@@ -5,10 +5,6 @@ uint8_t m_adv_handle = BLE_GAP_ADV_SET_HANDLE_NOT_SET;                   /**< Ad
 uint8_t m_enc_advdata[BLE_GAP_ADV_SET_DATA_SIZE_MAX];                    /**< Buffer for storing an encoded advertising set. */
 uint8_t m_enc_scan_response_data[BLE_GAP_ADV_SET_DATA_SIZE_MAX];         /**< Buffer for storing an encoded scan data. */
 
-//BLE_LBS_DEF(m_lbs);                                                             /**< LED Button Service instance. */
-//NRF_BLE_GATT_DEF(m_gatt);                                                       /**< GATT module instance. */
-//NRF_BLE_QWR_DEF(m_qwr);                                                         /**< Context for the Queued Write module.*/
-
 /**@brief Struct that contains pointers to the encoded advertising data. */
 ble_gap_adv_data_t m_adv_data =
 {
@@ -57,10 +53,10 @@ void timer_timeout_handler(void * p_context)
 
 /**@brief Function for handling write events to the LED characteristic.
  *
- * @param[in] p_lbs     Instance of LED Button Service to which the write applies.
+ * @param[in] p_ebike_s Instance of LED Button Service to which the write applies.
  * @param[in] led_state Written/desired state of the LED.
  */
-void led_write_handler(uint16_t conn_handle, ble_lbs_t * p_lbs, uint8_t led_state)
+void led_write_handler(uint16_t conn_handle, ble_ebike_s_t * p_ebike_s, uint8_t led_state)
 {
     //the led characteristic have been write
     if (led_state)
@@ -147,7 +143,7 @@ void gatt_init(void)
 void services_init(void)
 {
     ret_code_t         err_code;
-    ble_lbs_init_t     init     = {0};
+    ble_ebike_s_init_t     init     = {0};
     nrf_ble_qwr_init_t qwr_init = {0};
 
     // Initialize Queued Write Module.
@@ -179,7 +175,7 @@ void advertising_init(void)
     ble_advdata_t advdata;
     ble_advdata_t srdata;
 
-    ble_uuid_t adv_uuids[] = {{LBS_UUID_SERVICE, m_lbs.uuid_type}};
+    ble_uuid_t adv_uuids[] = {{EBIKE_S_UUID_SERVICE, m_lbs.uuid_type}};
 
     // Build and set advertising data.
     memset(&advdata, 0, sizeof(advdata));

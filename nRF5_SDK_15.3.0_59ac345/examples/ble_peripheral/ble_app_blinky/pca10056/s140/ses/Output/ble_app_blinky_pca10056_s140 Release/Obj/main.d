@@ -58,22 +58,6 @@ Output/ble_app_blinky_pca10056_s140\ Release/Obj/main.o: \
  ../../../../../../components/libraries/pwr_mgmt/nrf_pwr_mgmt.h \
  ../../../../../../components/libraries/experimental_section_vars/nrf_section_iter.h \
  ../../../../../../components/libraries/experimental_section_vars/nrf_section.h \
- ../../../Src/ble_ebike_service.h \
- ../../../../../../components/softdevice/s140/headers/ble.h \
- ../../../../../../components/softdevice/s140/headers/ble_err.h \
- ../../../../../../components/softdevice/s140/headers/ble_gap.h \
- ../../../../../../components/softdevice/s140/headers/ble_hci.h \
- ../../../../../../components/softdevice/s140/headers/ble_ranges.h \
- ../../../../../../components/softdevice/s140/headers/ble_types.h \
- ../../../../../../components/softdevice/s140/headers/ble_l2cap.h \
- ../../../../../../components/softdevice/s140/headers/ble_gatt.h \
- ../../../../../../components/softdevice/s140/headers/ble_gattc.h \
- ../../../../../../components/softdevice/s140/headers/ble_gatts.h \
- ../../../../../../components/ble/common/ble_srv_common.h \
- ../../../../../../components/softdevice/s140/headers/ble_types.h \
- ../../../../../../components/softdevice/s140/headers/ble_gap.h \
- ../../../../../../components/softdevice/s140/headers/ble_gatt.h \
- ../../../../../../components/softdevice/common/nrf_sdh_ble.h \
  ../../../../../../components/libraries/log/nrf_log.h \
  ../../../../../../components/libraries/util/sdk_common.h \
  ../../../../../../components/libraries/util/sdk_os.h \
@@ -92,6 +76,22 @@ Output/ble_app_blinky_pca10056_s140\ Release/Obj/main.o: \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/stdlib.h \
  ../../../../../../components/libraries/balloc/nrf_balloc.h \
  ../../../../../../components/libraries/log/nrf_log_default_backends.h \
+ ../../../Src/ble_ebike_service.h \
+ ../../../../../../components/softdevice/s140/headers/ble.h \
+ ../../../../../../components/softdevice/s140/headers/ble_err.h \
+ ../../../../../../components/softdevice/s140/headers/ble_gap.h \
+ ../../../../../../components/softdevice/s140/headers/ble_hci.h \
+ ../../../../../../components/softdevice/s140/headers/ble_ranges.h \
+ ../../../../../../components/softdevice/s140/headers/ble_types.h \
+ ../../../../../../components/softdevice/s140/headers/ble_l2cap.h \
+ ../../../../../../components/softdevice/s140/headers/ble_gatt.h \
+ ../../../../../../components/softdevice/s140/headers/ble_gattc.h \
+ ../../../../../../components/softdevice/s140/headers/ble_gatts.h \
+ ../../../../../../components/ble/common/ble_srv_common.h \
+ ../../../../../../components/softdevice/s140/headers/ble_types.h \
+ ../../../../../../components/softdevice/s140/headers/ble_gap.h \
+ ../../../../../../components/softdevice/s140/headers/ble_gatt.h \
+ ../../../../../../components/softdevice/common/nrf_sdh_ble.h \
  ../../../Src/ble_config.h \
  ../../../../../../components/softdevice/common/nrf_sdh.h \
  ../../../Src/ble_ebike_service.h \

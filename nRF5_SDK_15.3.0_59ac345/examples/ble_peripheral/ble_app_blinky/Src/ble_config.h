@@ -99,7 +99,7 @@ APP_TIMER_DEF(m_lbs_timer_id);
 void timers_init(void);
 void timer_timeout_handler(void * p_context);
 
-void led_write_handler(uint16_t conn_handle, ble_lbs_t * p_lbs, uint8_t led_state);
+void led_write_handler(uint16_t conn_handle, ble_ebike_s_t * p_ebike_s, uint8_t led_state);
 void characteristic1_value_write_handler(uint32_t characteristic1_value);
 
 void gap_params_init(void);

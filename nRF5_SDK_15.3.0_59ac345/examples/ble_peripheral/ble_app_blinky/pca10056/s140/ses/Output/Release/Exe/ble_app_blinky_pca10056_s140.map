@@ -4193,8 +4193,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
  .data          0x0000000000000000        0x0 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
  .bss           0x0000000000000000        0x0 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
- .text.littleTo_bigEndian
-                0x0000000000000000       0x14 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
  .debug_macro   0x0000000000000000      0xafc Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
  .debug_macro   0x0000000000000000      0x1a6 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
  .debug_macro   0x0000000000000000       0x22 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
@@ -8846,7 +8844,7 @@ Linker script and memory map
  .rodata.ble_evt_handler.str1.1
                 0x000000000002b4f5       0x17 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_config.o
  *fill*         0x000000000002b50c        0x4 
- .rodata.delay_machine_code.10546
+ .rodata.delay_machine_code.10549
                 0x000000000002b510        0x6 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_config.o
  *fill*         0x000000000002b516        0x2 
  .rodata.m_lbs_timer_id
@@ -9447,7 +9445,7 @@ OUTPUT(Output/Release/Exe/ble_app_blinky_pca10056_s140.elf elf32-littlearm)
  .comment       0x0000000000000047       0x48 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
  .comment       0x0000000000000047       0x48 C:/Program Files/SEGGER/SEGGER Embedded Studio for ARM 4.52c/lib/libc_v7em_fpv4_sp_d16_hard_t_le_eabi.a(libc2.o)
 
-.debug_line     0x0000000000000000    0x1ed85
+.debug_line     0x0000000000000000    0x1ed35
  .debug_line    0x0000000000000000      0x1fe Output/ble_app_blinky_pca10056_s140 Release/Obj/thumb_crt0.o
  .debug_line    0x00000000000001fe      0x9b6 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_log_backend_rtt.o
  .debug_line    0x0000000000000bb4      0x780 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_log_backend_serial.o
@@ -9481,22 +9479,22 @@ OUTPUT(Output/Release/Exe/ble_app_blinky_pca10056_s140.elf elf32-littlearm)
  .debug_line    0x000000000001147c     0x1664 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrfx_uarte.o
  .debug_line    0x0000000000012ae0      0x682 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_drv_spis.o
  .debug_line    0x0000000000013162     0x1084 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrfx_spis.o
- .debug_line    0x00000000000141e6      0xd6d Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
- .debug_line    0x0000000000014f53      0xd82 Output/ble_app_blinky_pca10056_s140 Release/Obj/spi.o
- .debug_line    0x0000000000015cd5     0x163c Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_config.o
- .debug_line    0x0000000000017311      0xbb4 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
- .debug_line    0x0000000000017ec5     0x133e Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
- .debug_line    0x0000000000019203      0xfa6 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
- .debug_line    0x000000000001a1a9      0xb05 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
- .debug_line    0x000000000001acae      0xc46 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
- .debug_line    0x000000000001b8f4      0x73b Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
- .debug_line    0x000000000001c02f      0xb79 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
- .debug_line    0x000000000001cba8      0x6ff Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
- .debug_line    0x000000000001d2a7      0xacf Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
- .debug_line    0x000000000001dd76      0x9ba Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
- .debug_line    0x000000000001e730      0x655 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
+ .debug_line    0x00000000000141e6      0xd69 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
+ .debug_line    0x0000000000014f4f      0xd82 Output/ble_app_blinky_pca10056_s140 Release/Obj/spi.o
+ .debug_line    0x0000000000015cd1     0x163c Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_config.o
+ .debug_line    0x000000000001730d      0xb68 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
+ .debug_line    0x0000000000017e75     0x133e Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
+ .debug_line    0x00000000000191b3      0xfa6 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
+ .debug_line    0x000000000001a159      0xb05 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
+ .debug_line    0x000000000001ac5e      0xc46 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
+ .debug_line    0x000000000001b8a4      0x73b Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
+ .debug_line    0x000000000001bfdf      0xb79 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
+ .debug_line    0x000000000001cb58      0x6ff Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
+ .debug_line    0x000000000001d257      0xacf Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
+ .debug_line    0x000000000001dd26      0x9ba Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
+ .debug_line    0x000000000001e6e0      0x655 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
 
-.debug_info     0x0000000000000000    0x4cd30
+.debug_info     0x0000000000000000    0x4cccb
  .debug_info    0x0000000000000000       0x22 Output/ble_app_blinky_pca10056_s140 Release/Obj/thumb_crt0.o
  .debug_info    0x0000000000000022      0xe65 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_log_backend_rtt.o
  .debug_info    0x0000000000000e87      0xef6 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_log_backend_serial.o
@@ -9533,19 +9531,19 @@ OUTPUT(Output/Release/Exe/ble_app_blinky_pca10056_s140.elf elf32-littlearm)
  .debug_info    0x0000000000029769     0x3289 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
  .debug_info    0x000000000002c9f2     0x3439 Output/ble_app_blinky_pca10056_s140 Release/Obj/spi.o
  .debug_info    0x000000000002fe2b     0x45af Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_config.o
- .debug_info    0x00000000000343da     0x2e0a Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
- .debug_info    0x00000000000371e4     0x1d3e Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
- .debug_info    0x0000000000038f22     0x2092 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
- .debug_info    0x000000000003afb4     0x2ef9 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
- .debug_info    0x000000000003dead     0x2ef1 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
- .debug_info    0x0000000000040d9e     0x1312 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
- .debug_info    0x00000000000420b0     0x2f55 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
- .debug_info    0x0000000000045005     0x2641 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
- .debug_info    0x0000000000047646     0x1855 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
- .debug_info    0x0000000000048e9b     0x3257 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
- .debug_info    0x000000000004c0f2      0xc3e Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
+ .debug_info    0x00000000000343da     0x2da5 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
+ .debug_info    0x000000000003717f     0x1d3e Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
+ .debug_info    0x0000000000038ebd     0x2092 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
+ .debug_info    0x000000000003af4f     0x2ef9 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
+ .debug_info    0x000000000003de48     0x2ef1 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
+ .debug_info    0x0000000000040d39     0x1312 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
+ .debug_info    0x000000000004204b     0x2f55 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
+ .debug_info    0x0000000000044fa0     0x2641 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
+ .debug_info    0x00000000000475e1     0x1855 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
+ .debug_info    0x0000000000048e36     0x3257 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
+ .debug_info    0x000000000004c08d      0xc3e Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
 
-.debug_abbrev   0x0000000000000000     0x9f25
+.debug_abbrev   0x0000000000000000     0x9ee4
  .debug_abbrev  0x0000000000000000       0x12 Output/ble_app_blinky_pca10056_s140 Release/Obj/thumb_crt0.o
  .debug_abbrev  0x0000000000000012      0x2f4 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_log_backend_rtt.o
  .debug_abbrev  0x0000000000000306      0x26b Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_log_backend_serial.o
@@ -9582,19 +9580,19 @@ OUTPUT(Output/Release/Exe/ble_app_blinky_pca10056_s140.elf elf32-littlearm)
  .debug_abbrev  0x000000000000632a      0x449 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
  .debug_abbrev  0x0000000000006773      0x410 Output/ble_app_blinky_pca10056_s140 Release/Obj/spi.o
  .debug_abbrev  0x0000000000006b83      0x5d3 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_config.o
- .debug_abbrev  0x0000000000007156      0x420 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
- .debug_abbrev  0x0000000000007576      0x347 Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
- .debug_abbrev  0x00000000000078bd      0x439 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
- .debug_abbrev  0x0000000000007cf6      0x598 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
- .debug_abbrev  0x000000000000828e      0x529 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
- .debug_abbrev  0x00000000000087b7      0x313 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
- .debug_abbrev  0x0000000000008aca      0x4d3 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
- .debug_abbrev  0x0000000000008f9d      0x3cc Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
- .debug_abbrev  0x0000000000009369      0x4eb Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
- .debug_abbrev  0x0000000000009854      0x47f Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
- .debug_abbrev  0x0000000000009cd3      0x252 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
+ .debug_abbrev  0x0000000000007156      0x3df Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
+ .debug_abbrev  0x0000000000007535      0x347 Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
+ .debug_abbrev  0x000000000000787c      0x439 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
+ .debug_abbrev  0x0000000000007cb5      0x598 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
+ .debug_abbrev  0x000000000000824d      0x529 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
+ .debug_abbrev  0x0000000000008776      0x313 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
+ .debug_abbrev  0x0000000000008a89      0x4d3 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
+ .debug_abbrev  0x0000000000008f5c      0x3cc Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
+ .debug_abbrev  0x0000000000009328      0x4eb Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
+ .debug_abbrev  0x0000000000009813      0x47f Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
+ .debug_abbrev  0x0000000000009c92      0x252 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
 
-.debug_aranges  0x0000000000000000     0x1170
+.debug_aranges  0x0000000000000000     0x1168
  .debug_aranges
                 0x0000000000000000       0x88 Output/ble_app_blinky_pca10056_s140 Release/Obj/thumb_crt0.o
  .debug_aranges
@@ -9668,29 +9666,29 @@ OUTPUT(Output/Release/Exe/ble_app_blinky_pca10056_s140.elf elf32-littlearm)
  .debug_aranges
                 0x0000000000000b30       0xf0 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_config.o
  .debug_aranges
-                0x0000000000000c20       0x58 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
+                0x0000000000000c20       0x50 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
  .debug_aranges
-                0x0000000000000c78      0x108 Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
+                0x0000000000000c70      0x108 Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
  .debug_aranges
-                0x0000000000000d80       0x80 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
+                0x0000000000000d78       0x80 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
  .debug_aranges
-                0x0000000000000e00       0x80 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
+                0x0000000000000df8       0x80 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
  .debug_aranges
-                0x0000000000000e80       0xd0 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
+                0x0000000000000e78       0xd0 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
  .debug_aranges
-                0x0000000000000f50       0x60 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
+                0x0000000000000f48       0x60 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
  .debug_aranges
-                0x0000000000000fb0       0x70 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
+                0x0000000000000fa8       0x70 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
  .debug_aranges
-                0x0000000000001020       0x48 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
+                0x0000000000001018       0x48 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
  .debug_aranges
-                0x0000000000001068       0x90 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
+                0x0000000000001060       0x90 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
  .debug_aranges
-                0x00000000000010f8       0x50 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
+                0x00000000000010f0       0x50 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
  .debug_aranges
-                0x0000000000001148       0x28 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
+                0x0000000000001140       0x28 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
 
-.debug_str      0x0000000000000000    0xaa9e3
+.debug_str      0x0000000000000000    0xaa9fd
  .debug_str     0x0000000000000000       0xfa Output/ble_app_blinky_pca10056_s140 Release/Obj/thumb_crt0.o
  .debug_str     0x00000000000000fa    0x8ef53 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_log_backend_rtt.o
                                       0x9161d (size before relaxing)
@@ -9756,36 +9754,36 @@ OUTPUT(Output/Release/Exe/ble_app_blinky_pca10056_s140.elf elf32-littlearm)
                                       0x8db2e (size before relaxing)
  .debug_str     0x000000000009c0e3      0x790 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrfx_spis.o
                                       0x916c1 (size before relaxing)
- .debug_str     0x000000000009c873     0x985e Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
-                                      0x9c21b (size before relaxing)
- .debug_str     0x00000000000a60d1      0x126 Output/ble_app_blinky_pca10056_s140 Release/Obj/spi.o
-                                      0x9c1d6 (size before relaxing)
- .debug_str     0x00000000000a61f7     0x146e Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_config.o
-                                      0x9d1ed (size before relaxing)
- .debug_str     0x00000000000a7665      0x460 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
-                                      0x922bd (size before relaxing)
- .debug_str     0x00000000000a7ac5      0x571 Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
+ .debug_str     0x000000000009c873     0x988f Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
+                                      0x9c24c (size before relaxing)
+ .debug_str     0x00000000000a6102      0x126 Output/ble_app_blinky_pca10056_s140 Release/Obj/spi.o
+                                      0x9c207 (size before relaxing)
+ .debug_str     0x00000000000a6228     0x1476 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_config.o
+                                      0x9d226 (size before relaxing)
+ .debug_str     0x00000000000a769e      0x441 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
+                                      0x922cd (size before relaxing)
+ .debug_str     0x00000000000a7adf      0x571 Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
                                       0x7ed9e (size before relaxing)
- .debug_str     0x00000000000a8036      0x4e6 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
+ .debug_str     0x00000000000a8050      0x4e6 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
                                       0x8c1e3 (size before relaxing)
- .debug_str     0x00000000000a851c      0x3b5 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
+ .debug_str     0x00000000000a8536      0x3b5 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
                                       0x8df86 (size before relaxing)
- .debug_str     0x00000000000a88d1      0x87f Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
+ .debug_str     0x00000000000a88eb      0x87f Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
                                       0x8d835 (size before relaxing)
- .debug_str     0x00000000000a9150      0x337 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
+ .debug_str     0x00000000000a916a      0x337 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
                                       0x83048 (size before relaxing)
- .debug_str     0x00000000000a9487      0x522 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
+ .debug_str     0x00000000000a94a1      0x522 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
                                       0x8eafa (size before relaxing)
- .debug_str     0x00000000000a99a9      0x26a Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
+ .debug_str     0x00000000000a99c3      0x26a Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
                                       0x8ccf7 (size before relaxing)
- .debug_str     0x00000000000a9c13      0x544 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
+ .debug_str     0x00000000000a9c2d      0x544 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
                                       0x8a36a (size before relaxing)
- .debug_str     0x00000000000aa157      0x6b8 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
+ .debug_str     0x00000000000aa171      0x6b8 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
                                       0x8f119 (size before relaxing)
- .debug_str     0x00000000000aa80f      0x1d4 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
+ .debug_str     0x00000000000aa829      0x1d4 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
                                       0x89371 (size before relaxing)
 
-.debug_ranges   0x0000000000000000     0x3440
+.debug_ranges   0x0000000000000000     0x3420
  .debug_ranges  0x0000000000000000       0x80 Output/ble_app_blinky_pca10056_s140 Release/Obj/thumb_crt0.o
  .debug_ranges  0x0000000000000080       0x70 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_log_backend_rtt.o
  .debug_ranges  0x00000000000000f0       0x28 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_log_backend_serial.o
@@ -9820,19 +9818,19 @@ OUTPUT(Output/Release/Exe/ble_app_blinky_pca10056_s140.elf elf32-littlearm)
  .debug_ranges  0x00000000000025d8       0x50 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
  .debug_ranges  0x0000000000002628       0x70 Output/ble_app_blinky_pca10056_s140 Release/Obj/spi.o
  .debug_ranges  0x0000000000002698      0x158 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_config.o
- .debug_ranges  0x00000000000027f0       0xa0 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
- .debug_ranges  0x0000000000002890      0x190 Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
- .debug_ranges  0x0000000000002a20      0x1d0 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
- .debug_ranges  0x0000000000002bf0      0x188 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
- .debug_ranges  0x0000000000002d78      0x208 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
- .debug_ranges  0x0000000000002f80       0x80 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
- .debug_ranges  0x0000000000003000      0x108 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
- .debug_ranges  0x0000000000003108       0x68 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
- .debug_ranges  0x0000000000003170      0x198 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
- .debug_ranges  0x0000000000003308       0xe0 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
- .debug_ranges  0x00000000000033e8       0x58 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
+ .debug_ranges  0x00000000000027f0       0x80 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
+ .debug_ranges  0x0000000000002870      0x190 Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
+ .debug_ranges  0x0000000000002a00      0x1d0 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
+ .debug_ranges  0x0000000000002bd0      0x188 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
+ .debug_ranges  0x0000000000002d58      0x208 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
+ .debug_ranges  0x0000000000002f60       0x80 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
+ .debug_ranges  0x0000000000002fe0      0x108 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
+ .debug_ranges  0x00000000000030e8       0x68 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
+ .debug_ranges  0x0000000000003150      0x198 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
+ .debug_ranges  0x00000000000032e8       0xe0 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
+ .debug_ranges  0x00000000000033c8       0x58 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
 
-.debug_frame    0x0000000000000000     0x3304
+.debug_frame    0x0000000000000000     0x32f4
  .debug_frame   0x0000000000000000       0x88 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_log_backend_rtt.o
  .debug_frame   0x0000000000000088       0x48 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_log_backend_serial.o
  .debug_frame   0x00000000000000d0       0xd8 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_log_backend_uart.o
@@ -9866,19 +9864,19 @@ OUTPUT(Output/Release/Exe/ble_app_blinky_pca10056_s140.elf elf32-littlearm)
  .debug_frame   0x0000000000001cac       0x3c Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
  .debug_frame   0x0000000000001ce8       0xe0 Output/ble_app_blinky_pca10056_s140 Release/Obj/spi.o
  .debug_frame   0x0000000000001dc8      0x2c4 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_config.o
- .debug_frame   0x000000000000208c      0x13c Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
- .debug_frame   0x00000000000021c8      0x4d8 Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
- .debug_frame   0x00000000000026a0      0x224 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
- .debug_frame   0x00000000000028c4      0x180 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
- .debug_frame   0x0000000000002a44      0x364 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
- .debug_frame   0x0000000000002da8       0xf0 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
- .debug_frame   0x0000000000002e98       0xf4 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
- .debug_frame   0x0000000000002f8c       0xac Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
- .debug_frame   0x0000000000003038      0x1a8 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
- .debug_frame   0x00000000000031e0       0xe0 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
- .debug_frame   0x00000000000032c0       0x44 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
+ .debug_frame   0x000000000000208c      0x12c Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
+ .debug_frame   0x00000000000021b8      0x4d8 Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
+ .debug_frame   0x0000000000002690      0x224 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
+ .debug_frame   0x00000000000028b4      0x180 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
+ .debug_frame   0x0000000000002a34      0x364 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
+ .debug_frame   0x0000000000002d98       0xf0 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
+ .debug_frame   0x0000000000002e88       0xf4 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
+ .debug_frame   0x0000000000002f7c       0xac Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
+ .debug_frame   0x0000000000003028      0x1a8 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
+ .debug_frame   0x00000000000031d0       0xe0 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
+ .debug_frame   0x00000000000032b0       0x44 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
 
-.debug_loc      0x0000000000000000    0x123c6
+.debug_loc      0x0000000000000000    0x12314
  .debug_loc     0x0000000000000000      0x1af Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_log_backend_rtt.o
  .debug_loc     0x00000000000001af      0x186 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_log_backend_serial.o
  .debug_loc     0x0000000000000335      0x281 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_log_backend_uart.o
@@ -9910,20 +9908,20 @@ OUTPUT(Output/Release/Exe/ble_app_blinky_pca10056_s140.elf elf32-littlearm)
  .debug_loc     0x000000000000bf4d      0x12d Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
  .debug_loc     0x000000000000c07a       0xd8 Output/ble_app_blinky_pca10056_s140 Release/Obj/spi.o
  .debug_loc     0x000000000000c152      0x960 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_config.o
- .debug_loc     0x000000000000cab2      0x5f6 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
- .debug_loc     0x000000000000d0a8     0x17ce Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
- .debug_loc     0x000000000000e876     0x1203 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
- .debug_loc     0x000000000000fa79      0xa09 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
- .debug_loc     0x0000000000010482      0x77a Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
- .debug_loc     0x0000000000010bfc      0x31e Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
- .debug_loc     0x0000000000010f1a      0xbf7 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
- .debug_loc     0x0000000000011b11      0x2db Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
- .debug_loc     0x0000000000011dec      0x29f Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
- .debug_loc     0x000000000001208b      0x2a4 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
- .debug_loc     0x000000000001232f       0x97 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
+ .debug_loc     0x000000000000cab2      0x544 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
+ .debug_loc     0x000000000000cff6     0x17ce Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
+ .debug_loc     0x000000000000e7c4     0x1203 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
+ .debug_loc     0x000000000000f9c7      0xa09 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
+ .debug_loc     0x00000000000103d0      0x77a Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
+ .debug_loc     0x0000000000010b4a      0x31e Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
+ .debug_loc     0x0000000000010e68      0xbf7 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
+ .debug_loc     0x0000000000011a5f      0x2db Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
+ .debug_loc     0x0000000000011d3a      0x29f Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
+ .debug_loc     0x0000000000011fd9      0x2a4 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
+ .debug_loc     0x000000000001227d       0x97 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
 
 .debug_pubnames
-                0x0000000000000000     0xf3f7
+                0x0000000000000000     0xf3e0
  .debug_pubnames
                 0x0000000000000000      0x12a Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_log_backend_rtt.o
  .debug_pubnames
@@ -9991,30 +9989,30 @@ OUTPUT(Output/Release/Exe/ble_app_blinky_pca10056_s140.elf elf32-littlearm)
  .debug_pubnames
                 0x0000000000008c86     0x11b0 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_config.o
  .debug_pubnames
-                0x0000000000009e36      0x593 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
+                0x0000000000009e36      0x57c Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
  .debug_pubnames
-                0x000000000000a3c9      0x3c3 Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
+                0x000000000000a3b2      0x3c3 Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
  .debug_pubnames
-                0x000000000000a78c      0x810 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
+                0x000000000000a775      0x810 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
  .debug_pubnames
-                0x000000000000af9c      0xb67 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
+                0x000000000000af85      0xb67 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
  .debug_pubnames
-                0x000000000000bb03      0x9b4 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
+                0x000000000000baec      0x9b4 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
  .debug_pubnames
-                0x000000000000c4b7      0x338 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
+                0x000000000000c4a0      0x338 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
  .debug_pubnames
-                0x000000000000c7ef     0x1087 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
+                0x000000000000c7d8     0x1087 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
  .debug_pubnames
-                0x000000000000d876      0x7bb Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
+                0x000000000000d85f      0x7bb Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
  .debug_pubnames
-                0x000000000000e031      0x92b Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
+                0x000000000000e01a      0x92b Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
  .debug_pubnames
-                0x000000000000e95c      0x41f Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
+                0x000000000000e945      0x41f Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
  .debug_pubnames
-                0x000000000000ed7b      0x67c Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
+                0x000000000000ed64      0x67c Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
 
 .debug_pubtypes
-                0x0000000000000000     0xedbc
+                0x0000000000000000     0xee08
  .debug_pubtypes
                 0x0000000000000000      0x314 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_log_backend_rtt.o
  .debug_pubtypes
@@ -10076,33 +10074,33 @@ OUTPUT(Output/Release/Exe/ble_app_blinky_pca10056_s140.elf elf32-littlearm)
  .debug_pubtypes
                 0x00000000000056b1      0x47e Output/ble_app_blinky_pca10056_s140 Release/Obj/nrfx_spis.o
  .debug_pubtypes
-                0x0000000000005b2f      0xf72 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
+                0x0000000000005b2f      0xf83 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
  .debug_pubtypes
-                0x0000000000006aa1     0x1027 Output/ble_app_blinky_pca10056_s140 Release/Obj/spi.o
+                0x0000000000006ab2     0x1038 Output/ble_app_blinky_pca10056_s140 Release/Obj/spi.o
  .debug_pubtypes
-                0x0000000000007ac8     0x11bb Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_config.o
+                0x0000000000007aea     0x11d0 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_config.o
  .debug_pubtypes
-                0x0000000000008c83      0xe50 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
+                0x0000000000008cba      0xe65 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_ebike_service.o
  .debug_pubtypes
-                0x0000000000009ad3      0x1f4 Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
+                0x0000000000009b1f      0x1f4 Output/ble_app_blinky_pca10056_s140 Release/Obj/SEGGER_RTT.o
  .debug_pubtypes
-                0x0000000000009cc7      0x30c Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
+                0x0000000000009d13      0x30c Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_advdata.o
  .debug_pubtypes
-                0x0000000000009fd3      0xd30 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
+                0x000000000000a01f      0xd30 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_params.o
  .debug_pubtypes
-                0x000000000000ad03      0xd02 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
+                0x000000000000ad4f      0xd02 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_conn_state.o
  .debug_pubtypes
-                0x000000000000ba05      0x340 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
+                0x000000000000ba51      0x340 Output/ble_app_blinky_pca10056_s140 Release/Obj/ble_srv_common.o
  .debug_pubtypes
-                0x000000000000bd45      0xd6c Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
+                0x000000000000bd91      0xd6c Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_gatt.o
  .debug_pubtypes
-                0x000000000000cab1      0xcd2 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
+                0x000000000000cafd      0xcd2 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_ble_qwr.o
  .debug_pubtypes
-                0x000000000000d783      0x3e1 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
+                0x000000000000d7cf      0x3e1 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh.o
  .debug_pubtypes
-                0x000000000000db64      0xf4a Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
+                0x000000000000dbb0      0xf4a Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_ble.o
  .debug_pubtypes
-                0x000000000000eaae      0x30e Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
+                0x000000000000eafa      0x30e Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_sdh_soc.o
 
 .debug_macro    0x0000000000000000    0x20d1d
  .debug_macro   0x0000000000000000      0x347 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_log_backend_rtt.o
@@ -10233,19 +10231,19 @@ OUTPUT(Output/Release/Exe/ble_app_blinky_pca10056_s140.elf elf32-littlearm)
  .debug_macro   0x000000000001ccec       0x76 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrf_drv_spis.o
  .debug_macro   0x000000000001cd62      0x338 Output/ble_app_blinky_pca10056_s140 Release/Obj/nrfx_spis.o
  .debug_macro   0x000000000001d09a      0x4a2 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
- .debug_macro   0x000000000001d53c       0x46 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
- .debug_macro   0x000000000001d582       0xb2 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
- .debug_macro   0x000000000001d634      0x13a Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
- .debug_macro   0x000000000001d76e      0x204 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
- .debug_macro   0x000000000001d972      0x58a Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
- .debug_macro   0x000000000001defc       0x8c Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
- .debug_macro   0x000000000001df88      0x205 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
- .debug_macro   0x000000000001e18d       0x22 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
- .debug_macro   0x000000000001e1af       0xf4 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
- .debug_macro   0x000000000001e2a3       0x4a Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
- .debug_macro   0x000000000001e2ed      0x343 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
- .debug_macro   0x000000000001e630       0x22 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
- .debug_macro   0x000000000001e652       0x10 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
+ .debug_macro   0x000000000001d53c       0x10 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
+ .debug_macro   0x000000000001d54c       0x46 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
+ .debug_macro   0x000000000001d592       0xb2 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
+ .debug_macro   0x000000000001d644      0x13a Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
+ .debug_macro   0x000000000001d77e      0x204 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
+ .debug_macro   0x000000000001d982      0x58a Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
+ .debug_macro   0x000000000001df0c       0x8c Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
+ .debug_macro   0x000000000001df98      0x205 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
+ .debug_macro   0x000000000001e19d       0x22 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
+ .debug_macro   0x000000000001e1bf       0xf4 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
+ .debug_macro   0x000000000001e2b3       0x4a Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
+ .debug_macro   0x000000000001e2fd      0x343 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
+ .debug_macro   0x000000000001e640       0x22 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
  .debug_macro   0x000000000001e662       0x28 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
  .debug_macro   0x000000000001e68a       0x70 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
  .debug_macro   0x000000000001e6fa       0x22 Output/ble_app_blinky_pca10056_s140 Release/Obj/main.o
