@@ -1,5 +1,29 @@
 #include "ble_config.h"
 
+uint16_t m_conn_handle = BLE_CONN_HANDLE_INVALID;                        /**< Handle of the current connection. */
+uint8_t m_adv_handle = BLE_GAP_ADV_SET_HANDLE_NOT_SET;                   /**< Advertising handle used to identify an advertising set. */
+uint8_t m_enc_advdata[BLE_GAP_ADV_SET_DATA_SIZE_MAX];                    /**< Buffer for storing an encoded advertising set. */
+uint8_t m_enc_scan_response_data[BLE_GAP_ADV_SET_DATA_SIZE_MAX];         /**< Buffer for storing an encoded scan data. */
+
+//BLE_LBS_DEF(m_lbs);                                                             /**< LED Button Service instance. */
+//NRF_BLE_GATT_DEF(m_gatt);                                                       /**< GATT module instance. */
+//NRF_BLE_QWR_DEF(m_qwr);                                                         /**< Context for the Queued Write module.*/
+
+/**@brief Struct that contains pointers to the encoded advertising data. */
+ble_gap_adv_data_t m_adv_data =
+{
+    .adv_data =
+    {
+        .p_data = m_enc_advdata,
+        .len    = BLE_GAP_ADV_SET_DATA_SIZE_MAX
+    },
+    .scan_rsp_data =
+    {
+        .p_data = m_enc_scan_response_data,
+        .len    = BLE_GAP_ADV_SET_DATA_SIZE_MAX
+    }
+};
+
 /******************************************************************************/
 /* TIMER                                                                      */
 /******************************************************************************/
@@ -68,8 +92,11 @@ void characteristic1_value_write_handler(uint32_t characteristic1_value)
     m_tx_buf[2] = (uint8_t) (characteristic1_value>>24);
     nrf_delay_us(100);  //delay min allow the PIC to detect the pulse
     nrf_gpio_pin_clear(IRQ_BT_PIN);
+
 }
 // Add other handlers here...
+
+
 /******************************************************************************/
 /* Ble Profil                                                                 */
 /******************************************************************************/
@@ -311,6 +338,8 @@ void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
             m_tx_buf[2] = 0x01;                       //desired function code
             nrf_delay_us(1000);                        //delay min allow the PIC to detect the pulse
             nrf_gpio_pin_clear(IRQ_BT_PIN);
+            uint16_t bat = 0xAAAA;
+            //ble_lbs_batVolt_characteristic_update(m_conn_handle, &m_lbs, &bat);
             break;
 
         case BLE_GAP_EVT_DISCONNECTED:
@@ -387,4 +416,14 @@ void advertising_start(void)
     err_code = sd_ble_gap_adv_start(m_adv_handle, APP_BLE_CONN_CFG_TAG);
     APP_ERROR_CHECK(err_code);
     NRF_LOG_INFO("Advertise");
+}
+
+void update_batVolt(uint16_t* batVolt)
+{
+    ble_lbs_batVolt_characteristic_update(m_conn_handle, &m_lbs, batVolt);  //call the characteristic update function
+}
+
+void update_pack_serialNumber(uint32_t *serialNumber)
+{
+    ble_lbs_characteristic_1_update(m_conn_handle, &m_lbs, serialNumber);
 }

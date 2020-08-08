@@ -24,12 +24,13 @@
 #include "nordic_common.h"
 #include "nrf.h"
 #include "boards.h"
-#include "ble_lbs.h"
+#include "ble_ebike_service.h"
+#include "ble_config.h"
 
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+//
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
 
 /****SPI****/
 #define SPIS_INSTANCE 1 /**< SPIS instance index. */
@@ -49,10 +50,10 @@ void spis_handle(void);
 void spis_reset_tx_buffer(void);
 
 
-/** @} */
-#ifdef __cplusplus
-}
-#endif
+///** @} */
+//#ifdef __cplusplus
+//}
+//#endif
 #endif /* SPI_H__ */
 
 /**

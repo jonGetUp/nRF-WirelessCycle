@@ -108,5 +108,4 @@ Output/ble_app_blinky_pca10056_s140\ Release/Obj/ble_config.o: \
  ../../../../../../integration/nrfx/legacy/nrf_drv_spis.h \
  ../../../../../../modules/nrfx/drivers/include/nrfx_spis.h \
  ../../../../../../modules/nrfx/hal/nrf_spis.h \
- ../../../../../../modules/nrfx/hal/nrf_gpio.h \
- ../../../../../../components/ble/ble_services/ble_lbs/ble_lbs.h
+ ../../../../../../modules/nrfx/hal/nrf_gpio.h

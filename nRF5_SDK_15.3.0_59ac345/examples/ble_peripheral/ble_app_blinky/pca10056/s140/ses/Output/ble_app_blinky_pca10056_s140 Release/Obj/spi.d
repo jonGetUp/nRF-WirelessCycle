@@ -80,8 +80,6 @@ Output/ble_app_blinky_pca10056_s140\ Release/Obj/spi.o: \
  ../../../../../../components/boards/boards.h \
  ../../../../../../modules/nrfx/hal/nrf_gpio.h \
  ../../../../../../components/boards/pca10056.h \
- ../../../../../../components/ble/ble_services/ble_lbs/ble_lbs.h \
- C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\examples\ble_peripheral\ble_app_blinky\Src\ble_config.h \
  C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\examples\ble_peripheral\ble_app_blinky\Src\ble_ebike_service.h \
  ../../../../../../components/softdevice/s140/headers/ble.h \
  ../../../../../../components/softdevice/s140/headers/ble_err.h \
@@ -98,6 +96,7 @@ Output/ble_app_blinky_pca10056_s140\ Release/Obj/spi.o: \
  ../../../../../../components/softdevice/s140/headers/ble_gap.h \
  ../../../../../../components/softdevice/s140/headers/ble_gatt.h \
  ../../../../../../components/softdevice/common/nrf_sdh_ble.h \
+ C:\Users\jogas\Google\ Drive\Bachelor\_Software\nRF52840\nRF-WirelessCycle\nRF5_SDK_15.3.0_59ac345\examples\ble_peripheral\ble_app_blinky\Src\ble_config.h \
  ../../../../../../components/softdevice/s140/headers/ble_err.h \
  ../../../../../../components/softdevice/s140/headers/ble_hci.h \
  ../../../../../../components/ble/common/ble_advdata.h \
@@ -108,4 +107,5 @@ Output/ble_app_blinky_pca10056_s140\ Release/Obj/spi.o: \
  ../../../../../../components/libraries/button/app_button.h \
  ../../../../../../components/ble/nrf_ble_gatt/nrf_ble_gatt.h \
  ../../../../../../components/ble/nrf_ble_qwr/nrf_ble_qwr.h \
- ../../../../../../components/libraries/delay/nrf_delay.h
+ ../../../../../../components/libraries/delay/nrf_delay.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 4.52c/include/assert.h

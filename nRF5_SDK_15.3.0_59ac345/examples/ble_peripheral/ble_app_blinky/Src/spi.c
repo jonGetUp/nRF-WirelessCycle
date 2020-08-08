@@ -1,5 +1,5 @@
 #include "spi.h"
-#include "ble_config.h"
+#include <assert.h>
 
 static const nrf_drv_spis_t spis = NRF_DRV_SPIS_INSTANCE(SPIS_INSTANCE);/**< SPIS instance. */
 
@@ -18,7 +18,7 @@ static volatile bool spis_xfer_done; /**< Flag used to indicate that SPIS instan
 /**
  * Function for configuring the spi peripheral as slave
  */
-void spi_init(void)//static 
+void spi_init(void)
 {
     // Enable the constant latency sub power mode to minimize the time it takes
     // for the SPIS peripheral to become active after the CSN line is asserted
@@ -42,6 +42,7 @@ void spi_init(void)//static
  */
 void spis_event_handler(nrf_drv_spis_event_t event)
 {
+    ret_code_t err_code;
     if (event.evt_type == NRF_DRV_SPIS_XFER_DONE)
     {
         //spis transfer done -> set flag
@@ -69,7 +70,7 @@ void spis_event_handler(nrf_drv_spis_event_t event)
             //ble profil value format is little endian
             batVolt = (((uint16_t)m_rx_buf[2])<<8)& 0xFF00;         //read 8 LSB
             batVolt = batVolt + (((uint16_t)m_rx_buf[3]) & 0x00FF); //read 8 MSB
-            ble_lbs_batVolt_characteristic_update(m_conn_handle, &m_lbs, &batVolt);  //call the characteristic update function
+            update_batVolt(&batVolt);
             break;
           case FC_SERIAL_NUMBER:
             //write the ble characteristic in little endian
@@ -77,7 +78,7 @@ void spis_event_handler(nrf_drv_spis_event_t event)
                            (((uint32_t)m_rx_buf[3])<<16) +
                            (((uint32_t)m_rx_buf[4])<<8)  +
                            ((uint32_t)m_rx_buf[5]);         //MSB
-            ble_lbs_characteristic_1_update(m_conn_handle, &m_lbs, &serialNumber);
+            update_pack_serialNumber(&serialNumber);
             break;          
           default:
             //Is MSB set?

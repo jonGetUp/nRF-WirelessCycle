@@ -11,9 +11,10 @@
 #include "nrf_log_ctrl.h"
 #include "nrf_log_default_backends.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
 
 /**@brief   Macro for defining a ble_lbs instance.
  *
@@ -118,7 +119,7 @@ void ble_lbs_on_ble_evt(ble_evt_t const * p_ble_evt, void * p_context);
  *
  * @retval NRF_SUCCESS If the notification was sent successfully. Otherwise, an error code is returned.
  */
-uint32_t ble_lbs_on_button_change(uint16_t conn_handle, ble_lbs_t * p_lbs, uint8_t button_state);
+//uint32_t ble_lbs_on_button_change(uint16_t conn_handle, ble_lbs_t * p_lbs, uint8_t button_state);
 
 /**@brief Function for sending a battery voltage notification.
  *
@@ -130,11 +131,11 @@ uint32_t ble_lbs_on_button_change(uint16_t conn_handle, ble_lbs_t * p_lbs, uint8
  */
 uint32_t ble_lbs_batVolt_characteristic_update(uint16_t conn_handle, ble_lbs_t *p_lbs, uint16_t *battery_value);
 
-uint32_t ble_lbs_characteristic_1_update(uint16_t conn_handle, ble_lbs_t *p_lbs, uint16_t * characteristic_1);
+uint32_t ble_lbs_characteristic_1_update(uint16_t conn_handle, ble_lbs_t *p_lbs, uint32_t * characteristic_1);
 
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 #endif // BLE_EBIKE_SERVICE_H__
 

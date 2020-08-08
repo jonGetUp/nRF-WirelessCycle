@@ -13,8 +13,7 @@
 
 #include "app_error.h"
 
-#include "ble_ebike_service.h"
-#include "ble_config.h"
+
 //#include "ble.h"
 //#include "ble_err.h"
 //#include "ble_hci.h"
@@ -32,7 +31,8 @@
 
 #include "nrf_pwr_mgmt.h"
 
-
+#include "ble_ebike_service.h"
+#include "ble_config.h"
 #include "spi.h"
 
 #include "nrf_log.h"

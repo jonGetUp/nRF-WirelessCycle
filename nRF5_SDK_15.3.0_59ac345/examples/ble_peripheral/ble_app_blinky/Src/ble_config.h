@@ -42,9 +42,9 @@
 #include "spi.h"
 
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
 
 #define DEVICE_NAME                     "EBike"                         /**< Name of device. Will be included in the advertising data. */
 
@@ -77,29 +77,19 @@ extern "C" {
 
 #define IRQ_BT_PIN                      NRF_GPIO_PIN_MAP(1,4)                  /**< Interrupt request for SPI slave */
 
-static uint16_t m_conn_handle = BLE_CONN_HANDLE_INVALID;                        /**< Handle of the current connection. */
-static uint8_t m_adv_handle = BLE_GAP_ADV_SET_HANDLE_NOT_SET;                   /**< Advertising handle used to identify an advertising set. */
-static uint8_t m_enc_advdata[BLE_GAP_ADV_SET_DATA_SIZE_MAX];                    /**< Buffer for storing an encoded advertising set. */
-static uint8_t m_enc_scan_response_data[BLE_GAP_ADV_SET_DATA_SIZE_MAX];         /**< Buffer for storing an encoded scan data. */
+extern uint16_t m_conn_handle;                        /**< Handle of the current connection. */
+extern uint8_t m_adv_handle;                   /**< Advertising handle used to identify an advertising set. */
+extern uint8_t m_enc_advdata[BLE_GAP_ADV_SET_DATA_SIZE_MAX];                    /**< Buffer for storing an encoded advertising set. */
+extern uint8_t m_enc_scan_response_data[BLE_GAP_ADV_SET_DATA_SIZE_MAX];         /**< Buffer for storing an encoded scan data. */
 
-BLE_LBS_DEF(m_lbs);                                                             /**< LED Button Service instance. */
-NRF_BLE_GATT_DEF(m_gatt);                                                       /**< GATT module instance. */
+extern ble_gap_adv_data_t m_adv_data;
+
+//! m_ indicate static!!!!!
+BLE_LBS_DEF(m_lbs);                                                             /**< data structure used to control LED Button Service instance. */
+NRF_BLE_GATT_DEF(m_gatt);                                                       /**< data structure used to control GATT module instance. */
 NRF_BLE_QWR_DEF(m_qwr);                                                         /**< Context for the Queued Write module.*/
-
-/**@brief Struct that contains pointers to the encoded advertising data. */
-static ble_gap_adv_data_t m_adv_data =
-{
-    .adv_data =
-    {
-        .p_data = m_enc_advdata,
-        .len    = BLE_GAP_ADV_SET_DATA_SIZE_MAX
-    },
-    .scan_rsp_data =
-    {
-        .p_data = m_enc_scan_response_data,
-        .len    = BLE_GAP_ADV_SET_DATA_SIZE_MAX
-    }
-};
+//
+//
 
 //Timer
 // OUR_JOB: Step 3.G, Declare an app_timer id variable and define our timer interval and define a timer interval
@@ -126,11 +116,14 @@ void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context);
 
 void advertising_start(void);
 
+void update_batVolt(uint16_t* batVolt);
+void update_pack_serialNumber(uint32_t *serialNumber);
 
-/** @} */
-#ifdef __cplusplus
-}
-#endif
+
+///** @} */
+//#ifdef __cplusplus
+//}
+//#endif
 #endif /* BLE_CONFIG_H__ */
 
 /**

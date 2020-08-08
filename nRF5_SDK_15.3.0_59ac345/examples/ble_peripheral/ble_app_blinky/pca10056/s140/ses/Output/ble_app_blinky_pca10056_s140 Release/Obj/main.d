@@ -55,6 +55,9 @@ Output/ble_app_blinky_pca10056_s140\ Release/Obj/main.o: \
  ../../../../../../modules/nrfx/drivers/nrfx_errors.h \
  ../../../../../../components/boards/pca10056.h \
  ../../../../../../components/libraries/util/app_error.h \
+ ../../../../../../components/libraries/pwr_mgmt/nrf_pwr_mgmt.h \
+ ../../../../../../components/libraries/experimental_section_vars/nrf_section_iter.h \
+ ../../../../../../components/libraries/experimental_section_vars/nrf_section.h \
  ../../../Src/ble_ebike_service.h \
  ../../../../../../components/softdevice/s140/headers/ble.h \
  ../../../../../../components/softdevice/s140/headers/ble_err.h \
@@ -71,8 +74,6 @@ Output/ble_app_blinky_pca10056_s140\ Release/Obj/main.o: \
  ../../../../../../components/softdevice/s140/headers/ble_gap.h \
  ../../../../../../components/softdevice/s140/headers/ble_gatt.h \
  ../../../../../../components/softdevice/common/nrf_sdh_ble.h \
- ../../../../../../components/libraries/experimental_section_vars/nrf_section_iter.h \
- ../../../../../../components/libraries/experimental_section_vars/nrf_section.h \
  ../../../../../../components/libraries/log/nrf_log.h \
  ../../../../../../components/libraries/util/sdk_common.h \
  ../../../../../../components/libraries/util/sdk_os.h \
@@ -108,7 +109,5 @@ Output/ble_app_blinky_pca10056_s140\ Release/Obj/main.o: \
  ../../../../../../integration/nrfx/legacy/nrf_drv_spis.h \
  ../../../../../../modules/nrfx/drivers/include/nrfx_spis.h \
  ../../../../../../modules/nrfx/hal/nrf_spis.h \
- ../../../../../../modules/nrfx/hal/nrf_gpio.h \
- ../../../../../../components/ble/ble_services/ble_lbs/ble_lbs.h \
- ../../../../../../components/libraries/pwr_mgmt/nrf_pwr_mgmt.h \
+ ../../../../../../modules/nrfx/hal/nrf_gpio.h ../../../Src/ble_config.h \
  ../../../Src/spi.h

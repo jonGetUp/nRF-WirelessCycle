@@ -1,8 +1,7 @@
-#include "ble_ebike_service.h"
 #include "sdk_common.h"
 #if NRF_MODULE_ENABLED(BLE_LBS)
+#include "ble_ebike_service.h"
 #include "ble_srv_common.h"
-
 
 void littleTo_bigEndian(uint32_t* littleEndian, uint8_t bigEndian[], uint32_t size)
 {
@@ -103,7 +102,7 @@ uint32_t ble_lbs_init(ble_lbs_t * p_lbs, const ble_lbs_init_t * p_lbs_init)
     add_char_params.uuid_type         = p_lbs->uuid_type;
     add_char_params.init_len          = 2;
     add_char_params.max_len           = 2;
-    uint8_t value[2]                  = {0xD2,0x04};
+    uint8_t value[2]                  = {0xD2,0x04};  //little endian
     add_char_params.p_init_value      = value; //init first value
     add_char_params.char_props.read   = 1;
     add_char_params.char_props.notify = 1;
@@ -146,7 +145,7 @@ uint32_t ble_lbs_init(ble_lbs_t * p_lbs, const ble_lbs_init_t * p_lbs_init)
     add_char_params.uuid_type        = p_lbs->uuid_type;
     add_char_params.max_len          = 4;
     add_char_params.init_len         = 4;
-    uint8_t value2[4]                = {0x12,0x34,0x56,0x78};
+    uint8_t value2[4]                = {0x68,0xCE,0x00,0x00}; //little endian
     add_char_params.p_init_value     = value2;
     add_char_params.char_props.read  = 1;
     add_char_params.char_props.write = 1;
@@ -160,7 +159,6 @@ uint32_t ble_lbs_init(ble_lbs_t * p_lbs, const ble_lbs_init_t * p_lbs_init)
     return err_code;
 }
 
-//static int32_t battery_value_local;
 // ALREADY_DONE_FOR_YOU: Function to be called when updating characteristic value
 uint32_t ble_lbs_batVolt_characteristic_update(uint16_t conn_handle, ble_lbs_t *p_lbs, uint16_t *battery_value)
 {
@@ -179,12 +177,12 @@ uint32_t ble_lbs_batVolt_characteristic_update(uint16_t conn_handle, ble_lbs_t *
         hvx_params.p_data = (uint8_t*)battery_value;  //data pointer
 
         return sd_ble_gatts_hvx(conn_handle, &hvx_params);
-      }
+  }
   return NRF_SUCCESS; //nothing has been send
 }
 
 // ALREADY_DONE_FOR_YOU: Function to be called when updating characteristic value
-uint32_t ble_lbs_characteristic_1_update(uint16_t conn_handle, ble_lbs_t *p_lbs, uint16_t * characteristic_1)
+uint32_t ble_lbs_characteristic_1_update(uint16_t conn_handle, ble_lbs_t *p_lbs, uint32_t * characteristic_1)
 {
   // implement the notification on connection
   // OUR_JOB: Step 3.E, Update characteristic value
@@ -195,7 +193,7 @@ uint32_t ble_lbs_characteristic_1_update(uint16_t conn_handle, ble_lbs_t *p_lbs,
         memset(&hvx_params, 0, sizeof(hvx_params));
 
         hvx_params.handle = p_lbs->char_handles_1.value_handle; //which characteristic value we are working on
-        hvx_params.type   = BLE_GATT_HVX_NOTIFICATION;               //notification
+        hvx_params.type   = BLE_GATT_HVX_NOTIFICATION;          //notification
         hvx_params.offset = 0;      //characteristic value might be a sequence of many bytes.
         hvx_params.p_len  = &len;   //number of bytes to transmitt
         hvx_params.p_data = (uint8_t*)characteristic_1;  //data pointer
