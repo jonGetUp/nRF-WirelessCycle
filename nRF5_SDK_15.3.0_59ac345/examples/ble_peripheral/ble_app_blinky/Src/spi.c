@@ -43,7 +43,7 @@ void spis_event_handler(nrf_drv_spis_event_t event)
         {
           case 0x00:
               //do nothing, master read the slave txBuffer
-              NRF_LOG_INFO("-SPI: tx_buf read by Master");
+              NRF_LOG_INFO("<SPI: tx_buf read by Master");
               break;
           case 0x7F:
               //never used, nRF only write PIC, no read
@@ -53,29 +53,63 @@ void spis_event_handler(nrf_drv_spis_event_t event)
 //            m_tx_buf[1] = 0x01; //data size
 //            m_tx_buf[2] = functionCode; //desired function code
 //            //txBuffer loaded and ready to be readed -> pulse Interrupt request to the master
-//            
             break;
           case FC_BATVOLT:
-            //ble profil value format is little endian
-            bmsState.batVolt = (((uint16_t)m_rx_buf[2])<<8)& 0xFF00;         //read 8 LSB
-            bmsState.batVolt = bmsState.batVolt + (((uint16_t)m_rx_buf[3]) & 0x00FF); //read 8 MSB
-            update_batVolt(&bmsState.batVolt);
-            NRF_LOG_INFO(" SPI: Receive %x Battery[V]: %d",functionCode, bmsState.batVolt);
+              //ble profil value format is little endian
+              bmsState.batVolt = (((uint16_t)m_rx_buf[2])<<8)& 0xFF00;                  //read 8 LSB
+              bmsState.batVolt += (((uint16_t)m_rx_buf[3]) & 0x00FF); //read 8 MSB
+              update_batVolt(&bmsState.batVolt);
+              NRF_LOG_INFO(" SPI: Receive %x batVolt: %u",functionCode, bmsState.batVolt);
             break;
-          case FC_SERIAL_NUMBER:
-            //write the ble characteristic in little endian
-            bmsState.pack_serialNumber = (((uint32_t)m_rx_buf[2])<<24) +  //LSB
+          case FC_BATTERY_CURRENT:
+              //ble profil value format is little endian
+              bmsState.battery_current = (((uint32_t)m_rx_buf[2])<<24) +  //LSB
                                          (((uint32_t)m_rx_buf[3])<<16) +
                                          (((uint32_t)m_rx_buf[4])<<8)  +
-                                         ((uint32_t)m_rx_buf[5]);         //MSB
-            update_pack_serialNumber(&bmsState.pack_serialNumber);
-            NRF_LOG_INFO(" SPI: Receive %x Serial number: %d",functionCode, bmsState.pack_serialNumber);
+                                          ((uint32_t)m_rx_buf[5]);         //MSB
+              update_battery_current(&bmsState.battery_current);
+              NRF_LOG_INFO(" SPI: Receive %x battery_current: %d",functionCode, bmsState.battery_current);
+            break;
+          case FC_CHARGER_CURRENT:
+              //ble profil value format is little endian
+              bmsState.charger_current = (((uint16_t)m_rx_buf[2])<<8)& 0xFF00;  //read 8 LSB
+              bmsState.charger_current += (((uint16_t)m_rx_buf[3]) & 0x00FF);   //read 8 MSB
+              update_charger_current(&bmsState.charger_current);
+              NRF_LOG_INFO(" SPI: Receive %x charger_current: %d",functionCode, bmsState.charger_current);
+            break;
+          case FC_CURFAULT:
+              //ble profil value format is little endian
+              bmsState.curFault = m_rx_buf[2];
+              update_curFault(&bmsState.curFault);
+              NRF_LOG_INFO(" SPI: Receive %x curFault: %u",functionCode, bmsState.curFault);
+            break;
+          case FC_BALANCEINWORK:
+              //ble profil value format is little endian
+              bmsState.balanceInWork = m_rx_buf[2];
+              update_balanceInWork(&bmsState.balanceInWork);
+              NRF_LOG_INFO(" SPI: Receive %x balanceInWork: %u",functionCode, bmsState.balanceInWork);
+            break;
+          case FC_SMMAIN:
+              //ble profil value format is little endian
+              bmsState.smMain = m_rx_buf[2];
+              update_smMain(&bmsState.smMain);
+              NRF_LOG_INFO(" SPI: Receive %x smMain: %u",functionCode, bmsState.smMain);
+            break;
+          case FC_SERIAL_NUMBER:
+              //write the ble characteristic in little endian
+              bmsState.pack_serialNumber = (((uint32_t)m_rx_buf[2])<<24) +  //LSB
+                                           (((uint32_t)m_rx_buf[3])<<16) +
+                                           (((uint32_t)m_rx_buf[4])<<8)  +
+                                           ((uint32_t)m_rx_buf[5]);         //MSB
+              update_pack_serialNumber(&bmsState.pack_serialNumber);
+              NRF_LOG_INFO(" SPI: Receive %x Serial number: %u",functionCode, bmsState.pack_serialNumber);
             break;
           case FC_UNBLOCK_SM:
-            bmsState.unblock_sm = m_rx_buf[2];
-            update_unblock_sm(&bmsState.unblock_sm);
-            NRF_LOG_INFO(" SPI: Receive %x Unblock sm: %d",functionCode, bmsState.unblock_sm);
+              bmsState.unblock_sm = m_rx_buf[2];
+              update_unblock_sm(&bmsState.unblock_sm);
+              NRF_LOG_INFO(" SPI: Receive %x Unblock sm: %u",functionCode, bmsState.unblock_sm);
             break;
+          //>>>>>>>>>> Add other
           default:
             //Is MSB set?
             if((functionCode & 0x80) == 0x80)

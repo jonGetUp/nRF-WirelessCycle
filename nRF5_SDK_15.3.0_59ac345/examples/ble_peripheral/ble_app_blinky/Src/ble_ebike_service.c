@@ -82,7 +82,7 @@ uint32_t ble_ebike_s_init(ble_ebike_s_t * p_ebike_s, const ble_ebike_s_init_t * 
     err_code = sd_ble_gatts_service_add(BLE_GATTS_SRVC_TYPE_PRIMARY, &ble_uuid, &p_ebike_s->service_handle);
     VERIFY_SUCCESS(err_code);
 
-    // Add Button characteristic.
+    // Add BatVolt characteristic.
     memset(&add_char_params, 0, sizeof(add_char_params));
     add_char_params.uuid              = EBIKE_S_UUID_BATVOLT_CHAR;
     add_char_params.uuid_type         = p_ebike_s->uuid_type;
@@ -103,6 +103,103 @@ uint32_t ble_ebike_s_init(ble_ebike_s_t * p_ebike_s, const ble_ebike_s_init_t * 
     {
         return err_code;
     }
+    // Add Battery_Current characteristic.
+    memset(&add_char_params, 0, sizeof(add_char_params));
+    add_char_params.uuid              = EBIKE_S_UUID_BATTERY_CURRENT_CHAR;
+    add_char_params.uuid_type         = p_ebike_s->uuid_type;
+    add_char_params.init_len          = 4;
+    add_char_params.max_len           = 4;
+    add_char_params.char_props.read   = 1;
+    add_char_params.char_props.notify = 1;
+
+    add_char_params.read_access       = SEC_OPEN; //Access open.
+    add_char_params.cccd_write_access = SEC_OPEN; //enable notify?
+
+    err_code = characteristic_add(p_ebike_s->service_handle,
+                                  &add_char_params,
+                                  &p_ebike_s->battery_current_char_handles);
+    if (err_code != NRF_SUCCESS)
+    {
+        return err_code;
+    }
+    // Add Charger Current characteristic.
+    memset(&add_char_params, 0, sizeof(add_char_params));
+    add_char_params.uuid              = EBIKE_S_UUID_CHARGER_CURRENT_CHAR;
+    add_char_params.uuid_type         = p_ebike_s->uuid_type;
+    add_char_params.init_len          = 2;
+    add_char_params.max_len           = 2;
+    add_char_params.char_props.read   = 1;
+    add_char_params.char_props.notify = 1;
+
+    add_char_params.read_access       = SEC_OPEN; //Access open.
+    add_char_params.cccd_write_access = SEC_OPEN; //enable notify?
+
+    err_code = characteristic_add(p_ebike_s->service_handle,
+                                  &add_char_params,
+                                  &p_ebike_s->charger_current_char_handles);
+    if (err_code != NRF_SUCCESS)
+    {
+        return err_code;
+    }
+    // Add CurFault characteristic.
+    memset(&add_char_params, 0, sizeof(add_char_params));
+    add_char_params.uuid              = EBIKE_S_UUID_CURFAULT_CHAR;
+    add_char_params.uuid_type         = p_ebike_s->uuid_type;
+    add_char_params.init_len          = 1;
+    add_char_params.max_len           = 1;
+    add_char_params.char_props.read   = 1;
+    add_char_params.char_props.notify = 1;
+
+    add_char_params.read_access       = SEC_OPEN; //Access open.
+    add_char_params.cccd_write_access = SEC_OPEN; //enable notify?
+
+    err_code = characteristic_add(p_ebike_s->service_handle,
+                                  &add_char_params,
+                                  &p_ebike_s->curFault_char_handles);
+    if (err_code != NRF_SUCCESS)
+    {
+        return err_code;
+    }
+    // Add balanceInWork characteristic.
+    memset(&add_char_params, 0, sizeof(add_char_params));
+    add_char_params.uuid              = EBIKE_S_UUID_BALANCEINWORK_CHAR;
+    add_char_params.uuid_type         = p_ebike_s->uuid_type;
+    add_char_params.init_len          = 1;
+    add_char_params.max_len           = 1;
+    add_char_params.char_props.read   = 1;
+    add_char_params.char_props.notify = 1;
+
+    add_char_params.read_access       = SEC_OPEN; //Access open.
+    add_char_params.cccd_write_access = SEC_OPEN; //enable notify?
+
+    err_code = characteristic_add(p_ebike_s->service_handle,
+                                  &add_char_params,
+                                  &p_ebike_s->balanceInWork_char_handles);
+    if (err_code != NRF_SUCCESS)
+    {
+        return err_code;
+    }
+    // Add smMain characteristic.
+    memset(&add_char_params, 0, sizeof(add_char_params));
+    add_char_params.uuid              = EBIKE_S_UUID_SMMAIN_CHAR;
+    add_char_params.uuid_type         = p_ebike_s->uuid_type;
+    add_char_params.init_len          = 1;
+    add_char_params.max_len           = 1;
+    add_char_params.char_props.read   = 1;
+    add_char_params.char_props.notify = 1;
+
+    add_char_params.read_access       = SEC_OPEN; //Access open.
+    add_char_params.cccd_write_access = SEC_OPEN; //enable notify?
+
+    err_code = characteristic_add(p_ebike_s->service_handle,
+                                  &add_char_params,
+                                  &p_ebike_s->smMain_char_handles);
+    if (err_code != NRF_SUCCESS)
+    {
+        return err_code;
+    }
+
+
 
     // Add UNBLOCK_SM characteristic.
     memset(&add_char_params, 0, sizeof(add_char_params));
@@ -165,6 +262,99 @@ uint32_t ble_ebike_s_batvolt_char_update(uint16_t conn_handle, ble_ebike_s_t *p_
   }
   return NRF_SUCCESS; //nothing has been send
 }
+uint32_t ble_ebike_s_battery_current_char_update(uint16_t conn_handle, ble_ebike_s_t *p_ebike_s, uint32_t *battery_current)
+{
+  if (conn_handle != BLE_CONN_HANDLE_INVALID)//housekeeping allow to check if we are in a valid connection
+  {
+      uint16_t               len = 4;
+      ble_gatts_hvx_params_t hvx_params;          //Handle Value X(notification or indication)
+      memset(&hvx_params, 0, sizeof(hvx_params));
+
+      hvx_params.handle = p_ebike_s->battery_current_char_handles.value_handle; //which characteristic value we are working on
+      hvx_params.type   = BLE_GATT_HVX_NOTIFICATION;                //notification
+      hvx_params.offset = 0;      //characteristic value might be a sequence of many bytes.
+      hvx_params.p_len  = &len;   //number of bytes to transmitt
+      hvx_params.p_data = (uint8_t*)battery_current;  //data pointer
+
+      return sd_ble_gatts_hvx(conn_handle, &hvx_params);
+  }
+  return NRF_SUCCESS; //nothing has been send
+}
+uint32_t ble_ebike_s_charger_current_char_update(uint16_t conn_handle, ble_ebike_s_t *p_ebike_s, uint16_t *charger_current)
+{
+  if (conn_handle != BLE_CONN_HANDLE_INVALID)//housekeeping allow to check if we are in a valid connection
+  {
+      uint16_t               len = 2;
+      ble_gatts_hvx_params_t hvx_params;          //Handle Value X(notification or indication)
+      memset(&hvx_params, 0, sizeof(hvx_params));
+
+      hvx_params.handle = p_ebike_s->charger_current_char_handles.value_handle; //which characteristic value we are working on
+      hvx_params.type   = BLE_GATT_HVX_NOTIFICATION;                //notification
+      hvx_params.offset = 0;      //characteristic value might be a sequence of many bytes.
+      hvx_params.p_len  = &len;   //number of bytes to transmitt
+      hvx_params.p_data = (uint8_t*)charger_current;  //data pointer
+
+      return sd_ble_gatts_hvx(conn_handle, &hvx_params);
+  }
+  return NRF_SUCCESS; //nothing has been send
+}
+uint32_t ble_ebike_s_curFault_char_update(uint16_t conn_handle, ble_ebike_s_t *p_ebike_s, uint8_t *curFault)
+{
+  if (conn_handle != BLE_CONN_HANDLE_INVALID)//housekeeping allow to check if we are in a valid connection
+  {
+      uint16_t               len = 1;
+      ble_gatts_hvx_params_t hvx_params;          //Handle Value X(notification or indication)
+      memset(&hvx_params, 0, sizeof(hvx_params));
+
+      hvx_params.handle = p_ebike_s->curFault_char_handles.value_handle; //which characteristic value we are working on
+      hvx_params.type   = BLE_GATT_HVX_NOTIFICATION;                //notification
+      hvx_params.offset = 0;      //characteristic value might be a sequence of many bytes.
+      hvx_params.p_len  = &len;   //number of bytes to transmitt
+      hvx_params.p_data = (uint8_t*)curFault;  //data pointer
+
+      return sd_ble_gatts_hvx(conn_handle, &hvx_params);
+  }
+  return NRF_SUCCESS; //nothing has been send
+}
+uint32_t ble_ebike_s_balanceInWork_char_update(uint16_t conn_handle, ble_ebike_s_t *p_ebike_s, uint8_t *balanceInWork)
+{
+  if (conn_handle != BLE_CONN_HANDLE_INVALID)//housekeeping allow to check if we are in a valid connection
+  {
+      uint16_t               len = 1;
+      ble_gatts_hvx_params_t hvx_params;          //Handle Value X(notification or indication)
+      memset(&hvx_params, 0, sizeof(hvx_params));
+
+      hvx_params.handle = p_ebike_s->balanceInWork_char_handles.value_handle; //which characteristic value we are working on
+      hvx_params.type   = BLE_GATT_HVX_NOTIFICATION;                //notification
+      hvx_params.offset = 0;      //characteristic value might be a sequence of many bytes.
+      hvx_params.p_len  = &len;   //number of bytes to transmitt
+      hvx_params.p_data = (uint8_t*)balanceInWork;  //data pointer
+
+      return sd_ble_gatts_hvx(conn_handle, &hvx_params);
+  }
+  return NRF_SUCCESS; //nothing has been send
+}
+uint32_t ble_ebike_s_smMain_char_update(uint16_t conn_handle, ble_ebike_s_t *p_ebike_s, uint8_t *smMain)
+{
+  if (conn_handle != BLE_CONN_HANDLE_INVALID)//housekeeping allow to check if we are in a valid connection
+  {
+      uint16_t               len = 1;
+      ble_gatts_hvx_params_t hvx_params;          //Handle Value X(notification or indication)
+      memset(&hvx_params, 0, sizeof(hvx_params));
+
+      hvx_params.handle = p_ebike_s->smMain_char_handles.value_handle; //which characteristic value we are working on
+      hvx_params.type   = BLE_GATT_HVX_NOTIFICATION;                //notification
+      hvx_params.offset = 0;      //characteristic value might be a sequence of many bytes.
+      hvx_params.p_len  = &len;   //number of bytes to transmitt
+      hvx_params.p_data = (uint8_t*)smMain;  //data pointer
+
+      return sd_ble_gatts_hvx(conn_handle, &hvx_params);
+  }
+  return NRF_SUCCESS; //nothing has been send
+}
+
+
+
 
 // ALREADY_DONE_FOR_YOU: Function to be called when updating characteristic value
 uint32_t ble_ebike_s_serial_number_char_update(uint16_t conn_handle, ble_ebike_s_t *p_ebike_s, uint32_t * serial_number)
@@ -208,7 +398,6 @@ uint32_t ble_ebike_s_unblock_sm_char_update(uint16_t conn_handle, ble_ebike_s_t 
   }
   return NRF_SUCCESS; //nothing has been send
 }
-
 //>>>>>>>>>> Add others update methodes here....
 
 

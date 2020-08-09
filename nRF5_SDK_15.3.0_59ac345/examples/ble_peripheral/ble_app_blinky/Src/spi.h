@@ -34,6 +34,12 @@
 
 //Data packets size
 #define SIZE_BATVOLT 0x02
+#define SIZE_BATTERY_CURRENT 0x04
+#define SIZE_CHARGER_CURRENT 0x02
+#define SIZE_CURFAULT 0x01
+#define SIZE_BALANCEINWORK 0x01
+#define SIZE_SMMAIN 0x01
+
 #define SIZE_SERIAL_NUMBER 0x04
 #define SIZE_SMARTPHONE_CONNECTED 0x01
 #define SIZE_UNBLOCK_SM 0x01
@@ -42,18 +48,30 @@
 typedef enum
 {
     FC_BATVOLT = 0x02,
-    FC_SERIAL_NUMBER = 0x05,
-    FC_UNBLOCK_SM = 0x0C,
-    FC_SMARTPHONE_CONNECTED = 0x0D
+    FC_BATTERY_CURRENT = 0x10,
+    FC_CHARGER_CURRENT = 0x11,
+    FC_CURFAULT = 0x14,
+    FC_BALANCEINWORK = 0x15,
+    FC_SMMAIN = 0x16,
+
+    FC_SERIAL_NUMBER = 0x18,
+    FC_UNBLOCK_SM = 0x17,
+    FC_SMARTPHONE_CONNECTED = 0x1A
+    //>>>>>>>>>> Add other
 }FC_ENUM;
 
 struct BMS_STATE
 {
     uint16_t            batVolt;                // battery voltage in mV
-    //--------------------------------------------------------------------------
-    uint32_t            pack_serialNumber;      // Smartphone admin password
+    uint32_t             battery_current;        // current on battery in mA +/-
+    uint16_t            charger_current;        // current on charger (0.1A)
+    uint8_t             curFault;               // fault on system
+    uint8_t             balanceInWork;          // we are balancing
+    uint8_t             smMain;                 // current state of BMS
     //--------------------------------------------------------------------------
     uint8_t             unblock_sm;             // Allow to unblock the state machine when in SM_BATTERY_DEAD
+    uint32_t            pack_serialNumber;      // Smartphone admin password    
+    //>>>>>>>>>> Add other
 };
 
 extern struct BMS_STATE bmsState; 

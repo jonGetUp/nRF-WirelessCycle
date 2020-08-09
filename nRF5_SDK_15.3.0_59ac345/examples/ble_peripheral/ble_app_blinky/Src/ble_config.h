@@ -201,6 +201,12 @@ void advertising_start(void);
 /* BLE_READ update ble profil                                                 */
 /******************************************************************************/
 void update_batVolt(uint16_t* batVolt);
+void update_battery_current(uint32_t* battery_current);
+void update_charger_current(uint16_t* charger_current);
+void update_curFault(uint8_t* curFault);
+void update_balanceInWork(uint8_t* balanceInWork);
+void update_smMain(uint8_t* smMain);
+
 void update_pack_serialNumber(uint32_t* serialNumber);
 void update_unblock_sm(uint8_t* unblock_sm);
 //>>>>>>>>>> Add others update methodes here....

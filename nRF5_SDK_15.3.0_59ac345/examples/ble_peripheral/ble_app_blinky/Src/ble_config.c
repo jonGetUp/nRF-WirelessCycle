@@ -114,7 +114,7 @@ void gatt_init(void)
 void services_init(void)
 {
     ret_code_t         err_code;
-    ble_ebike_s_init_t     init     = {0};
+    ble_ebike_s_init_t     init = {0};
     nrf_ble_qwr_init_t qwr_init = {0};
 
     // Initialize Queued Write Module.
@@ -265,7 +265,7 @@ void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
             m_tx_buf[2] = 0x01;                       //desired function code
             nrf_delay_ms(1);                        //delay min allow the PIC to detect the pulse
             nrf_gpio_pin_clear(IRQ_BT_PIN);
-            NRF_LOG_INFO("-SPI: load tx %x Connect: %d",FC_SMARTPHONE_CONNECTED, 0x01);
+            NRF_LOG_INFO("<SPI: load tx %x Connect: %d",FC_SMARTPHONE_CONNECTED, 0x01);
             break;
 
         case BLE_GAP_EVT_DISCONNECTED:
@@ -282,7 +282,7 @@ void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
             m_tx_buf[2] = 0x00; //desired function code
             nrf_delay_ms(1);                        //delay min allow the PIC to detect the pulse
             nrf_gpio_pin_clear(IRQ_BT_PIN);
-            NRF_LOG_INFO("-SPI: load tx %x Connect: %d",FC_SMARTPHONE_CONNECTED, 0x00);
+            NRF_LOG_INFO("<SPI: load tx %x Connect: %d",FC_SMARTPHONE_CONNECTED, 0x00);
             break;
 
         case BLE_GAP_EVT_SEC_PARAMS_REQUEST:
@@ -350,13 +350,33 @@ void update_batVolt(uint16_t* batVolt)
 {
     ble_ebike_s_batvolt_char_update(m_conn_handle, &m_lbs, batVolt);  //call the characteristic update function
 }
-
+void update_battery_current(uint32_t* battery_current)
+{
+    ble_ebike_s_battery_current_char_update(m_conn_handle, &m_lbs, battery_current);
+}
+void update_charger_current(uint16_t* charger_current)
+{
+    ble_ebike_s_charger_current_char_update(m_conn_handle, &m_lbs, charger_current);
+}
+void update_curFault(uint8_t* curFault)
+{
+    ble_ebike_s_curFault_char_update(m_conn_handle, &m_lbs, curFault);
+}
+void update_balanceInWork(uint8_t* balanceInWork)
+{
+    ble_ebike_s_balanceInWork_char_update(m_conn_handle, &m_lbs, balanceInWork);
+}
+void update_smMain(uint8_t* smMain)
+{
+    ble_ebike_s_smMain_char_update(m_conn_handle, &m_lbs, smMain);
+}
+//READ & WRITE
 void update_pack_serialNumber(uint32_t *serialNumber)
 {
     ble_ebike_s_serial_number_char_update(m_conn_handle, &m_lbs, serialNumber);
 }
-
 void update_unblock_sm(uint8_t* unblock_sm){
     ble_ebike_s_unblock_sm_char_update(m_conn_handle, &m_lbs, unblock_sm);
 }
+
 //>>>>>>>>>> Add others update methodes here....
