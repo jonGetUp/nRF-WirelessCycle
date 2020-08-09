@@ -1,6 +1,9 @@
 <!DOCTYPE CrossStudio_Project_File>
-<solution Name="ble_app_blinky_pca10056_s140" target="8" version="2">
-  <project Name="ble_app_blinky_pca10056_s140">
+<solution
+  Name="ble_app_connected_ebike_pca10056_s140"
+  target="8"
+  version="2">
+  <project Name="ble_app_connected_ebike_pca10056_s140">
     <configuration
       Name="Common"
       arm_architecture="v7EM"
