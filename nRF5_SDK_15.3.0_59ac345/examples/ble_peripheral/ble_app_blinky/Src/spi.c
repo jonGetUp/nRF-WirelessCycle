@@ -109,6 +109,20 @@ void spis_event_handler(nrf_drv_spis_event_t event)
               update_unblock_sm(&bmsState.unblock_sm);
               NRF_LOG_INFO(" SPI: Receive %x Unblock sm: %u",functionCode, bmsState.unblock_sm);
             break;
+          case FC_CHARGER_CURRENT_HIGH:
+              //ble profil value format is little endian
+              bmsState.charger_current_high = (((uint16_t)m_rx_buf[2])<<8)& 0xFF00;  //read 8 LSB
+              bmsState.charger_current_high += (((uint16_t)m_rx_buf[3]) & 0x00FF);   //read 8 MSB
+              update_charger_current_high(&bmsState.charger_current_high);
+              NRF_LOG_INFO(" SPI: Receive %x charger_current_high: %d",functionCode, bmsState.charger_current_high);
+            break;
+          case FC_CHARGER_CURRENT_LOW:
+              //ble profil value format is little endian
+              bmsState.charger_current_low = (((uint16_t)m_rx_buf[2])<<8)& 0xFF00;  //read 8 LSB
+              bmsState.charger_current_low += (((uint16_t)m_rx_buf[3]) & 0x00FF);   //read 8 MSB
+              update_charger_current_low(&bmsState.charger_current_low);
+              NRF_LOG_INFO(" SPI: Receive %x charger_current_low: %d",functionCode, bmsState.charger_current_low);
+            break;
           //>>>>>>>>>> Add other
           default:
             //Is MSB set?

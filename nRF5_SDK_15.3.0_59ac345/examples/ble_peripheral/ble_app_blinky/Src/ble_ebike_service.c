@@ -17,7 +17,7 @@ static void on_write(ble_ebike_s_t * p_ebike_s, ble_evt_t const * p_ble_evt)
 
     //serial_number char
     if ((p_evt_write->handle == p_ebike_s->serial_number_char_handles.value_handle)
-        && (p_ebike_s->serial_number_value_write_handler != NULL))
+        && (p_ebike_s->serial_number_write_handler != NULL))
     {
         // Make sure that the data is 4 bytes (or whatever the size of your characteristic)
         // It has to match the exact byte size of the characteristic to avoid problems
@@ -27,8 +27,7 @@ static void on_write(ble_ebike_s_t * p_ebike_s, ble_evt_t const * p_ble_evt)
             NRF_LOG_INFO("ERROR: incomplete package");
             NRF_LOG_INFO("len: %d", len);
             return;
-        }
-        
+        }        
         // Data must be sent from in Little Endian Format and 4 bytes
         // Convert the little endian 4 bytes of data into 32 bit unsigned int
         uint32_t *serial_number_value_adr;
@@ -37,7 +36,49 @@ static void on_write(ble_ebike_s_t * p_ebike_s, ble_evt_t const * p_ble_evt)
         serial_number_value_val = *serial_number_value_adr;     //take the contain of the pointer
 
         // Call the write handler function. Implementation is in the main.
-        p_ebike_s->serial_number_value_write_handler(serial_number_value_val);  //Define const!!!
+        p_ebike_s->serial_number_write_handler(serial_number_value_val);  //Define const!!!
+    }
+    //charger_current_high char
+    if ((p_evt_write->handle == p_ebike_s->charger_current_high_char_handles.value_handle)
+        && (p_ebike_s->charger_current_high_write_handler != NULL))
+    {
+        int8_t len = p_evt_write->len;
+        if (len != 2)
+        {
+            NRF_LOG_INFO("ERROR: incomplete package");
+            NRF_LOG_INFO("len: %d", len);
+            return;
+        }        
+        // Data must be sent from in Little Endian Format and 4 bytes
+        // Convert the little endian 4 bytes of data into 32 bit unsigned int
+        uint16_t *charger_current_high_value_adr;
+        uint16_t charger_current_high_value_val;
+        charger_current_high_value_adr = (uint32_t*) p_evt_write->data;  //take the adress contain in the pointer
+        charger_current_high_value_val = *charger_current_high_value_adr;//take the contain of the pointer
+
+        // Call the write handler function. Implementation is in the main.
+        p_ebike_s->charger_current_high_write_handler(charger_current_high_value_val);  //Define const!!!
+    }
+        //charger_current_low char
+    if ((p_evt_write->handle == p_ebike_s->charger_current_low_char_handles.value_handle)
+        && (p_ebike_s->charger_current_low_write_handler != NULL))
+    {
+        int8_t len = p_evt_write->len;
+        if (len != 2)
+        {
+            NRF_LOG_INFO("ERROR: incomplete package");
+            NRF_LOG_INFO("len: %d", len);
+            return;
+        }        
+        // Data must be sent from in Little Endian Format and 4 bytes
+        // Convert the little endian 4 bytes of data into 32 bit unsigned int
+        uint16_t *charger_current_low_value_adr;
+        uint16_t charger_current_low_value_val;
+        charger_current_low_value_adr = (uint32_t*) p_evt_write->data;  //take the adress contain in the pointer
+        charger_current_low_value_val = *charger_current_low_value_adr;//take the contain of the pointer
+
+        // Call the write handler function. Implementation is in the main.
+        p_ebike_s->charger_current_low_write_handler(charger_current_low_value_val);  //Define const!!!
     }
     //>>>>>>>>>> Add other handlers here....
 }
@@ -66,9 +107,11 @@ uint32_t ble_ebike_s_init(ble_ebike_s_t * p_ebike_s, const ble_ebike_s_init_t * 
     ble_add_char_params_t add_char_params;
 
     // Initialize service structure.
-    p_ebike_s->unblock_sm_write_handler = p_ebike_s_init->unblock_sm_write_handler;
     // BLE_WRITE: transfer the pointers from the init instance to the module instance
-    p_ebike_s->serial_number_value_write_handler = p_ebike_s_init->serial_number_value_write_handler;
+    p_ebike_s->unblock_sm_write_handler = p_ebike_s_init->unblock_sm_write_handler;
+    p_ebike_s->serial_number_write_handler = p_ebike_s_init->serial_number_write_handler;
+    p_ebike_s->charger_current_high_write_handler = p_ebike_s_init->charger_current_high_write_handler;
+    p_ebike_s->charger_current_low_write_handler = p_ebike_s_init->charger_current_low_write_handler;
     //>>>>>>>>>> Add other handlers here....
 
     // Add EBIKE service
@@ -213,13 +256,13 @@ uint32_t ble_ebike_s_init(ble_ebike_s_t * p_ebike_s, const ble_ebike_s_init_t * 
     add_char_params.read_access  = SEC_OPEN;  //Access open.
     add_char_params.write_access = SEC_OPEN;
 
-    characteristic_add(p_ebike_s->service_handle, &add_char_params, &p_ebike_s->unblock_sm_char_handles);
-
+    err_code = characteristic_add(p_ebike_s->service_handle,
+                                  &add_char_params,
+                                  &p_ebike_s->unblock_sm_char_handles);
     if (err_code != NRF_SUCCESS)
     {
         return err_code;
     }
-
     // Add Serial Number characteristic.
     memset(&add_char_params, 0, sizeof(add_char_params));
     add_char_params.uuid             = EBIKE_S_UUID_SERIAL_NUMBER_CHAR;
@@ -236,7 +279,45 @@ uint32_t ble_ebike_s_init(ble_ebike_s_t * p_ebike_s, const ble_ebike_s_init_t * 
     add_char_params.write_access = SEC_OPEN;
     add_char_params.cccd_write_access = SEC_OPEN;
 
-    characteristic_add(p_ebike_s->service_handle, &add_char_params, &p_ebike_s->serial_number_char_handles);  // adding characteristic handles to the attribute table
+    err_code = characteristic_add(p_ebike_s->service_handle, &add_char_params, &p_ebike_s->serial_number_char_handles);  // adding characteristic handles to the attribute table
+    if (err_code != NRF_SUCCESS)
+    {
+        return err_code;
+    }
+    // Add Charger_Current_high characteristic.
+    memset(&add_char_params, 0, sizeof(add_char_params));
+    add_char_params.uuid             = EBIKE_S_UUID_CHARGER_CURRENT_HIGH_CHAR;
+    add_char_params.uuid_type        = p_ebike_s->uuid_type;
+    add_char_params.max_len          = 2;
+    add_char_params.init_len         = 2;
+    add_char_params.char_props.read  = 1;
+    add_char_params.char_props.write = 1;
+    add_char_params.char_props.notify = 1;
+
+    add_char_params.read_access  = SEC_OPEN;  //Access open.
+    add_char_params.write_access = SEC_OPEN;
+    add_char_params.cccd_write_access = SEC_OPEN;
+
+    err_code = characteristic_add(p_ebike_s->service_handle, &add_char_params, &p_ebike_s->charger_current_high_char_handles);  // adding characteristic handles to the attribute table
+    if (err_code != NRF_SUCCESS)
+    {
+        return err_code;
+    }
+    // Add Charger_Current_low characteristic.
+    memset(&add_char_params, 0, sizeof(add_char_params));
+    add_char_params.uuid             = EBIKE_S_UUID_CHARGER_CURRENT_LOW_CHAR;
+    add_char_params.uuid_type        = p_ebike_s->uuid_type;
+    add_char_params.max_len          = 2;
+    add_char_params.init_len         = 2;
+    add_char_params.char_props.read  = 1;
+    add_char_params.char_props.write = 1;
+    add_char_params.char_props.notify = 1;
+
+    add_char_params.read_access  = SEC_OPEN;  //Access open.
+    add_char_params.write_access = SEC_OPEN;
+    add_char_params.cccd_write_access = SEC_OPEN;
+
+    err_code = characteristic_add(p_ebike_s->service_handle, &add_char_params, &p_ebike_s->charger_current_low_char_handles);  // adding characteristic handles to the attribute table
     return err_code;
     //>>>>>>>>>> Add others here...
 }
@@ -377,12 +458,11 @@ uint32_t ble_ebike_s_serial_number_char_update(uint16_t conn_handle, ble_ebike_s
   }
   return NRF_SUCCESS; //nothing has been send
 }
-
 uint32_t ble_ebike_s_unblock_sm_char_update(uint16_t conn_handle, ble_ebike_s_t *p_ebike_s, uint8_t * unblock_sm)
 {
   // implement the notification on connection
   // OUR_JOB: Step 3.E, Update characteristic value
-  if (conn_handle != BLE_CONN_HANDLE_INVALID)//housekeeping allow to check if we are in a valid connection
+  if (conn_handle != BLE_CONN_HANDLE_INVALID)     //housekeeping allow to check if we are in a valid connection
   {
       uint16_t               len = 1;
       ble_gatts_hvx_params_t hvx_params;          //Handle Value X(notification or indication)
@@ -393,6 +473,42 @@ uint32_t ble_ebike_s_unblock_sm_char_update(uint16_t conn_handle, ble_ebike_s_t 
       hvx_params.offset = 0;      //characteristic value might be a sequence of many bytes.
       hvx_params.p_len  = &len;   //number of bytes to transmitt
       hvx_params.p_data = (uint8_t*)unblock_sm;  //data pointer
+
+      return sd_ble_gatts_hvx(conn_handle, &hvx_params);
+  }
+  return NRF_SUCCESS; //nothing has been send
+}
+uint32_t ble_ebike_s_charger_current_high_char_update(uint16_t conn_handle, ble_ebike_s_t *p_ebike_s, uint16_t * charger_current_high)
+{
+  if (conn_handle != BLE_CONN_HANDLE_INVALID)     //housekeeping allow to check if we are in a valid connection
+  {
+      uint16_t               len = 2;
+      ble_gatts_hvx_params_t hvx_params;          //Handle Value X(notification or indication)
+      memset(&hvx_params, 0, sizeof(hvx_params));
+
+      hvx_params.handle = p_ebike_s->charger_current_high_char_handles.value_handle; //which characteristic value we are working on
+      hvx_params.type   = BLE_GATT_HVX_NOTIFICATION;      //notification
+      hvx_params.offset = 0;                              //characteristic value might be a sequence of many bytes.
+      hvx_params.p_len  = &len;                           //number of bytes to transmitt
+      hvx_params.p_data = (uint8_t*)charger_current_high; //data pointer
+
+      return sd_ble_gatts_hvx(conn_handle, &hvx_params);
+  }
+  return NRF_SUCCESS; //nothing has been send
+}
+uint32_t ble_ebike_s_charger_current_low_char_update(uint16_t conn_handle, ble_ebike_s_t *p_ebike_s, uint16_t * charger_current_low)
+{
+  if (conn_handle != BLE_CONN_HANDLE_INVALID)     //housekeeping allow to check if we are in a valid connection
+  {
+      uint16_t               len = 2;
+      ble_gatts_hvx_params_t hvx_params;          //Handle Value X(notification or indication)
+      memset(&hvx_params, 0, sizeof(hvx_params));
+
+      hvx_params.handle = p_ebike_s->charger_current_low_char_handles.value_handle; //which characteristic value we are working on
+      hvx_params.type   = BLE_GATT_HVX_NOTIFICATION;      //notification
+      hvx_params.offset = 0;                              //characteristic value might be a sequence of many bytes.
+      hvx_params.p_len  = &len;                           //number of bytes to transmitt
+      hvx_params.p_data = (uint8_t*)charger_current_low; //data pointer
 
       return sd_ble_gatts_hvx(conn_handle, &hvx_params);
   }

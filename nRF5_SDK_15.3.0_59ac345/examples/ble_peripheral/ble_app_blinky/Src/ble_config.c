@@ -46,7 +46,7 @@ void timer_timeout_handler(void * p_context)
 /******************************************************************************/
 void unblock_sm_write_handler(uint16_t conn_handle, ble_ebike_s_t * p_ebike_s, uint8_t unblock_sm_state)
 {
-    NRF_LOG_INFO("-SPI: load tx %x Unblock state machine: %d",FC_UNBLOCK_SM, unblock_sm_state);
+    NRF_LOG_INFO("<SPI: load tx %x Unblock state machine: %d",FC_UNBLOCK_SM, unblock_sm_state);
     nrf_gpio_pin_set(IRQ_BT_PIN);
     spis_reset_tx_buffer();
     m_tx_buf[0] = FC_UNBLOCK_SM; //function code
@@ -55,10 +55,9 @@ void unblock_sm_write_handler(uint16_t conn_handle, ble_ebike_s_t * p_ebike_s, u
     nrf_delay_ms(1);  //delay min allow the PIC to detect the pulse
     nrf_gpio_pin_clear(IRQ_BT_PIN);
 }
-
-void serial_number_value_write_handler(uint32_t serial_number_value)
+void serial_number_write_handler(uint32_t serial_number_value)
 {
-    NRF_LOG_INFO("-SPI: load tx %x Serial number: %d",FC_SERIAL_NUMBER, serial_number_value);
+    NRF_LOG_INFO("<SPI: load tx %x Serial number: %d",FC_SERIAL_NUMBER, serial_number_value);
     nrf_gpio_pin_set(IRQ_BT_PIN);
     spis_reset_tx_buffer();
     m_tx_buf[0] = FC_SERIAL_NUMBER; //function code
@@ -70,7 +69,32 @@ void serial_number_value_write_handler(uint32_t serial_number_value)
     m_tx_buf[2] = (uint8_t) (serial_number_value>>24);
     nrf_delay_ms(1);  //delay min allow the PIC to detect the pulse
     nrf_gpio_pin_clear(IRQ_BT_PIN);
-
+}
+void charger_current_high_write_handler(uint16_t charger_current_high)
+{
+    NRF_LOG_INFO("<SPI: load tx %x charger_current_high: %d",FC_CHARGER_CURRENT_HIGH , charger_current_high);
+    nrf_gpio_pin_set(IRQ_BT_PIN);
+    spis_reset_tx_buffer();
+    m_tx_buf[0] = FC_CHARGER_CURRENT_HIGH; //function code
+    m_tx_buf[1] = SIZE_CHARGER_CURRENT_HIGH; //data size (bytes)
+    //little to big endian conversion --> MSB first
+    m_tx_buf[3] = (uint8_t) (charger_current_high);   //LSB
+    m_tx_buf[2] = (uint8_t) (charger_current_high>>8);
+    nrf_delay_ms(1);  //delay min allow the PIC to detect the pulse
+    nrf_gpio_pin_clear(IRQ_BT_PIN);
+}
+void charger_current_low_write_handler(uint16_t charger_current_low)
+{
+    NRF_LOG_INFO("<SPI: load tx %x charger_current_low: %d",FC_CHARGER_CURRENT_LOW , charger_current_low);
+    nrf_gpio_pin_set(IRQ_BT_PIN);
+    spis_reset_tx_buffer();
+    m_tx_buf[0] = FC_CHARGER_CURRENT_LOW; //function code
+    m_tx_buf[1] = SIZE_CHARGER_CURRENT_LOW; //data size (bytes)
+    //little to big endian conversion --> MSB first
+    m_tx_buf[3] = (uint8_t) (charger_current_low);   //LSB
+    m_tx_buf[2] = (uint8_t) (charger_current_low>>8);
+    nrf_delay_ms(1);  //delay min allow the PIC to detect the pulse
+    nrf_gpio_pin_clear(IRQ_BT_PIN);
 }
 // Add other handlers here...
 
@@ -124,9 +148,11 @@ void services_init(void)
     APP_ERROR_CHECK(err_code);
 
     // Initialize EBIKE service.
-    init.unblock_sm_write_handler = unblock_sm_write_handler;
     // BLE_WRITE: Initialize Our Service module.
-    init.serial_number_value_write_handler = serial_number_value_write_handler;
+    init.unblock_sm_write_handler = unblock_sm_write_handler;
+    init.serial_number_write_handler = serial_number_write_handler;
+    init.charger_current_high_write_handler = charger_current_high_write_handler;
+    init.charger_current_low_write_handler = charger_current_low_write_handler;
     // Add other handlers here...
 
     // BLE_WRITE: We need to add the init instance pointer to our service instance 
@@ -375,8 +401,17 @@ void update_pack_serialNumber(uint32_t *serialNumber)
 {
     ble_ebike_s_serial_number_char_update(m_conn_handle, &m_lbs, serialNumber);
 }
-void update_unblock_sm(uint8_t* unblock_sm){
+void update_unblock_sm(uint8_t* unblock_sm)
+{
     ble_ebike_s_unblock_sm_char_update(m_conn_handle, &m_lbs, unblock_sm);
+}
+void update_charger_current_high(uint16_t* charger_current_high)
+{
+    ble_ebike_s_charger_current_high_char_update(m_conn_handle, &m_lbs, charger_current_high);
+}
+void update_charger_current_low(uint16_t* charger_current_low)
+{
+    ble_ebike_s_charger_current_low_char_update(m_conn_handle, &m_lbs, charger_current_low);
 }
 
 //>>>>>>>>>> Add others update methodes here....

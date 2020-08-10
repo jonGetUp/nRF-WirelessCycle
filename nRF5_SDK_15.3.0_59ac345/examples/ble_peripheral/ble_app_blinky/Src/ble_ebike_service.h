@@ -44,6 +44,8 @@ NRF_SDH_BLE_OBSERVER(_name ## _obs,                                             
 
 #define EBIKE_S_UUID_UNBLOCK_SM_CHAR      0x0017
 #define EBIKE_S_UUID_SERIAL_NUMBER_CHAR   0x0018
+#define EBIKE_S_UUID_CHARGER_CURRENT_HIGH_CHAR 0x0012
+#define EBIKE_S_UUID_CHARGER_CURRENT_LOW_CHAR  0x0013
 //>>>>>>>>>> Add other UUIDs here....
 
 // Forward declaration of the ble_ebike_s_t type.
@@ -60,6 +62,8 @@ typedef struct ble_ebike_s ble_ebike_s_t;
  *        Note that "uint32_t serial_number_value" part had to match from Step 1 */
 typedef void (*ble_ebike_s_unblock_sm_write_handler_t) (uint16_t conn_handle, ble_ebike_s_t * p_ebike_s, uint8_t new_state); //to change uint32_t
 typedef void (*ble_ebike_s_serial_number_write_handler_t) (uint32_t serial_number_value);
+typedef void (*ble_ebike_s_charger_current_high_write_handler_t) (uint32_t charger_current_high_value);
+typedef void (*ble_ebike_s_charger_current_low_write_handler_t) (uint32_t charger_current_low_value);
 //>>>>>>>>>> Add other handlers here...
 
 
@@ -70,9 +74,10 @@ typedef struct
 {
     ble_ebike_s_unblock_sm_write_handler_t unblock_sm_write_handler; /**< Event handler to be called when the LED Characteristic is written. */
     /**< Event handler to be called when the Characteristic1 is written */
-    ble_ebike_s_serial_number_write_handler_t serial_number_value_write_handler; 
+    ble_ebike_s_serial_number_write_handler_t serial_number_write_handler;
+    ble_ebike_s_charger_current_high_write_handler_t charger_current_high_write_handler; 
+    ble_ebike_s_charger_current_low_write_handler_t charger_current_low_write_handler; 
     //>>>>>>>>>> Add other handlers here....
-
 } ble_ebike_s_init_t;
 
 /**@brief LED Button Service structure. This structure contains various status information for the service. */
@@ -86,17 +91,21 @@ struct ble_ebike_s
     ble_gatts_char_handles_t    balanceInWork_char_handles;
     ble_gatts_char_handles_t    smMain_char_handles;
 
-    ble_gatts_char_handles_t    unblock_sm_char_handles;    /**< Handles related to the unblock_sm Characteristic. */
-    ble_gatts_char_handles_t    serial_number_char_handles;      /**< Adding handles for the characteristic to our structure */
+    ble_gatts_char_handles_t    unblock_sm_char_handles;      /**< Handles related to the unblock_sm Characteristic. */
+    ble_gatts_char_handles_t    serial_number_char_handles;   /**< Adding handles for the characteristic to our structure */
+    ble_gatts_char_handles_t    charger_current_high_char_handles;
+    ble_gatts_char_handles_t    charger_current_low_char_handles;
     //>>>>>>>>>> Add other handlers here....
 
-    uint8_t                     uuid_type;           /**< UUID type for the LED Button Service. */
-    ble_ebike_s_unblock_sm_write_handler_t unblock_sm_write_handler;   /**< Event handler to be called when the LED Characteristic is written. */
-                                                     /**< can hold 16-bit handles for the characteristic value, user descriptor, CCCD and SCCD */
     // BLE_WRITE: Write handlers. Upon BLE write, these handler will be called
     // Their implementation is in the ble_config.c
-    ble_ebike_s_serial_number_write_handler_t serial_number_value_write_handler;  /**< Event handler to be called when the Characteristic1 is written. */
-    //>>>>>>>>>> Add other handlers here...
+    // can hold 16-bit handles for the characteristic value, user descriptor, CCCD and SCCD */
+    uint8_t                     uuid_type;                             /**< UUID type for the LED Button Service. */
+    ble_ebike_s_unblock_sm_write_handler_t unblock_sm_write_handler;   /**< Event handler to be called when the sm Main Characteristic is written. */
+    ble_ebike_s_serial_number_write_handler_t serial_number_write_handler;
+    ble_ebike_s_charger_current_high_write_handler_t charger_current_high_write_handler;
+    ble_ebike_s_charger_current_low_write_handler_t charger_current_low_write_handler;
+    //>>>>>>>>>> Add other write handlers here...
 };                                                  
 
 /**@brief Function for handling the Write event (write command)
@@ -150,17 +159,10 @@ uint32_t ble_ebike_s_smMain_char_update(uint16_t conn_handle, ble_ebike_s_t *p_e
  *
  * @retval NRF_SUCCESS If the notification was sent successfully. Otherwise, an error code is returned.
  */
-uint32_t ble_ebike_s_serial_number_char_update(uint16_t conn_handle, ble_ebike_s_t *p_ebike_s, uint32_t * serial_number);
-
-/**@brief Function for sending an unblock_sm notification.
- *
- ' @param[in] conn_handle   Handle of the peripheral connection to which the battery voltage notification will be sent.
- * @param[in] p_ebike_s     EBike Service structure.
- * @param[in] unblock_sm    New unblock_sm
- *
- * @retval NRF_SUCCESS If the notification was sent successfully. Otherwise, an error code is returned.
- */
-uint32_t ble_ebike_s_unblock_sm_char_update(uint16_t conn_handle, ble_ebike_s_t *p_ebike_s, uint8_t * unblock_sm);
+uint32_t ble_ebike_s_serial_number_char_update(uint16_t conn_handle, ble_ebike_s_t *p_ebike_s, uint32_t* serial_number);
+uint32_t ble_ebike_s_unblock_sm_char_update(uint16_t conn_handle, ble_ebike_s_t *p_ebike_s, uint8_t* unblock_sm);
+uint32_t ble_ebike_s_charger_current_high_char_update(uint16_t conn_handle, ble_ebike_s_t *p_ebike_s, uint16_t* charger_current_high);
+uint32_t ble_ebike_s_charger_current_low_char_update(uint16_t conn_handle, ble_ebike_s_t *p_ebike_s, uint16_t* charger_current_low);
 //>>>>>>>>>> Add other update methodes here....
 
 #endif // BLE_EBIKE_SERVICE_H__
