@@ -45,15 +45,6 @@ void spis_event_handler(nrf_drv_spis_event_t event)
               //do nothing, master read the slave txBuffer
               NRF_LOG_INFO("<SPI: tx_buf read by Master");
               break;
-          case 0x7F:
-              //never used, nRF only write PIC, no read
-//            //tell the SPI master wich variable to return
-//            spis_reset_tx_buffer();
-//            m_tx_buf[0] = 0x7F; //Acknowledge, send function code and data
-//            m_tx_buf[1] = 0x01; //data size
-//            m_tx_buf[2] = functionCode; //desired function code
-//            //txBuffer loaded and ready to be readed -> pulse Interrupt request to the master
-            break;
           case FC_BATVOLT:
               //ble profil value format is little endian
               bmsState.batVolt = (((uint16_t)m_rx_buf[2])<<8)& 0xFF00;                  //read 8 LSB
@@ -133,11 +124,6 @@ void spis_event_handler(nrf_drv_spis_event_t event)
             {
               //Function code doesn't exist
               NRF_LOG_INFO("SPI: ILLEGAL FUNCTION");
-              //Return exception code
-//              spis_reset_tx_buffer();
-//              m_tx_buf[0] = functionCode + 0x80;
-//              m_tx_buf[1] = ILLEGAL_FUNCTION;
-//              
             }
             break;
         }

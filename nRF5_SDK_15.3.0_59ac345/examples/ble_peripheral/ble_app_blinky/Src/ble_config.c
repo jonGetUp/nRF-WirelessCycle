@@ -52,7 +52,7 @@ void unblock_sm_write_handler(uint16_t conn_handle, ble_ebike_s_t * p_ebike_s, u
     m_tx_buf[0] = FC_UNBLOCK_SM; //function code
     m_tx_buf[1] = SIZE_UNBLOCK_SM; //data size (bytes)
     m_tx_buf[2] = unblock_sm_state;
-    nrf_delay_ms(1);  //delay min allow the PIC to detect the pulse
+    nrf_delay_us(100);  //delay min allow the PIC to detect the pulse
     nrf_gpio_pin_clear(IRQ_BT_PIN);
 }
 void serial_number_write_handler(uint32_t serial_number_value)
@@ -67,7 +67,7 @@ void serial_number_write_handler(uint32_t serial_number_value)
     m_tx_buf[4] = (uint8_t) (serial_number_value>>8);
     m_tx_buf[3] = (uint8_t) (serial_number_value>>16);
     m_tx_buf[2] = (uint8_t) (serial_number_value>>24);
-    nrf_delay_ms(1);  //delay min allow the PIC to detect the pulse
+    nrf_delay_us(100);  //delay min allow the PIC to detect the pulse
     nrf_gpio_pin_clear(IRQ_BT_PIN);
 }
 void charger_current_high_write_handler(uint16_t charger_current_high)
@@ -80,7 +80,7 @@ void charger_current_high_write_handler(uint16_t charger_current_high)
     //little to big endian conversion --> MSB first
     m_tx_buf[3] = (uint8_t) (charger_current_high);   //LSB
     m_tx_buf[2] = (uint8_t) (charger_current_high>>8);
-    nrf_delay_ms(1);  //delay min allow the PIC to detect the pulse
+    nrf_delay_us(100);  //delay min allow the PIC to detect the pulse
     nrf_gpio_pin_clear(IRQ_BT_PIN);
 }
 void charger_current_low_write_handler(uint16_t charger_current_low)
@@ -93,7 +93,7 @@ void charger_current_low_write_handler(uint16_t charger_current_low)
     //little to big endian conversion --> MSB first
     m_tx_buf[3] = (uint8_t) (charger_current_low);   //LSB
     m_tx_buf[2] = (uint8_t) (charger_current_low>>8);
-    nrf_delay_ms(1);  //delay min allow the PIC to detect the pulse
+    nrf_delay_us(100);  //delay min allow the PIC to detect the pulse
     nrf_gpio_pin_clear(IRQ_BT_PIN);
 }
 // Add other handlers here...
@@ -197,6 +197,7 @@ void advertising_init(void)
     adv_params.p_peer_addr     = NULL;
     adv_params.filter_policy   = BLE_GAP_ADV_FP_ANY;
     adv_params.interval        = APP_ADV_INTERVAL;
+
 
     err_code = sd_ble_gap_adv_set_configure(&m_adv_handle, &m_adv_data, &adv_params);
     APP_ERROR_CHECK(err_code);

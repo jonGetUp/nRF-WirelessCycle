@@ -62,8 +62,8 @@ typedef struct ble_ebike_s ble_ebike_s_t;
  *        Note that "uint32_t serial_number_value" part had to match from Step 1 */
 typedef void (*ble_ebike_s_unblock_sm_write_handler_t) (uint16_t conn_handle, ble_ebike_s_t * p_ebike_s, uint8_t new_state); //to change uint32_t
 typedef void (*ble_ebike_s_serial_number_write_handler_t) (uint32_t serial_number_value);
-typedef void (*ble_ebike_s_charger_current_high_write_handler_t) (uint32_t charger_current_high_value);
-typedef void (*ble_ebike_s_charger_current_low_write_handler_t) (uint32_t charger_current_low_value);
+typedef void (*ble_ebike_s_charger_current_high_write_handler_t) (uint16_t charger_current_high_value);
+typedef void (*ble_ebike_s_charger_current_low_write_handler_t) (uint16_t charger_current_low_value);
 //>>>>>>>>>> Add other handlers here...
 
 

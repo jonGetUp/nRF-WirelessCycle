@@ -124,6 +124,7 @@ int main(void)
     NRF_LOG_INFO("Connected Ebike program started.");
     advertising_start();
    
+
     // Enter main loop.
     while(1)
     {

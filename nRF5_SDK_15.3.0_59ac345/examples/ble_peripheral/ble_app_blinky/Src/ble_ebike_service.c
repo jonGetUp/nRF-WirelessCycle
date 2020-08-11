@@ -252,9 +252,11 @@ uint32_t ble_ebike_s_init(ble_ebike_s_t * p_ebike_s, const ble_ebike_s_init_t * 
     add_char_params.init_len         = sizeof(uint8_t);
     add_char_params.char_props.read  = 1;
     add_char_params.char_props.write = 1;
+    add_char_params.char_props.notify = 1;
 
     add_char_params.read_access  = SEC_OPEN;  //Access open.
     add_char_params.write_access = SEC_OPEN;
+    add_char_params.cccd_write_access = SEC_OPEN;
 
     err_code = characteristic_add(p_ebike_s->service_handle,
                                   &add_char_params,
